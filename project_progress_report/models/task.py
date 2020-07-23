@@ -33,5 +33,5 @@ class Task(models.Model):
 
     total_sale_price = fields.Float(
         'Total price', compute=_compute_total_sale_price)
-	
-	progress = fields.Float("Progress", group_operator="avg", help="Display progress of current task.")
+    
+    progress = fields.Float("Progress", group_operator="avg", help="Display progress of current task.")
