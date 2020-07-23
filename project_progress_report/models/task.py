@@ -7,6 +7,9 @@ class Task(models.Model):
     _inherit = 'project.task'
     _description = "Task extension for progress report"
 
+    include_in_progress_report = fields.Boolean(
+        "Include in progress report", related='stage_id.include_in_progress_report', help="Task must be included in progress reports.", readonly=True)
+
     sale_quantity = fields.Float(
         'Quantity', digits='1.3f', tracking=True, default=0.0)
     sale_unit = fields.Char('Unit', tracking=True, default='sog')
@@ -30,6 +33,5 @@ class Task(models.Model):
 
     total_sale_price = fields.Float(
         'Total price', compute=_compute_total_sale_price)
-
-    include_in_progress_report = fields.Boolean(
-        "Include in progress report", related='stage_id.include_in_progress_report', help="Task must be included in progress reports.", readonly=True)
+	
+	progress = fields.Float("Progress", group_operator="avg", help="Display progress of current task.")
