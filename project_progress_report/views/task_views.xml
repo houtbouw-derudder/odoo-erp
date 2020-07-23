@@ -23,6 +23,7 @@
 					<group>
 						<group>
 							<field name="progress" widget="percentage" />
+							<field name="progress" />
 						</group>
 					</group>
 				</page>
