@@ -2,7 +2,8 @@
 from odoo import models, fields, api
 
 class Task(models.Model):
-	_inherit: 'project.task'
+	_inherit = 'project.task'
+	_description = "Task extension for progress report"
 
 	sale_currency_id = fields.Many2one('res.currency', 'Currency', compute='_compute_sale_currency_id')
 	sale_price = fields.Float('Price', digits='Product Price')
