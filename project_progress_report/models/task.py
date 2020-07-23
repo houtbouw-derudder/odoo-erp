@@ -1,5 +1,5 @@
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 class Task(models.Model):
 	_inherit: 'project.task'
