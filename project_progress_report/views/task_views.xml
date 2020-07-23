@@ -7,8 +7,7 @@
 		<!-- <field name="groups_id" eval="[(6,0, (ref('hr_timesheet.group_hr_timesheet_user'),))]"/> -->
 		<field name="arch" type="xml">
 			<xpath expr="//notebook/page[@name='description_page']" position="after">
-			<field name="include_in_progress_report" invisibl="1" />
-				<!-- <page string="Timesheets" id="timesheets_tab" attrs="{'invisible': [('allow_timesheets', '=', False)]}"> -->
+				<field name="include_in_progress_report" invisible="1" />
 				<page string="Progress" id="progress_tab" attrs="{'invisible': [('include_in_progress_report', '=', False)]}">
 					<group>
 						<group>
