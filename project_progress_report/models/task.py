@@ -39,5 +39,5 @@ class Task(models.Model):
     @api.constrains('sale_progress')
     def _constrains_sale_progress(self):
         for task in self:
-            if (task.sale_progress < 0.0 or task.sale_progress > 100.0):
-                raise ValidationError("Sale progress must be at least 0 and at most 100")
+            if (task.sale_progress < 0.0 or task.sale_progress > 1.0):
+                raise ValidationError("Sale progress must be at least 0% and at most 100%")
