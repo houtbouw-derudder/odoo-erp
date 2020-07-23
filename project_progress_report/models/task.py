@@ -6,7 +6,7 @@ class Task(models.Model):
 	_description = "Task extension for progress report"
 
 	sale_currency_id = fields.Many2one('res.currency', 'Currency', compute='_compute_sale_currency_id')
-	sale_price = fields.Float('Price', digits='Product Price')
+	sale_price = fields.Float('Price', digits='Product Price', tracked=True)
 
 	@api.depends('company_id')
 	def _compute_sale_currency_id(self):
