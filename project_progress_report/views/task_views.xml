@@ -12,15 +12,14 @@
 				<!-- <page string="Timesheets" id="timesheets_tab" attrs="{'invisible': [('allow_timesheets', '=', False)]}"> -->
 				<page string="Progress" id="progress_tab">
 					<group>
-						<!-- <group> -->
-						<!-- <field name="planned_hours" widget="float_time"/> -->
-						<!-- <label for="subtask_planned_hours" groups="project.group_subtask_project" attrs="{'invisible': [('subtask_count', '=', 0)]}"/> -->
-						<!-- <div class="o_row" groups="project.group_subtask_project" attrs="{'invisible': [('subtask_count', '=', 0)]}"> -->
-						<!-- <field name="subtask_planned_hours" widget="float_time"/> -->
-						<!-- <span> planned hours</span> -->
-						<!-- </div> -->
-						<!-- </group> -->
-						<field name="sale_price" widget="monetary" options="{'currency_field': 'sale_currency_id', 'field_digits': True}"/>
+						<group colspan="4">
+							<field name="sale_quantity" />
+							<field name="sale_unit" />
+						</group>
+						<group colspan="4">
+							<field name="sale_unit_price" widget="monetary" options="{'currency_field': 'sale_currency_id', 'field_digits': True}"/>
+							<field name="total_sale_price" attrs="{'readonly': 1}" />
+						</group>
 					</group>
 					<!-- <group name="timesheet_error" attrs="{'invisible': [('analytic_account_active', '!=', False)]}">
 						<div class="alert alert-warning" role="alert">
