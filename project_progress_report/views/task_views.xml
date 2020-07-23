@@ -23,7 +23,7 @@
 						</group>
 					</group>
 					<group>
-					<field name="include_in_progress_report" />
+						<field name="include_in_progress_report" />
 					</group>
 					<!-- <group name="timesheet_error" attrs="{'invisible': [('analytic_account_active', '!=', False)]}">
 						<div class="alert alert-warning" role="alert">
