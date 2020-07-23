@@ -7,10 +7,9 @@
 		<!-- <field name="groups_id" eval="[(6,0, (ref('hr_timesheet.group_hr_timesheet_user'),))]"/> -->
 		<field name="arch" type="xml">
 			<xpath expr="//notebook/page[@name='description_page']" position="after">
-				<!-- <field name="analytic_account_active" invisible="1"/> -->
-				<!-- <field name="allow_timesheets" invisible="1"/> -->
+			<field name="include_in_progress_report" invisibl="1" />
 				<!-- <page string="Timesheets" id="timesheets_tab" attrs="{'invisible': [('allow_timesheets', '=', False)]}"> -->
-				<page string="Progress" id="progress_tab">
+				<page string="Progress" id="progress_tab" attrs="{'invisible': [('include_in_progress_report', '=', False)]}">
 					<group>
 						<group>
 							<field name="sale_quantity" />
@@ -21,9 +20,6 @@
 							<field name="sale_unit_price" widget="monetary" options="{'currency_field': 'sale_currency_id', 'field_digits': True}"/>
 							<field name="total_sale_price" widget="monetary" options="{'currency_field': 'sale_currency_id', 'field_digits': True}" />
 						</group>
-					</group>
-					<group>
-						<field name="include_in_progress_report" />
 					</group>
 					<!-- <group name="timesheet_error" attrs="{'invisible': [('analytic_account_active', '!=', False)]}">
 						<div class="alert alert-warning" role="alert">
