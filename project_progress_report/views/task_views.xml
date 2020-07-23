@@ -22,8 +22,7 @@
 					</group>
 					<group>
 						<group>
-							<field name="progress" widget="percentage" />
-							<field name="progress" />
+							<field name="sale_progress" widget="percentage" />
 						</group>
 					</group>
 				</page>

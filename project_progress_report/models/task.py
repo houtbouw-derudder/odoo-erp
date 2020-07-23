@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-
+from odoo.exceptions import ValidationError
 
 class Task(models.Model):
     _inherit = 'project.task'
@@ -34,4 +34,10 @@ class Task(models.Model):
     total_sale_price = fields.Float(
         'Total price', compute=_compute_total_sale_price)
     
-    progress = fields.Float("Progress", group_operator="avg", help="Display progress of current task.", tracking=True)
+    sale_progress = fields.Float("Sale progress", group_operator="avg", help="Display progress of current task.", tracking=True)
+
+    @api.constrains('sale_progress')
+    def _constrains_sale_progress(self):
+        for task in self:
+            if (task.sale_progress < 0.0 or task.sale_progress > 100.0):
+                raise ValidationError("Sale progress must be at least 0 and at most 100")
