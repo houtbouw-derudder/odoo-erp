@@ -23,6 +23,7 @@
         # 'security/ir.model.access.csv',
         # 'templates.xml',
         'views/task_views.xml',
+        'views/task_type_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

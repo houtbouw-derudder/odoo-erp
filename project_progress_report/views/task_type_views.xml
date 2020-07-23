@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record model="ir.ui.view" id="task_type_edit_inherited">
+		<field name="name">project.task.type.form.inherited</field>
+		<field name="model">project.task.type</field>
+		<field name="inherit_id" ref="project.task_type_edit" />
+		<field name="arch" type="xml">
+			<field name="fold" position="after">
+				<field name="include_in_progress_report" />
+			</field>
+		</field>
+	</record>
+</odoo>
