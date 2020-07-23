@@ -10,8 +10,6 @@ class Task(models.Model):
 	sale_currency_id = fields.Many2one('res.currency', 'Currency', compute='_compute_sale_currency_id', tracking=True)
 	sale_unit_price = fields.Float('Unit price', digits='Product Price', tracking=True)
 
-	total_sale_price = fields.Float('Total price', compute=_compute_total_sale_price)
-
 	@api.depends('company_id')
 	def _compute_sale_currency_id(self):
 		main_company = self.env['res.company']._get_main_company()
@@ -22,3 +20,5 @@ class Task(models.Model):
 	def _compute_total_sale_price(self):
 		for task in self:
 			task.total_sale_price = (task.sale_quantity or 1.0) * (task.sale_unit_price or 0.0)
+
+	total_sale_price = fields.Float('Total price', compute=_compute_total_sale_price)
