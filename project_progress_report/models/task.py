@@ -23,3 +23,9 @@ class Task(models.Model):
 			task.total_sale_price = (task.sale_quantity or 1.0) * (task.sale_unit_price or 0.0)
 
 	total_sale_price = fields.Float('Total price', compute=_compute_total_sale_price)
+
+	@api.depends("stage_id")
+	def _compute_include_in_progress_report(self):
+		return (self[0].stage_id.include_in_progress_report or False) if len(self) == 1 else False
+
+	include_in_progress_report = fields.Boolean('Include in progress report', compute=_compute_include_in_progress_report)

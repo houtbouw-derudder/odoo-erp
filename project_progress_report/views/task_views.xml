@@ -19,8 +19,11 @@
 						<group>
 							<field name="sale_currency_id" invisible="1" />
 							<field name="sale_unit_price" widget="monetary" options="{'currency_field': 'sale_currency_id', 'field_digits': True}"/>
-							<field name="total_sale_price" widget="monetary" options="{'currency_field': 'sale_currency_id', 'field_digits': True}" attrs="{'readonly': 1}" />
+							<field name="total_sale_price" widget="monetary" options="{'currency_field': 'sale_currency_id', 'field_digits': True}" />
 						</group>
+					</group>
+					<group>
+					<field name="include_in_progress_report" />
 					</group>
 					<!-- <group name="timesheet_error" attrs="{'invisible': [('analytic_account_active', '!=', False)]}">
 						<div class="alert alert-warning" role="alert">
