@@ -6,6 +6,13 @@
 		<field name="inherit_id">project.view_task_form2</field>
 		<field eval="2" name="priority"/>
 		<field name="arch" type="xml">
+			<xpath expr="page[@name='extra_info']" position="after">
+				<page name="sale" string="Sale info">
+					<group>
+					TODO
+					</group>
+				</page>
+			</xpath>
 		</field>
 	</record>
 </odoo>
