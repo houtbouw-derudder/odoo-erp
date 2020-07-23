@@ -6,7 +6,7 @@ class Task(models.Model):
 	_description = "Task extension for progress report"
 
 	sale_quantity = fields.Float('Quantity', digits='1.3f', tracking=True, default=1.0)
-	sale_unit = fields.String('Unit', tracking=True, default='sog')
+	sale_unit = fields.Char('Unit', tracking=True, default='sog')
 	sale_currency_id = fields.Many2one('res.currency', 'Currency', compute='_compute_sale_currency_id', tracking=True)
 	sale_unit_price = fields.Float('Unit price', digits='Product Price', tracking=True)
 
