@@ -7,7 +7,7 @@
 		<field eval="2" name="priority"/>
 		<field name="arch" type="xml">
 			<xpath expr="//page[@name='extra_info']" position="after">
-				<page name="sale" string="Sale info">
+				<page name="progress" string="Progress">
 					<group>
 					TODO
 					</group>
