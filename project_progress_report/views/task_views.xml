@@ -3,7 +3,7 @@
 	<record id="view_task_form_inherit" model="ir.ui.view">
 		<field name="name">project.task.form</field>
 		<field name="model">project.task</field>
-		<field name="inherit_id">project.view_task_form2</field>
+		<field name="inherit_id" ref="project.view_task_form2" />
 		<field eval="2" name="priority"/>
 		<field name="arch" type="xml">
 			<xpath expr="page[@name='extra_info']" position="after">
