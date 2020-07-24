@@ -10,7 +10,7 @@
 				<field name="progress_reports_count" invisible="1" />
 			</field>
 			<xpath expr="//div[hasclass('o_project_kanban_boxes')]" position="inside">
-				<a class="o_project_kanban_box" name="%(project.act_project_project_2_project_task_all)d" type="action">
+				<a class="o_project_kanban_box" name="%(action_project_project_2_project_progress_reports)d" type="action">
 					<div>
 						<span class="o_value">
 							<t t-esc="record.progress_reports_count.value"/>
