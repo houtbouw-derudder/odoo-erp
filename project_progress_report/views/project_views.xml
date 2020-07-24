@@ -1,3 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+	<record id="view_project_kanban_inherit" model="ir.ui.view">
+		<field name="name">project.project.kanban.inherit</field>
+		<field name="model">project.project</field>
+		<field name="inherit_id" ref="project.view_project_kanban"/>
+		<field name="arch" type="xml">
+			<xpath expr="//div[contains(@class, 'o_project_kanban_boxes')]" position="inside">
+				<a class="o_project_kanban_box" name="%(project.act_project_project_2_project_task_all)d" type="action">
+					<div>
+						<span class="o_value">
+							<t t-esc="record.task_count.value"/>
+						</span>
+						<span class="o_label">
+							<t t-esc="record.label_tasks.value"/>
+						</span>
+					</div>
+				</a>
+			</xpath>
+		</field>
+	</record>
+
 </odoo>
