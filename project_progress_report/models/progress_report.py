@@ -33,8 +33,11 @@ class ProgressReport(models.Model):
         return result
     
     def _do_update_task_progress(self):
-        self.ensure_one();
+        self.ensure_one()
 
     def update_task_progress(self):
         for report in self:
             report._do_update_task_progress()
+
+    def post(self):
+        self.write({'state': 'approved'})
