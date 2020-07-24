@@ -11,18 +11,18 @@
 				<page string="Progress" id="progress_tab" attrs="{'invisible': [('include_in_progress_report', '=', False)]}">
 					<group>
 						<group>
-							<field name="sale_quantity" />
-							<field name="sale_unit" />
+							<field name="progress_quantity" />
+							<field name="progress_unit" />
 						</group>
 						<group>
-							<field name="sale_currency_id" invisible="1" />
-							<field name="sale_unit_price" widget="monetary" options="{'currency_field': 'sale_currency_id', 'field_digits': True}"/>
-							<field name="total_sale_price" widget="monetary" options="{'currency_field': 'sale_currency_id', 'field_digits': True}" />
+							<field name="progress_currency_id" invisible="1" />
+							<field name="progress_unit_price" widget="monetary" options="{'currency_field': 'progress_currency_id', 'field_digits': True}"/>
+							<field name="progress_total_price" widget="monetary" options="{'currency_field': 'progress_currency_id', 'field_digits': True}" />
 						</group>
 					</group>
 					<group>
 						<group>
-							<field name="sale_progress" widget="percentage" />
+							<field name="progress_percentage" widget="percentage" />
 						</group>
 					</group>
 				</page>

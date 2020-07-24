@@ -10,34 +10,29 @@ class Task(models.Model):
     include_in_progress_report = fields.Boolean(
         "Include in progress report", related='stage_id.include_in_progress_report', help="Task must be included in progress reports.", readonly=True)
 
-    sale_quantity = fields.Float(
+    progress_quantity = fields.Float(
         'Quantity', digits='1.3f', tracking=True, default=0.0)
-    sale_unit = fields.Char('Unit', tracking=True, default='sog')
-    sale_currency_id = fields.Many2one(
-        'res.currency', 'Currency', compute='_compute_sale_currency_id', tracking=True)
-    sale_unit_price = fields.Float(
-        'Unit price', digits='Product Price', tracking=True)
+    progress_unit = fields.Char('Unit', tracking=True, default='sog')
+    progress_currency_id = fields.Many2one('res.currency', 'Currency', compute='_compute_progress_currency_id', tracking=True)
+    progress_unit_price = fields.Float('Unit price', digits='Product Price', tracking=True)
 
     @api.depends('company_id')
-    def _compute_sale_currency_id(self):
+    def _compute_progress_currency_id(self):
         main_company = self.env['res.company']._get_main_company()
         for task in self:
-            task.sale_currency_id = task.company_id.sudo(
-            ).currency_id.id or main_company.currency_id.id
+            task.progress_currency_id = task.company_id.sudo().currency_id.id or main_company.currency_id.id
 
-    @api.depends('sale_quantity', 'sale_unit_price')
-    def _compute_total_sale_price(self):
+    @api.depends('progress_quantity', 'progress_unit_price')
+    def _compute_progress_total_price(self):
         for task in self:
-            task.total_sale_price = (
-                task.sale_quantity or 1.0) * (task.sale_unit_price or 0.0)
+            task.progress_total_price = task.progress_quantity * task.progress_unit_price
 
-    total_sale_price = fields.Float(
-        'Total price', compute=_compute_total_sale_price)
+    progress_total_price = fields.Float('Total price', compute=_compute_progress_total_price)
     
-    sale_progress = fields.Float("Sale progress", group_operator="avg", help="Display progress of current task.", tracking=True)
+    progress_percentage = fields.Float("Progress precentage", group_operator="avg", help="Display progress of current task.", tracking=True)
 
-    @api.constrains('sale_progress')
-    def _constrains_sale_progress(self):
+    @api.constrains('progress_percentage')
+    def _constrains_progress_percentage(self):
         for task in self:
-            if (task.sale_progress < 0.0 or task.sale_progress > 1.0):
-                raise ValidationError("Sale progress must be at least 0% and at most 100%")
+            if (task.progress_percentage < 0.0 or task.progress_percentage > 1.0):
+                raise ValidationError("Progress percentage must be at least 0% and at most 100%")
