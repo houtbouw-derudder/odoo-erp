@@ -27,6 +27,14 @@
 							<field name="name" />
 						</h1>
 					</div>
+					<group>
+						<group>
+							<field name="project_id" />
+						</group>
+						<group>
+							<field name="date" />
+						</group>
+					</group>
 				</sheet>
 			</form>
 		</field>
@@ -157,9 +165,9 @@
 		</field>
 	</record>
 
-	<record id="open_view_task_list_tree" model="ir.actions.act_window.view">
+	<record id="open_progress_report_tree" model="ir.actions.act_window.view">
 		<field name="sequence" eval="1"/>
-		<field name="view_mode">tree</field>
+		<field name="view_mode">tree,form</field>
 		<field name="act_window_id" ref="action_progress_report_list"/>
 	</record>
 
