@@ -31,7 +31,7 @@ class ProgressReport(models.Model):
                 name = report.name
             result.append((report.id, name))
         return result
-    
+
     def _do_update_task_progress(self):
         self.ensure_one()
 
@@ -39,5 +39,15 @@ class ProgressReport(models.Model):
         for report in self:
             report._do_update_task_progress()
 
+    def _do_post(self):
+        self.ensure_one()
+
+        to_write = {'state': 'approved', 'name': self.name}
+        if not self.name:
+            to_write['name'] = self.env['ir.sequence'].next_by_code(
+                'project.progress.report', sequence_date=self.date)
+        self.write(to_write)
+
     def post(self):
-        self.write({'state': 'approved'})
+        for report in self:
+            report._do_post()
