@@ -7,4 +7,4 @@ class ProgressReport(models.Model):
 	_description = 'A Progress Report for tasks in a project'
 
 	project_id = fields.Many2one('project.project', string='Project', default=lambda self: self.env.context.get('default_project_id'),
-        index=True, tracking=True, check_company=True)
+        index=True, tracking=True, check_company=True, required=True)

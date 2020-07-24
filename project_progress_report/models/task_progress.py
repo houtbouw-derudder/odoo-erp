@@ -8,4 +8,5 @@ class TaskProgress(models.Model):
 
 	progress_report_id = fields.Many2one('project.progress.report', string='Progress report', default=lambda self: self.env.context.get('default_progress_report_id'),
         index=True, tracking=True)
-		
+	
+	
