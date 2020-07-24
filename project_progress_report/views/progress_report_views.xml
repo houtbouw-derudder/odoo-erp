@@ -37,6 +37,6 @@
 		<field name="act_window_id" ref="action_progress_report_list"/>
 	</record>
 
-	<menuitem name="Progress reports" id="menu_progress_reports" parent="menu_main_pm" action="action_progress_report_list" sequence="3" groups="base.group_no_one,group_project_user"/>
+	<menuitem name="Progress reports" id="menu_progress_reports" parent="project.menu_main_pm" action="action_progress_report_list" sequence="3" groups="base.group_no_one,group_project_user"/>
 
 </odoo>
