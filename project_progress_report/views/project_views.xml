@@ -6,14 +6,14 @@
 		<field name="model">project.project</field>
 		<field name="inherit_id" ref="project.view_project_kanban"/>
 		<field name="arch" type="xml">
+			<field name="task_count" position="after">
+				<field name="progress_reports_count" invisible="1" />
+			</field>
 			<xpath expr="//div[hasclass('o_project_kanban_boxes')]" position="inside">
 				<a class="o_project_kanban_box" name="%(project.act_project_project_2_project_task_all)d" type="action">
 					<div>
-						<span class="o_value" t-if="record.progress_reports_count">
+						<span class="o_value">
 							<t t-esc="record.progress_reports_count.value"/>
-						</span>
-						<span class="o_value" t-if="not record.progress_reports_count">
-							0
 						</span>
 						<span class="o_label">Progress reports</span>
 					</div>
