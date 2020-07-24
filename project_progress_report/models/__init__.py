@@ -2,3 +2,4 @@
 
 from . import task
 from . import task_type
+from . import progress_report
