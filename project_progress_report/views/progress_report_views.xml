@@ -17,7 +17,7 @@
 
 	<record id="project_progress_report_view_form" model="ir.ui.view">
 		<field name="name">project.progress.report.form</field>
-		<field name="model">proejct.progress.report</field>
+		<field name="model">project.progress.report</field>
 		<field name="priority" eval="2" />
 		<field name="arch" type="xml">
 			<form string="Progress report">
