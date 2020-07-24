@@ -9,7 +9,6 @@ class Project(models.Model):
 	
     progress_reports = fields.One2many('project.progress.report', 'project_id', string="Progress Reports")
     
-    @api.depends('progress_reports')
     def _compute_progress_reports_count(self):
         for project in self:
             project.progress_reports_count = len(project.progress_reports)
