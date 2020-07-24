@@ -13,4 +13,4 @@ class Project(models.Model):
         for project in self:
             project.progress_reports_count = len(project.progress_reports) or 0
 
-    progress_reports_count = fields.Integer(string='Progress report count', compute=_compute_progress_reports_count)
+    progress_reports_count = fields.Integer(string='Progress report count', compute='_compute_progress_reports_count')
