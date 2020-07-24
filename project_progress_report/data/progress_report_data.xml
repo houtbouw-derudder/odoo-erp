@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<!-- <record id="sequence_payment_supplier_invoice" model="ir.sequence">
-		<field name="name">Payments supplier invoices sequence</field>
-		<field name="code">account.payment.supplier.invoice</field>
-		<field name="prefix">SUPP.OUT/%(range_year)s/</field>
+	record id="sequence_progress_report" model="ir.sequence">
+		<field name="name">Progress Report sequence</field>
+		<field name="code">project.progress.report</field>
+		<field name="prefix">PR/%(range_year)s/</field>
 		<field eval="1" name="number_next"/>
 		<field eval="1" name="number_increment"/>
 		<field eval="True" name="use_date_range"/>
 		<field eval="False" name="company_id"/>
 		<field name="padding">4</field>
-	</record> -->
+	</record>
 </odoo>
