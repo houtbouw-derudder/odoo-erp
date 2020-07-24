@@ -31,3 +31,10 @@ class ProgressReport(models.Model):
                 name = report.name
             result.append((report.id, name))
         return result
+    
+    def _do_update_task_progress(self):
+        self.ensure_one();
+
+    def update_task_progress(self):
+        for report in self:
+            report._do_update_task_progress()

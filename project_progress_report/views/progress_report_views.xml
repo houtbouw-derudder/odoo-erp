@@ -21,7 +21,6 @@
 		<field name="name">project.progress.report.tree</field>
 		<field name="model">project.progress.report</field>
 		<field eval="2" name="priority"/>
-		<!-- <field name="search_view_id" ref="project_progress_report_view_search"/> -->
 		<field name="arch" type="xml">
 			<tree string="Progress reports">
 				<field name="name"/>
@@ -36,11 +35,10 @@
 		<field name="name">project.progress.report.form</field>
 		<field name="model">project.progress.report</field>
 		<field name="priority" eval="2" />
-		<!-- <field name="search_view_id" ref="project_progress_report_view_search"/> -->
 		<field name="arch" type="xml">
 			<form string="Progress report">
 				<header>
-					<!-- <button name="action_assign_to_me" string="Assign to Me" type="object" class="oe_highlight" attrs="{'invisible' : [('user_id', '!=', False)]}"/> -->
+					<button name="update_task_progress" string="Update task progress" type="object" class="oe_highlight" attrs="{'invisible' : [('state', '!=', 'draft')]}"/>
 					<field name="state" widget="statusbar" options="{'clickable': '0'}"/>
 				</header>
 				<sheet string="Progress report">
