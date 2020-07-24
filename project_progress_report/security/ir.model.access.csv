@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+progress_report_all,progress.report.all,model_project_progress_report,base.group_user,1,1,1,1
+task_progress_all,task.progress.all,model_project_task_progress,base.group_user,1,1,1,1

@@ -20,7 +20,7 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         # 'templates.xml',
         'data/progress_report_data.xml',
         'views/task_views.xml',
