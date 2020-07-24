@@ -21,7 +21,7 @@
 		<field name="name">project.progress.report.tree</field>
 		<field name="model">project.progress.report</field>
 		<field eval="2" name="priority"/>
-		<field name="search_view_id" ref="project_progress_report_view_search"/>
+		<!-- <field name="search_view_id" ref="project_progress_report_view_search"/> -->
 		<field name="arch" type="xml">
 			<tree string="Progress reports">
 				<field name="name"/>
@@ -36,7 +36,7 @@
 		<field name="name">project.progress.report.form</field>
 		<field name="model">project.progress.report</field>
 		<field name="priority" eval="2" />
-		<field name="search_view_id" ref="project_progress_report_view_search"/>
+		<!-- <field name="search_view_id" ref="project_progress_report_view_search"/> -->
 		<field name="arch" type="xml">
 			<form string="Progress report">
 				<header>
@@ -96,12 +96,6 @@
 			</p>
 		</field>
 	</record>
-
-	<!-- <record id="open_progress_report_tree" model="ir.actions.act_window.view">
-		<field name="sequence" eval="1"/>
-		<field name="view_mode">tree</field>
-		<field name="act_window_id" ref="action_progress_report_list"/>
-	</record> -->
 
 	<menuitem name="Progress reports" id="menu_progress_reports" parent="project.menu_main_pm" action="action_progress_report_list" sequence="3" groups="base.group_no_one,project.group_project_user"/>
 
