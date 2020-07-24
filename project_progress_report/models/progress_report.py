@@ -43,7 +43,7 @@ class ProgressReport(models.Model):
         self.ensure_one()
 
         to_write = {'state': 'approved', 'name': self.name}
-        if not self.name:
+        if self.name == '/':
             to_write['name'] = self.env['ir.sequence'].next_by_code(
                 'project.progress.report', sequence_date=self.date)
         self.write(to_write)
