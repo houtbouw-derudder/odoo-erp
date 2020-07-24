@@ -15,6 +15,132 @@
 		</field>
 	</record>
 
+	<record id="project_progress_report_view_form" model="ir.ui.view">
+		<field name="name">project.progress.report.form</field>
+		<field name="model">proejct.progress.report</field>
+		<field name="priority" eval="2" />
+		<field name="arch" type="xml">
+			<form string="Progress report">
+				<sheet string="Progress report">
+					<div class="oe_title">
+						<h1>
+							<field name="name" />
+						</h1>
+					</div>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<!-- <record id="edit_project" model="ir.ui.view">
+		<field name="name">project.project.form</field>
+		<field name="model">project.project</field>
+		<field name="arch" type="xml">
+			<form string="Project">
+				<header>
+					<button name="%(portal.portal_share_action)d" string="Share" type="action" class="oe_highlight oe_read_only"/>
+				</header>
+				<sheet string="Project">
+					<div class="oe_button_box" name="button_box" groups="base.group_user">
+						<button class="oe_stat_button" name="attachment_tree_view" type="object" icon="fa-file-text-o">
+							<field string="Documents" name="doc_count" widget="statinfo"/>
+						</button>
+						<button class="oe_stat_button" type="action" name="%(act_project_project_2_project_task_all)d" icon="fa-tasks">
+							<field string="Tasks" name="task_count" widget="statinfo" options="{'label_field': 'label_tasks'}"/>
+						</button>
+						<button name="action_view_all_rating" type="object" attrs="{'invisible': ['|', '|', ('rating_status', '=', 'no'), ('rating_percentage_satisfaction', '=', -1)]}" class="oe_stat_button oe_percent" icon="fa-smile-o" groups="project.group_project_rating">
+							<div class="o_field_widget o_stat_info">
+								<span class="o_stat_value">
+									<field name="rating_percentage_satisfaction" nolabel="1"/>
+								</span>
+								<span class="o_stat_text">
+                                    % On <field readonly="1" name="label_tasks" options="{'label_field': 'label_tasks'}" />
+								</span>
+							</div>
+						</button>
+					</div>
+					<widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+					<div class="oe_title">
+						<h1>
+							<field name="name" placeholder="Project Name"/>
+						</h1>
+						<div name="options_active">
+							<div>
+								<label for="label_tasks" class="oe_inline" string="Name of the tasks :"/>
+								<field name="label_tasks" class="oe_inline oe_input_align"/>
+							</div>
+						</div>
+					</div>
+					<notebook>
+						<page name="settings" string="Settings">
+							<group>
+								<group>
+									<field name="active" invisible="1"/>
+									<field name="user_id" string="Project Manager" attrs="{'readonly':[('active','=',False)]}"/>
+									<field name="partner_id" string="Customer"/>
+								</group>
+								<group>
+									<field name="analytic_account_id" domain="['|', ('company_id', '=', company_id), ('company_id', '=', False)]" context="{'default_partner_id': partner_id}" groups="analytic.group_analytic_accounting"/>
+									<field name="privacy_visibility" widget="radio"/>
+
+									<field name="subtask_project_id" groups="project.group_subtask_project"/>
+									<field name="company_id" groups="base.group_multi_company"/>
+								</group>
+								<group name="extra_settings">
+								</group>
+							</group>
+							<div class="row mt16 o_settings_container">
+								<div id="rating_settings" class="col-lg-6 o_setting_box" groups="project.group_project_rating">
+									<div class="o_setting_right_pane">
+										<label for="rating_status"/>
+										<div class="text-muted">
+                                            Get customer feedback
+										</div>
+										<div>
+											<field name="rating_status" widget="radio"/>
+											<p attrs="{'invisible': [('rating_status','not in',('periodic','stage'))]}" class="text-muted oe_edit_only">
+                                                Edit project's stages and set an email template on the stages on which you want to activate the rating.
+											</p>
+											<div attrs="{'required': [('rating_status','=','periodic')], 'invisible': [('rating_status','!=','periodic')]}">
+												<label for="rating_status_period"/>
+												<field name="rating_status_period" class="oe_inline"/>
+											</div>
+											<div attrs="{'invisible': [('rating_status','==','no')]}">
+												<label for="portal_show_rating"/>
+												<field name="portal_show_rating"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<group name="misc">
+								<group string="Time Scheduling">
+									<field name="resource_calendar_id"/>
+								</group>
+							</group>
+						</page>
+						<page name="emails" string="Emails" attrs="{'invisible': [('alias_domain', '=', False)]}">
+							<group name="group_alias">
+								<label for="alias_name" string="Email Alias"/>
+								<div name="alias_def">
+									<field name="alias_id" class="oe_read_only oe_inline" string="Email Alias" required="0"/>
+									<div class="oe_edit_only oe_inline" name="edit_alias" style="display: inline;">
+										<field name="alias_name" class="oe_inline"/>
+@										<field name="alias_domain" class="oe_inline" readonly="1"/>
+									</div>
+								</div>
+								<field name="alias_contact" class="oe_inline oe_edit_only" string="Accept Emails From"/>
+							</group>
+						</page>
+					</notebook>
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_follower_ids" widget="mail_followers" help="Follow this project to automatically track the events associated to tasks and issues of this project." groups="base.group_user"/>
+				</div>
+			</form>
+		</field>
+	</record> -->
+
 	<record id="action_progress_report_list" model="ir.actions.act_window">
 		<field name="name">Progress reports</field>
 		<field name="res_model">project.progress.report</field>
