@@ -22,6 +22,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         # 'templates.xml',
+        'data/progress_report_data.xml',
         'views/task_views.xml',
         'views/task_type_views.xml',
         'views/project_views.xml',
