@@ -39,7 +39,7 @@
 			<form string="Progress report">
 				<header>
 					<button name="update_task_progress" string="Update task progress" type="object" class="oe_highlight" attrs="{'invisible' : [('state', '!=', 'draft')]}"/>
-					<button name="post" string="Post" type="object" class="oe_highlight" attrs="{}"/>
+					<button name="post" string="Post" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
 					<field name="state" widget="statusbar" options="{'clickable': '0'}"/>
 				</header>
 				<sheet string="Progress report">
