@@ -21,6 +21,10 @@
 		<field name="priority" eval="2" />
 		<field name="arch" type="xml">
 			<form string="Progress report">
+				<header>
+					<!-- <button name="action_assign_to_me" string="Assign to Me" type="object" class="oe_highlight" attrs="{'invisible' : [('user_id', '!=', False)]}"/> -->
+					<field name="state" widget="statusbar" options="{'clickable': '0'}"/>
+				</header>
 				<sheet string="Progress report">
 					<div class="oe_title">
 						<h1>
@@ -165,11 +169,11 @@
 		</field>
 	</record>
 
-	<record id="open_progress_report_tree" model="ir.actions.act_window.view">
+	<!-- <record id="open_progress_report_tree" model="ir.actions.act_window.view">
 		<field name="sequence" eval="1"/>
 		<field name="view_mode">tree</field>
 		<field name="act_window_id" ref="action_progress_report_list"/>
-	</record>
+	</record> -->
 
 	<menuitem name="Progress reports" id="menu_progress_reports" parent="project.menu_main_pm" action="action_progress_report_list" sequence="3" groups="base.group_no_one,project.group_project_user"/>
 
