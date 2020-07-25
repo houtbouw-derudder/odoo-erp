@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class ProgressReport(models.Model):
@@ -20,8 +23,9 @@ class ProgressReport(models.Model):
         ('cancel', 'Cancelled')
     ], string='Status', required=True, readonly=True, copy=False, tracking=True,
         default='draft')
-    
-    task_progess_ids = fields.One2many('project.task.progress', 'progress_report_id', string="Task progress", readonly=True, states={'draft': [('readonly', False)]})
+
+    task_progess_ids = fields.One2many('project.task.progress', 'progress_report_id',
+                                       string="Task progress", readonly=True, states={'draft': [('readonly', False)]})
 
     @api.depends('name', 'state')
     def name_get(self):
@@ -37,6 +41,8 @@ class ProgressReport(models.Model):
     def _do_update_task_progress(self):
         self.ensure_one()
         self.task_progess_ids = []
+        for stage in self.project_id.type_ids.filtered(lambda s: s.include_in_progress_report == True):
+            _logger.warning(stage.name)
 
     def update_task_progress(self):
         for report in self:
