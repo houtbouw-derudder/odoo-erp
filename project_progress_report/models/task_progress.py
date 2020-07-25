@@ -14,7 +14,7 @@ class TaskProgress(models.Model):
     progress_unit = fields.Char('Unit', readonly=True)
     progress_currency_id = fields.Many2one(
         'res.currency', 'Currency', readonly=True)
-    progress_unit_price = fields.Float('Unit price', readonly=True)
-    progress_total_price = fields.Float('Total price', readonly=True)
+    progress_unit_price = fields.Monetary('Unit price', readonly=True, currency_field='progress_currency_id')
+    progress_total_price = fields.Monetary('Total price', readonly=True, currency_field='progress_currency_id')
     progress_percentage = fields.Float("Progress precentage", readonly=True)
-    progress_price = fields.Float('Progress price', readonly=True)
+    progress_price = fields.Monetary('Progress price', readonly=True, currency_field='progress_currency_id')
