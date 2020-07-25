@@ -62,6 +62,7 @@ class ProgressReport(models.Model):
             task_progress_values['progress_unit_price'] = task.progress_unit_price
             task_progress_values['progress_total_price'] = task.progress_total_price
             task_progress_values['progress_percentage'] = task.progress_percentage
+            task_progress_values['progress_price'] = task.progress_total_price * task.progress_percentage
             TaskProgress.create([task_progress_values])
 
     def update_task_progress(self):
