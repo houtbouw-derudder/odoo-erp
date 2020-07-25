@@ -77,6 +77,10 @@ class ProgressReport(models.Model):
         if self.name == '/':
             to_write['name'] = self.env['ir.sequence'].next_by_code(
                 'project.progress.report', sequence_date=self.date)
+        
+        if not self.date:
+            to_write['date'] = fields.Date.context_today
+
         self.write(to_write)
 
     def post(self):
