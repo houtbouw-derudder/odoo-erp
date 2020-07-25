@@ -50,7 +50,21 @@ class ProgressReport(models.Model):
             return
         
         tasks = self.env['project.task'].search([('project_id', '=', self.project_id.id), ('stage_id', 'in', stage_ids)])
-        _logger.warning(tasks)
+        task_progress_to_add = []
+        TaskProgress = self.env['project.task.progress']
+        for task in tasks:
+            task_progress_values = {}
+            task_progress_values['progress_report_id'] = self.id
+            task_progress_values['task_id'] = task.id
+            task_progress_values['progress_quantity'] = task.progress_quantity
+            task_progress_values['progress_unit'] = task.progress_unit
+            task_progress_values['progress_currency_id'] = task.progress_currency_id
+            task_progress_values['progress_unit_price'] = task.progress_unit_price
+            task_progress_values['progress_total_price'] = task.progress_total_price
+            task_progress_values['progress_percentage'] = task.progress_percentage
+            task_progress_to_add.append(TaskProgress.create([task_progress_values]))
+        
+        self.task_progess_ids = task_progress_to_add
 
     def update_task_progress(self):
         for report in self:
