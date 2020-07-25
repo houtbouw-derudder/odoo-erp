@@ -59,6 +59,7 @@
 					<group>
 						<field name="task_progess_ids" nolabel="1">
 							<tree create="false">
+								<field name="task_id" />
 								<field name="progress_quantity" />
 								<field name="progress_unit" />
 								<field name="progress_currency_id" invisible="1" />

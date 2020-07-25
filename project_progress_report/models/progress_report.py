@@ -41,8 +41,7 @@ class ProgressReport(models.Model):
     def _do_update_task_progress(self):
         self.ensure_one()
         
-        for task_progress in self.task_progess_ids:
-            task_progress.unlink()
+        self.task_progess_ids.unlink()
 
         stage_ids = []
         for stage in self.project_id.type_ids.filtered(lambda s: s.include_in_progress_report == True):
