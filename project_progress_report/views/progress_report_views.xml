@@ -36,7 +36,7 @@
 		<field name="model">project.progress.report</field>
 		<field name="priority" eval="2" />
 		<field name="arch" type="xml">
-			<form string="Progress report" edit="state == 'draft'">
+			<form string="Progress report">
 				<header>
 					<button name="update_task_progress" string="Update task progress" type="object" class="oe_highlight" attrs="{'invisible' : [('state', '!=', 'draft')]}"/>
 					<button name="post" string="Post" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
