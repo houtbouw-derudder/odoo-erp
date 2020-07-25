@@ -15,7 +15,7 @@ class ProgressReport(models.Model):
     project_id = fields.Many2one('project.project', string='Project', default=lambda self: self.env.context.get('default_project_id'),
                                  index=True, required=True, readonly=True, states={'draft': [('readonly', False)]})
     previous_progress_report_id = fields.Many2one('project.progress.report', string='Previous progress report', readonly=True, state={
-                                                  'draft': [('readonly', False)]}, domain=[('project_id', '=', project_id), ('state', 'in', ['approved'])])
+                                                  'draft': [('readonly', False)]}, domain="[('project_id', '=', project_id), ('state', 'in', ['approved'])]")
     state = fields.Selection(selection=[
         ('draft', 'Draft'),
         ('approved', 'Approved'),
