@@ -44,8 +44,7 @@ class ProgressReport(models.Model):
         stage_ids = []
         for stage in self.project_id.type_ids.filtered(lambda s: s.include_in_progress_report == True):
             stage_ids.append(stage.id)
-        
-        _logger.warning(stage_ids)
+
         if len(stage_ids) == 0:
             return
         
@@ -58,7 +57,7 @@ class ProgressReport(models.Model):
             task_progress_values['task_id'] = task.id
             task_progress_values['progress_quantity'] = task.progress_quantity
             task_progress_values['progress_unit'] = task.progress_unit
-            task_progress_values['progress_currency_id'] = task.progress_currency_id
+            task_progress_values['progress_currency_id'] = task.progress_currency_id.id
             task_progress_values['progress_unit_price'] = task.progress_unit_price
             task_progress_values['progress_total_price'] = task.progress_total_price
             task_progress_values['progress_percentage'] = task.progress_percentage
