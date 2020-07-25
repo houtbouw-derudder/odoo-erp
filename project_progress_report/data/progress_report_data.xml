@@ -10,4 +10,14 @@
 		<field eval="False" name="company_id"/>
 		<field name="padding">4</field>
 	</record>
+	
+	<record id="rule_progress_report"model="ir.rule">
+		<field name="name">Progress report</field>
+		<field name="model_id" ref="project.progress.report"/>
+		<field eval="0" name="perm_unlink"/>
+		<field eval="0" name="perm_write"/>
+		<field eval="1" name="perm_read"/>
+		<field eval="0" name="perm_create"/>
+		<field name="domain_force">[('state','in',['approved','cancel'])]</field>
+	</record>
 </odoo>
