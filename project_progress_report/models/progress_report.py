@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-import logging
-
-_logger = logging.getLogger(__name__)
 
 
 class ProgressReport(models.Model):
@@ -77,7 +74,7 @@ class ProgressReport(models.Model):
         if self.name == '/':
             to_write['name'] = self.env['ir.sequence'].next_by_code(
                 'project.progress.report', sequence_date=self.date)
-        
+
         if not self.date:
             to_write['date'] = fields.Date.context_today
 
