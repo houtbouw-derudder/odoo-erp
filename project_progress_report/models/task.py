@@ -14,7 +14,7 @@ class Task(models.Model):
         'Quantity', digits='1.3f', tracking=True, default=0.0)
     progress_unit = fields.Char('Unit', tracking=True, default='sog')
     progress_currency_id = fields.Many2one('res.currency', 'Currency', compute='_compute_progress_currency_id', tracking=True)
-    progress_unit_price = fields.Float('Unit price', digits='Product Price', tracking=True)
+    progress_unit_price = fields.Monetary('Unit price', digits='Product Price', tracking=True, currency_field='progress_currency_id')
 
     @api.depends('company_id')
     def _compute_progress_currency_id(self):
@@ -27,7 +27,7 @@ class Task(models.Model):
         for task in self:
             task.progress_total_price = task.progress_quantity * task.progress_unit_price
 
-    progress_total_price = fields.Float('Total price', compute=_compute_progress_total_price)
+    progress_total_price = fields.Monetary('Total price', compute=_compute_progress_total_price, currency_field='progress_currency_id')
     
     progress_percentage = fields.Float("Progress precentage", group_operator="avg", help="Display progress of current task.", tracking=True)
 
