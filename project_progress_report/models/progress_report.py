@@ -36,7 +36,7 @@ class ProgressReport(models.Model):
 
     def _do_update_task_progress(self):
         self.ensure_one()
-        self.task_progess_ids -= []
+        self.task_progess_ids = []
 
     def update_task_progress(self):
         for report in self:
