@@ -13,8 +13,7 @@ class ProgressReport(models.Model):
     name = fields.Char(string='Number', required=True,
                        readonly=True, copy=False, default='/')
     date = fields.Date(string='Date', required=True, index=True, readonly=True,
-                       states={'draft': [('readonly', False)]},
-                       default=fields.Date.context_today)
+                       states={'draft': [('readonly', False), ('required', False)]})
     project_id = fields.Many2one('project.project', string='Project', default=lambda self: self.env.context.get('default_project_id'),
                                  index=True, required=True, readonly=True, states={'draft': [('readonly', False)]})
     state = fields.Selection(selection=[
@@ -40,7 +39,7 @@ class ProgressReport(models.Model):
 
     def _do_update_task_progress(self):
         self.ensure_one()
-        
+
         self.task_progess_ids.unlink()
 
         stage_ids = []
@@ -49,8 +48,9 @@ class ProgressReport(models.Model):
 
         if len(stage_ids) == 0:
             return
-        
-        tasks = self.env['project.task'].search([('project_id', '=', self.project_id.id), ('stage_id', 'in', stage_ids)])
+
+        tasks = self.env['project.task'].search(
+            [('project_id', '=', self.project_id.id), ('stage_id', 'in', stage_ids)])
         TaskProgress = self.env['project.task.progress']
         for task in tasks:
             task_progress_values = {}
@@ -62,7 +62,8 @@ class ProgressReport(models.Model):
             task_progress_values['progress_unit_price'] = task.progress_unit_price
             task_progress_values['progress_total_price'] = task.progress_total_price
             task_progress_values['progress_percentage'] = task.progress_percentage
-            task_progress_values['progress_price'] = task.progress_total_price * task.progress_percentage
+            task_progress_values['progress_price'] = task.progress_total_price * \
+                task.progress_percentage
             TaskProgress.create([task_progress_values])
 
     def update_task_progress(self):
