@@ -66,6 +66,7 @@
 								<field name="progress_unit_price" widget="monetary" options="{'currency_field': 'progress_currency_id', 'field_digits': True}" />
 								<field name="progress_total_price" widget="monetary" options="{'currency_field': 'progress_currency_id', 'field_digits': True}" />
 								<field name="progress_percentage" widget="percentage" />
+								<field name="progress_price" widget="monetary" options="{'currency_field': 'progress_currency_id', 'field_digits': True}" />
 							</tree>
 						</field>
 					</group>
