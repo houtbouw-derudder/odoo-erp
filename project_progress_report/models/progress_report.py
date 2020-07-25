@@ -6,6 +6,7 @@ from odoo import models, fields, api, _
 class ProgressReport(models.Model):
     _name = 'project.progress.report'
     _description = 'A Progress Report for tasks in a project'
+    _inherit = ['mail.thread']
 
     name = fields.Char(string='Number', required=True,
                        readonly=True, copy=False, default='/')
