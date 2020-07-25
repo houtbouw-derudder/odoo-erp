@@ -13,7 +13,7 @@
 	
 	<record id="rule_progress_report" model="ir.rule">
 		<field name="name">Progress report</field>
-		<field name="model_id" ref="project.progress.report"/>
+		<field name="model_id" ref="model_project_progress_report"/>
 		<field eval="0" name="perm_unlink"/>
 		<field eval="0" name="perm_write"/>
 		<field eval="1" name="perm_read"/>
