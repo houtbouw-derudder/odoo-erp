@@ -41,8 +41,16 @@ class ProgressReport(models.Model):
     def _do_update_task_progress(self):
         self.ensure_one()
         self.task_progess_ids = []
+        stage_ids = []
         for stage in self.project_id.type_ids.filtered(lambda s: s.include_in_progress_report == True):
-            _logger.warning(stage.name)
+            stage_ids.append(stage.id)
+        
+        _logger.warning(stage_ids)
+        if len(stage_ids) == 0:
+            return
+        
+        tasks = self.env['project.task'].search([('project_id', '=', self.project_id.id), ('stage_id', 'in', stage_ids)])
+        _logger.warning(tasks)
 
     def update_task_progress(self):
         for report in self:
