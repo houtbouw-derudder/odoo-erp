@@ -13,7 +13,7 @@ class ProgressReport(models.Model):
                        states={'draft': [('readonly', False)]},
                        default=fields.Date.context_today)
     project_id = fields.Many2one('project.project', string='Project', default=lambda self: self.env.context.get('default_project_id'),
-                                 index=True, tracking=True, required=True)
+                                 index=True, required=True, readonly=True, states={'draft': [('readonly', False)]})
     state = fields.Selection(selection=[
         ('draft', 'Draft'),
         ('approved', 'Approved'),
