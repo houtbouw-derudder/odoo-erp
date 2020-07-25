@@ -2,6 +2,12 @@
 
 from odoo import models, fields, api, _
 
+states_dict = {
+    'draft': [('readonly', False)],
+    'approved': [('readonly', True)],
+    'cancel': [('readonly', True)]
+}
+
 
 class ProgressReport(models.Model):
     _name = 'project.progress.report'
@@ -13,8 +19,9 @@ class ProgressReport(models.Model):
     date = fields.Date(string='Date', required=True, index=True, readonly=True,
                        states={'draft': [('readonly', False), ('required', False)]})
     project_id = fields.Many2one('project.project', string='Project', default=lambda self: self.env.context.get('default_project_id'),
-                                 index=True, required=True, readonly=True, states={'draft': [('readonly', False)]})
-    previous_progress_report_id = fields.Many2one('project.progress.report', string='Previous progress report', domain="[('project_id', '=', project_id),('state','in',['approved'])]")
+                                 index=True, required=True, readonly=True, states=states_dict)
+    previous_progress_report_id = fields.Many2one('project.progress.report', string='Previous progress report',
+                                                  states=states_dict, domain="[('project_id', '=', project_id),('state','in',['approved'])]")
     state = fields.Selection(selection=[
         ('draft', 'Draft'),
         ('approved', 'Approved'),
