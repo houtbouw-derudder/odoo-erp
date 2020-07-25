@@ -8,6 +8,15 @@ states_dict = {
     'cancel': [('readonly', True)]
 }
 
+states_dict_with_required = {
+    'draft': [('readonly', False), ('required', False)],
+    'approved': [('readonly', True), ('required', True)],
+    'cancel': [('readonly', True), ('required', True)],
+}
+
+states = [('draft', 'Draft'), ('approved', 'Approved'),
+          ('cancel', 'Cancelled')]
+
 
 class ProgressReport(models.Model):
     _name = 'project.progress.report'
@@ -16,18 +25,14 @@ class ProgressReport(models.Model):
 
     name = fields.Char(string='Number', required=True,
                        readonly=True, copy=False, default='/')
-    date = fields.Date(string='Date', required=True, index=True, readonly=True,
-                       states={'draft': [('readonly', False), ('required', False)]})
-    project_id = fields.Many2one('project.project', string='Project', default=lambda self: self.env.context.get('default_project_id'),
-                                 index=True, required=True, readonly=True, states=states_dict)
+    date = fields.Date(string='Date', readonly=True,
+                       states=states_dict_with_required)
+    project_id = fields.Many2one('project.project', string='Project', default=lambda self: self.env.context.get(
+        'default_project_id'), index=True, required=True, readonly=True, states=states_dict)
     previous_progress_report_id = fields.Many2one('project.progress.report', string='Previous progress report',
-                                                  states=states_dict, domain="[('project_id', '=', project_id),('state','in',['approved'])]")
-    state = fields.Selection(selection=[
-        ('draft', 'Draft'),
-        ('approved', 'Approved'),
-        ('cancel', 'Cancelled')
-    ], string='Status', required=True, readonly=True, copy=False, tracking=True,
-        default='draft')
+                                                  readonly=True, states=states_dict, domain="[('project_id', '=', project_id),('state','in',['approved'])]")
+    state = fields.Selection(selection=states, string='Status', required=True,
+                             readonly=True, copy=False, tracking=True, default='draft')
 
     task_progess_ids = fields.One2many('project.task.progress', 'progress_report_id',
                                        string="Task progress", readonly=True, states={'draft': [('readonly', False)]})
