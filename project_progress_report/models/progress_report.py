@@ -90,7 +90,7 @@ class ProgressReport(models.Model):
                 'project.progress.report', sequence_date=self.date)
 
         if not self.date:
-            to_write['date'] = fields.Date.context_today
+            to_write['date'] = fields.Date.context_today()
 
         self.write(to_write)
 
