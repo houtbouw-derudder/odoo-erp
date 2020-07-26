@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 states_dict = {
     'draft': [('readonly', False)],
@@ -47,6 +48,12 @@ class ProgressReport(models.Model):
                 name = report.name
             result.append((report.id, name))
         return result
+
+    @api.constrains('state', 'date')
+    def _constrain_state_date(self):
+        for report in self:
+            if report.state != 'draft' and not report.date:
+                raise ValidationError(_("Date is required for progress reports not in state 'draft'"))
 
     def _do_update_task_progress(self):
         self.ensure_one()
