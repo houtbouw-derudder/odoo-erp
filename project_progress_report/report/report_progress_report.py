@@ -11,6 +11,7 @@ _logger = logging.getLogger(__name__)
 
 class ReportProgressReport(models.AbstractModel):
     _name = 'report.project_progress_report.report_progress_report'
+    _description = "Project progress report"
 
     def _get_report_values(self, docids, data=None):
         _logger.warning(docids)

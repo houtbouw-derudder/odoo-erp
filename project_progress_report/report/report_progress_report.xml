@@ -228,61 +228,61 @@
 							<h2>Progress Report <span t-field="o.name" />
 							</h2>
 							<p>
-							Project: <span t-field="o.project_id" />
+								Project: <span t-field="o.project_id" />
 							<br />
-							Date: <span t-field="o.date" />
-							<br />
-							Previous: <span t-field="o.previous_progress_report_id" />
-						</p>
-						<table class="table table-sm o_main_table" name="invoice_line_table">
-							<thead>
+								Date: <span t-field="o.date" />
+						<br />
+								Previous: <span t-field="o.previous_progress_report_id" />
+					</p>
+					<table class="table table-sm o_main_table" name="invoice_line_table">
+						<thead>
+							<tr>
+								<th>Task</th>
+								<th colspan="3">Previous</th>
+								<th colspan="3">Current</th>
+								<th>Billable amount</th>
+							</tr>
+							<tr>
+								<th></th>
+								<th>Qty.</th>
+								<th>Unit pr.</th>
+								<th>%</th>
+								<th>Qty.</th>
+								<th>Unit pr.</th>
+								<th>%</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<t t-foreach="o.task_progress_ids" t-as="task">
 								<tr>
-									<th>Task</th>
-									<th colspan="3">Previous</th>
-									<th colspan="3">Current</th>
-									<th>Billable amount</th>
+									<td>
+										<span t-field="task.task_id" />
+									</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>
+										<span t-field="task.progress_quantity" />
+										<span t-field="task.progress_unit" />
+									</td>
+									<td>
+										<span t-field="task.progress_unit_price" />
+									</td>
+									<td>
+										<span t-field="task.progress_percentage" />
+									</td>
+									<td>
+										<span t-field="task.progress_price" />
+									</td>
 								</tr>
-								<tr>
-									<th></th>
-									<th>Qty.</th>
-									<th>Unit pr.</th>
-									<th>%</th>
-									<th>Qty.</th>
-									<th>Unit pr.</th>
-									<th>%</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<t t-foreach="o.task_progress_ids" t-as="task">
-									<tr>
-										<td>
-											<span t-field="task.task_id" />
-										</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td>
-											<span t-field="task.progress_quantity" />
-											<span t-field="task.progress_unit" />
-										</td>
-										<td>
-											<span t-field="task.progress_unit_price" />
-										</td>
-										<td>
-											<span t-field="task.progress_percentage" />
-										</td>
-										<td>
-											<span t-field="task.progress_price" />
-										</td>
-									</tr>
-								</t>
-							</tbody>
-						</table>
-					</div>
-				</t>
+							</t>
+						</tbody>
+					</table>
+				</div>
 			</t>
 		</t>
-	</template>
+	</t>
+</template>
 </data>
 </odoo>
