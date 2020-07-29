@@ -231,6 +231,8 @@
 							Project: <span t-field="o.project_id" />
 							<br />
 							Date: <span t-field="o.date" />
+							<br />
+							Previous: <span t-field="o.previous_progress_report_id" />
 						</p>
 						<table class="table table-sm o_main_table" name="invoice_line_table">
 							<thead>
