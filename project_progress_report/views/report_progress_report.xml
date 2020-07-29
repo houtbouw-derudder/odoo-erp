@@ -220,7 +220,7 @@
 		</t>
 	</template> -->
 
-		<template id="report_progess_report">
+		<template id="report_progress_report">
 			<t t-call="web.html_container">
 				<t t-foreach="docs" t-as="o">
 					<t t-call="web.external_layout">
