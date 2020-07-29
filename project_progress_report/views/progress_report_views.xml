@@ -51,7 +51,7 @@
 					<group>
 						<group>
 							<field name="project_id" />
-							<field name="previous_progress_report_id" />
+							<field name="previous_progress_report_id" create="False" edit="False" />
 						</group>
 						<group>
 							<field name="date" />
