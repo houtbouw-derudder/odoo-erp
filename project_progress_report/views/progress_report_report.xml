@@ -11,7 +11,7 @@
 			report_type="qweb-pdf" 
 			name="project_progress_report.report_progress_report" 
 			file="project_progress_report.report_progress_report" 
-			print_report_name="progress_report" 
+			print_report_name="'progress_report'" 
 		/>
 	</data>
 </odoo>
