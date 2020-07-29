@@ -241,14 +241,14 @@
 									<th>Billable amount</th>
 								</tr>
 								<tr>
-									<th>&nbsp;</th>
+									<th> </th>
 									<th>Quantity</th>
 									<th>Unit price</th>
 									<th>Progress %</th>
 									<th>Quantity</th>
 									<th>Unit price</th>
 									<th>Progress %</th>
-									<th>&nbsp;</th>
+									<th> </th>
 								</tr>
 							</thead>
 							<tbody>
@@ -257,12 +257,12 @@
 										<td>
 											<span t-field="task.task_id" />
 										</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
-										<td>&nbsp;</td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
+										<td> </td>
 										<td><span t-field="task.progress_price" /></td>
 									</tr>
 								</t>
