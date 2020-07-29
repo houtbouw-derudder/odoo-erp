@@ -241,14 +241,14 @@
 									<th>Billable amount</th>
 								</tr>
 								<tr>
-									<th> </th>
-									<th>Quantity</th>
-									<th>Unit price</th>
-									<th>Progress %</th>
-									<th>Quantity</th>
-									<th>Unit price</th>
-									<th>Progress %</th>
-									<th> </th>
+									<th></th>
+									<th>Qty.</th>
+									<th>Unit pr.</th>
+									<th>%</th>
+									<th>Qty.</th>
+									<th>Unit pr.</th>
+									<th>%</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -257,13 +257,22 @@
 										<td>
 											<span t-field="task.task_id" />
 										</td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
-										<td> </td>
-										<td><span t-field="task.progress_price" /></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>
+											<span t-field="progress_quantity" />
+											<span t-field="task.progress_unit" />
+										</td>
+										<td>
+											<span t-field="task.progress_unit_price" />
+										</td>
+										<td>
+											<span t-field="task.progress_percentage" />
+										</td>
+										<td>
+											<span t-field="task.progress_price" />
+										</td>
 									</tr>
 								</t>
 							</tbody>
