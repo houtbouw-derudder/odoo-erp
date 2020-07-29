@@ -237,7 +237,7 @@
  								(<span t-field="o.previous_progress_report_id.date" />)
 					</t>
 				</p>
-				<table class="table table-sm o_main_table" name="invoice_line_table">
+				<table class="table table-sm o_main_table" name="progress_report_tasks_table">
 					<thead>
 						<tr>
 							<th>Task</th>
