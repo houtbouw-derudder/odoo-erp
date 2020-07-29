@@ -232,6 +232,22 @@
 							<br />
 							Date: <span t-field="o.date" />
 						</p>
+						<table class="table table-sm o_main_table" name="invoice_line_table">
+							<thead>
+								<tr>
+									<th>Taak</th>
+								</tr>
+							</thead>
+							<tbody>
+								<t t-foreach="o.task_progress_ids" t-as="task">
+									<tr>
+										<td>
+											<span t-field="task.task_id" />
+										</td>
+									</tr>
+								</t>
+							</tbody>
+						</table>
 					</div>
 				</t>
 			</t>
