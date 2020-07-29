@@ -225,13 +225,17 @@
 				<t t-foreach="docs" t-as="o">
 					<t t-call="web.external_layout">
 						<div class="page">
-							<h2>Progress Report</h2>
-							<p>This object's name is <span t-field="o.name"/>
-							</p>
-						</div>
-					</t>
+							<h2>Progress Report <span t-field="o.name" />
+							</h2>
+							<p>
+							Project: <span t-field="o.project_id" />
+							<br />
+							Date: <span t-field="o.date" />
+						</p>
+					</div>
 				</t>
 			</t>
-		</template>
-	</data>
+		</t>
+	</template>
+</data>
 </odoo>
