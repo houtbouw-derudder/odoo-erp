@@ -9,7 +9,7 @@
 			model="project.progress.report" 
 			string="Progress Report" 
 			report_type="qweb-pdf" 
-			name="report_progress_report" 
+			name="project_progress_report.report_progress_report" 
 			file="project_progress_report.report_progress_report" 
 			print_report_name="progress_report" 
 		/>
