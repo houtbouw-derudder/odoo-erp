@@ -27,6 +27,7 @@
         'views/task_type_views.xml',
         'views/progress_report_views.xml',
         'views/project_views.xml',
+        'views/report_progess_report.xml',
         'views/progress_report_report.xml',
     ],
     # only loaded in demonstration mode
