@@ -58,7 +58,7 @@
 						</group>
 					</group>
 					<group>
-						<field name="task_progess_ids" nolabel="1">
+						<field name="task_progress_ids" nolabel="1">
 							<tree create="false">
 								<field name="task_id" />
 								<field name="progress_quantity" />

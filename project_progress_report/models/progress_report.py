@@ -35,7 +35,7 @@ class ProgressReport(models.Model):
     state = fields.Selection(selection=states, string='Status', required=True,
                              readonly=True, copy=False, tracking=True, default='draft')
 
-    task_progess_ids = fields.One2many('project.task.progress', 'progress_report_id',
+    task_progress_ids = fields.One2many('project.task.progress', 'progress_report_id',
                                        string="Task progress", readonly=True, states={'draft': [('readonly', False)]})
 
     @api.depends('name', 'state')
@@ -58,7 +58,7 @@ class ProgressReport(models.Model):
     def _do_update_task_progress(self):
         self.ensure_one()
 
-        self.task_progess_ids.unlink()
+        self.task_progress_ids.unlink()
 
         stage_ids = []
         for stage in self.project_id.type_ids.filtered(lambda s: s.include_in_progress_report == True):
