@@ -20,9 +20,12 @@ class ReportProgressReport(models.AbstractModel):
         _logger.warning(report_obj)
         report = report_obj._get_report_from_name('project_progress_report.report_progress_report')
         _logger.warning(report)
+
+        docs = self.env['project.progress.report'].browse(docids)
+
         docargs = {
             'doc_ids': docids,
             'doc_model': report.model,
-            'docs': self,
+            'docs': docs,
         }
         return docargs
