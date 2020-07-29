@@ -261,7 +261,7 @@
 										<td></td>
 										<td></td>
 										<td>
-											<span t-field="progress_quantity" />
+											<span t-field="task.progress_quantity" />
 											<span t-field="task.progress_unit" />
 										</td>
 										<td>
