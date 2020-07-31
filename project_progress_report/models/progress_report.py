@@ -106,9 +106,14 @@ class ProgressReport(models.Model):
             report._do_post()
 
     def _calculate_task_deltas(self):
+        self.ensure_one()
+
         task_deltas = []
         for task_progress in self.task_progress_ids:
-            task_deltas.append({'task': task_progress.task_id})
+            val = {
+                'task': task_progress.task_id
+            }
+            task_deltas.append(val)
 
         return task_deltas
 
