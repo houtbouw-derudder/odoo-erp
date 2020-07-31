@@ -111,7 +111,9 @@ class ProgressReport(models.Model):
         task_deltas = []
         for task_progress in self.task_progress_ids:
             val = {
-                'task': task_progress.task_id
+                'task': task_progress.task_id,
+                'current': task_progress,
+                'previous': None
             }
             task_deltas.append(val)
 
