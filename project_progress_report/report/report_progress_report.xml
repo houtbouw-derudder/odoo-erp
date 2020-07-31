@@ -265,9 +265,22 @@
 								<td>
 									<span t-field="task.name" />
 								</td>
+								<t t-if="previous is not None">
+								<td>
+									<span t-field="previous.progress_quantity" />
+									<span t-field="previous.progress_unit" />
+								</td>
+								<td>
+									<span t-field="previous.progress_unit_price" />
+								</td>
+								<td>
+									<span t-field="previous.progress_percentage" t-options="{'widget':'precentage'}" />
+								</td>
+								<t t-else="">
 								<td></td>
 								<td></td>
 								<td></td>
+								</t>
 								<td>
 									<span t-field="current.progress_quantity" />
 									<span t-field="current.progress_unit" />
@@ -276,7 +289,7 @@
 									<span t-field="current.progress_unit_price" />
 								</td>
 								<td>
-									<span t-field="current.progress_percentage" />
+									<span t-field="current.progress_percentage" t-options="{'widget':'precentage'}" />
 								</td>
 								<td>
 									<span t-field="current.progress_price" />
