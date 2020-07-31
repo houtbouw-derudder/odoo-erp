@@ -6,35 +6,35 @@
 				<t t-foreach="docs" t-as="o">
 					<t t-call="web.external_layout">
 						<div class="page">
-							<h2>Progress Report 								
+							<h2>Progress Report 																																																
 								<span t-field="o.name" />
 							</h2>
-							<p>								Project: 								
+							<p>Project: 																																				
 								<span t-field="o.project_id" />
-								<br />								Date: 								
+								<br />Date: 																																																
 								<span t-field="o.date" />
-								<t t-if="o.previous_progress_report_id is not None">
-									<br />								Previous: 									
-									<span t-field="o.previous_progress_report_id" /> 								(									
-									<span t-field="o.previous_progress_report_id.date" />)													
+								<t t-if="o.previous_progress_report_id">
+									<br />Previous: 																																																						
+									<span t-field="o.previous_progress_report_id" /> (									
+									<span t-field="o.previous_progress_report_id.date" />)																																																					
 								</t>
 							</p>
 							<table class="table table-sm o_main_table" name="progress_report_tasks_table">
 								<thead>
 									<tr>
 										<th>Task</th>
-										<t t-if="o.previous_progress_report_id is not None">
-										<th colspan="3">Previous</th>
+										<t t-if="o.previous_progress_report_id">
+											<th colspan="3">Previous</th>
 										</t>
 										<th colspan="3">Current</th>
 										<th>Billable amount</th>
 									</tr>
 									<tr>
 										<th></th>
-										<t t-if="o.previous_progress_report_id is not None">
-										<th>Qty.</th>
-										<th>Unit pr.</th>
-										<th>%</th>
+										<t t-if="o.previous_progress_report_id">
+											<th>Qty.</th>
+											<th>Unit pr.</th>
+											<th>%</th>
 										</t>
 										<th>Qty.</th>
 										<th>Unit pr.</th>
@@ -63,7 +63,7 @@
 													<span t-field="previous.progress_percentage" t-options="{'widget':'precentage'}" />
 												</td>
 											</t>
-											<t t-if="(previous is None) and (o.previous_progress_report_id is not None)">
+											<t t-if="(previous is None) and o.previous_progress_report_id">
 												<td></td>
 												<td></td>
 												<td></td>
@@ -82,6 +82,85 @@
 												<span t-field="current.progress_price" />
 											</td>
 										</tr>
+									</t>
+								</tbody>
+							</table>
+
+							<table class="table table-sm o_main_table" name="progress_report_tasks_table">
+								<!-- <thead>
+									<tr>
+										<th>Task</th>
+										<t t-if="o.previous_progress_report_id">
+											<th colspan="3">Previous</th>
+										</t>
+										<th colspan="3">Current</th>
+										<th>Billable amount</th>
+									</tr>
+									<tr>
+										<th></th>
+										<t t-if="o.previous_progress_report_id">
+											<th>Qty.</th>
+											<th>Unit pr.</th>
+											<th>%</th>
+										</t>
+										<th>Qty.</th>
+										<th>Unit pr.</th>
+										<th>%</th>
+										<th></th>
+									</tr>
+								</thead> -->
+								<tbody>
+									<t t-foreach="o._calculate_task_deltas()" t-as="task_delta">
+										<t t-set="task" t-value="task_delta['task']" />
+										<t t-set="previous" t-value="task_delta['previous']" />
+										<t t-set="current" t-value="task_delta['current']" />
+										<tr>
+											<td><span t-field="task.name" /></td>
+											<td><span t-field="current.progress_total_price" /></td>
+											<td><span t-esc="'{} %'.format(current.progress_percentage)" /></td>
+											<td><span t-field="current.progress_price" /></td>
+										</tr>
+										<tr>
+											<td><span t-field="task.description" /></td>
+											<td><span t-field="current.progress_quantity" /></td>
+											<td><span t-field="current.progress_unit" /></td>
+											<td><span t-field="current.progress_unit_price" /></td>
+										</tr>
+										<!-- <tr>
+											<td>
+												<span t-field="task.name" />
+											</td>
+											<t t-if="previous is not None">
+												<td>
+													<span t-field="previous.progress_quantity" />
+													<span t-field="previous.progress_unit" />
+												</td>
+												<td>
+													<span t-field="previous.progress_unit_price" />
+												</td>
+												<td>
+													<span t-field="previous.progress_percentage" t-options="{'widget':'precentage'}" />
+												</td>
+											</t>
+											<t t-if="(previous is None) and o.previous_progress_report_id">
+												<td></td>
+												<td></td>
+												<td></td>
+											</t>
+											<td>
+												<span t-field="current.progress_quantity" />
+												<span t-field="current.progress_unit" />
+											</td>
+											<td>
+												<span t-field="current.progress_unit_price" />
+											</td>
+											<td>
+												<span t-field="current.progress_percentage" t-options="{'widget':'precentage'}" />
+											</td>
+											<td>
+												<span t-field="current.progress_price" />
+											</td>
+										</tr> -->
 									</t>
 								</tbody>
 							</table>
