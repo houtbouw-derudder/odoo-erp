@@ -280,6 +280,29 @@
 								</td>
 							</tr>
 						</t>
+						<t t-foreach="o.task_deltas" t-as="task_delta">
+							<tr>
+								<td>
+									<span t-field="task_delta.task.name" />
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<!-- <span t-field="task.progress_quantity" />
+									<span t-field="task.progress_unit" /> -->
+								</td>
+								<td>
+									<!-- <span t-field="task.progress_unit_price" /> -->
+								</td>
+								<td>
+									<!-- <span t-field="task.progress_percentage" /> -->
+								</td>
+								<td>
+									<!-- <span t-field="task.progress_price" /> -->
+								</td>
+							</tr>
+						</t>
 					</tbody>
 				</table>
 			</div>
