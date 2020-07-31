@@ -104,3 +104,11 @@ class ProgressReport(models.Model):
     def post(self):
         for report in self:
             report._do_post()
+
+    def _calculate_task_deltas(self):
+        task_deltas = []
+        for task_progress in self.task_progress_ids:
+            task_deltas.append({'task': task_progress.task_id})
+
+        return task_deltas
+

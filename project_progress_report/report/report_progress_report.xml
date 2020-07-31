@@ -280,7 +280,7 @@
 								</td>
 							</tr>
 						</t>
-						<t t-foreach="o.task_deltas" t-as="task_delta">
+						<t t-foreach="o._calculate_task_deltas()" t-as="task_delta">
 							<tr>
 								<td>
 									<span t-field="task_delta.task.name" />
