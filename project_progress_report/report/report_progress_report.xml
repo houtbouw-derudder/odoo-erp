@@ -19,7 +19,7 @@
 									<span t-field="o.previous_progress_report_id.date" />)																																																					
 								</t>
 							</p>
-							<table class="table table-sm o_main_table" name="progress_report_tasks_table">
+							<!-- <table class="table table-sm o_main_table" name="progress_report_tasks_table">
 								<thead>
 									<tr>
 										<th>Task</th>
@@ -84,7 +84,7 @@
 										</tr>
 									</t>
 								</tbody>
-							</table>
+							</table> -->
 
 							<table class="table table-sm o_main_table" name="progress_report_tasks_table">
 								<!-- <thead>
@@ -116,7 +116,7 @@
 										<t t-set="current" t-value="task_delta['current']" />
 										<tr>
 											<td><span t-field="task.name" /></td>
-											<td><span t-esc="'{0} {1} * {2} / {1} = {3}'.format(current.progress_quantity, current.progress_unit, current.progress_unit_price, current.progress_total_price" /></td>
+											<td><span t-esc="'{0} {1} * {2} / {1} = {3}'.format(current.progress_quantity, current.progress_unit, current.progress_unit_price, current.progress_total_price)" /></td>
 											<td><span t-field="current.progress_total_price" /></td>
 											<!-- <td><span t-esc="'{} %'.format(current.progress_percentage)" /></td>
 											<td><span t-field="current.progress_price" /></td> -->
