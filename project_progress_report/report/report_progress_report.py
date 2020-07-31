@@ -21,8 +21,6 @@ class ReportProgressReport(models.AbstractModel):
 
         data = []
         for progress_report in progress_reports:
-            x = self.create({})
-            _logger.warning(x)
             val = {}
             val['name'] = progress_report.name
             val['date'] = progress_report.date
