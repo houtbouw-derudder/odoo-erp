@@ -6,17 +6,17 @@
 				<t t-foreach="docs" t-as="o">
 					<t t-call="web.external_layout">
 						<div class="page">
-							<h2>Progress Report 
+							<h2>Progress Report 								
 								<span t-field="o.name" />
 							</h2>
-							<p>								Project: 
+							<p>								Project: 								
 								<span t-field="o.project_id" />
-								<br />								Date: 
+								<br />								Date: 								
 								<span t-field="o.date" />
 								<t t-if="o.previous_progress_report_id">
-									<br />								Previous: 
-									<span t-field="o.previous_progress_report_id" /> 								(
-									<span t-field="o.previous_progress_report_id.date" />)					
+									<br />								Previous: 									
+									<span t-field="o.previous_progress_report_id" /> 								(									
+									<span t-field="o.previous_progress_report_id.date" />)													
 								</t>
 							</p>
 							<table class="table table-sm o_main_table" name="progress_report_tasks_table">
@@ -58,10 +58,11 @@
 												<td>
 													<span t-field="previous.progress_percentage" t-options="{'widget':'precentage'}" />
 												</td>
-											<t t-else="">
-													<td></td>
-													<td></td>
-													<td></td>
+											</t>
+											<t t-if="previous is None">
+												<td></td>
+												<td></td>
+												<td></td>
 											</t>
 											<td>
 												<span t-field="current.progress_quantity" />
