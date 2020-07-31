@@ -281,6 +281,30 @@
 							</tr>
 						</t>
 						<t t-foreach="o._calculate_task_deltas()" t-as="task_delta">
+							<t t-set="task" t-value="task_delta['task']" />
+							<t t-set="previous" t-value="task_delta['previous']" />
+							<t t-set="current" t-value="task_delta['current']" />
+							<tr>
+								<td>
+									<span t-field="task.name" />
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+									<span t-field="current.progress_quantity" />
+									<span t-field="current.progress_unit" />
+								</td>
+								<td>
+									<span t-field="current.progress_unit_price" />
+								</td>
+								<td>
+									<span t-field="current.progress_percentage" />
+								</td>
+								<td>
+									<span t-field="current.progress_price" />
+								</td>
+							</tr>
 							<tr>
 								<td>
 								<span t-esc="task_delta['task']" />
