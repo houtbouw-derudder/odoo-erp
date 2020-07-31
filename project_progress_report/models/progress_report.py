@@ -108,6 +108,11 @@ class ProgressReport(models.Model):
     def _calculate_task_deltas(self):
         self.ensure_one()
 
+        previous_task_progess = {}
+        if self.previous_progress_report_id is not None:
+            for task_progress in self.previous_progress_report_id.task_progess_ids:
+                previous_task_progess[task_progress.task_id.id] = task_progress
+        
         task_deltas = []
         for task_progress in self.task_progress_ids:
             val = {
@@ -115,6 +120,10 @@ class ProgressReport(models.Model):
                 'current': task_progress,
                 'previous': None
             }
+
+            if task_progress.task_id.id in previous_task_progess:
+                val['previous'] = previous_task_progess[task_progress.task_id.id]
+
             task_deltas.append(val)
 
         return task_deltas
