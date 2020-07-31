@@ -13,7 +13,7 @@
 								<span t-field="o.project_id" />
 								<br />								Date: 								
 								<span t-field="o.date" />
-								<t t-if="o.previous_progress_report_id">
+								<t t-if="o.previous_progress_report_id is not None">
 									<br />								Previous: 									
 									<span t-field="o.previous_progress_report_id" /> 								(									
 									<span t-field="o.previous_progress_report_id.date" />)													
@@ -23,15 +23,19 @@
 								<thead>
 									<tr>
 										<th>Task</th>
+										<t t-if="o.previous_progress_report_id is not None">
 										<th colspan="3">Previous</th>
+										</t>
 										<th colspan="3">Current</th>
 										<th>Billable amount</th>
 									</tr>
 									<tr>
 										<th></th>
+										<t t-if="o.previous_progress_report_id is not None">
 										<th>Qty.</th>
 										<th>Unit pr.</th>
 										<th>%</th>
+										</t>
 										<th>Qty.</th>
 										<th>Unit pr.</th>
 										<th>%</th>
@@ -59,7 +63,7 @@
 													<span t-field="previous.progress_percentage" t-options="{'widget':'precentage'}" />
 												</td>
 											</t>
-											<t t-if="previous is None">
+											<t t-if="(previous is None) and (o.previous_progress_report_id is not None)">
 												<td></td>
 												<td></td>
 												<td></td>
