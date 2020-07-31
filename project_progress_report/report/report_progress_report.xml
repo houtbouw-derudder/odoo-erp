@@ -257,29 +257,6 @@
 						</tr>
 					</thead>
 					<tbody>
-						<t t-foreach="o.task_progress_ids" t-as="task">
-							<tr>
-								<td>
-									<span t-field="task.task_id" />
-								</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td>
-									<span t-field="task.progress_quantity" />
-									<span t-field="task.progress_unit" />
-								</td>
-								<td>
-									<span t-field="task.progress_unit_price" />
-								</td>
-								<td>
-									<span t-field="task.progress_percentage" />
-								</td>
-								<td>
-									<span t-field="task.progress_price" />
-								</td>
-							</tr>
-						</t>
 						<t t-foreach="o._calculate_task_deltas()" t-as="task_delta">
 							<t t-set="task" t-value="task_delta['task']" />
 							<t t-set="previous" t-value="task_delta['previous']" />
@@ -307,7 +284,7 @@
 							</tr>
 							<tr>
 								<td>
-								<span t-esc="task_delta['task']" />
+									<span t-esc="task_delta['task']" />
 									<!-- <span t-esc="task_delta.task.name" /> -->
 								</td>
 								<td></td>
