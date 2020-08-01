@@ -120,28 +120,32 @@
 										<tr>
 											<td rowspan="5"><span t-field="task.description" /></td>
 											<td>Qty.</td>
-											<td><span style="font-size:80%" t-field="previous.progress_quantity" /></td>
-											<td><span t-field="current.progress_quantity" /></td>
+											<td align="right"><span style="font-size:80%" t-field="previous.progress_quantity" /></td>
+											<td align="right"><span t-field="current.progress_quantity" /></td>
 										</tr>
 										<tr>
 											<td>Unit</td>
-											<td><span style="font-size:80%" t-field="previous.progress_unit" /></td>
-											<td><span t-field="current.progress_unit" /></td>
+											<td align="right"><span style="font-size:80%" t-field="previous.progress_unit" /></td>
+											<td align="right"><span t-field="current.progress_unit" /></td>
 										</tr>
 										<tr>
 											<td>Unit pr.</td>
-											<td><span style="font-size:80%" t-field="previous.progress_unit_price" /></td>
-											<td><span t-field="current.progress_unit_price" /></td>
+											<td align="right"><span style="font-size:80%" t-field="previous.progress_unit_price" /></td>
+											<td align="right"><span t-field="current.progress_unit_price" /></td>
 										</tr>
 										<tr>
 											<td>Total pr.</td>
-											<td><span style="font-size:80%" t-field="previous.progress_total_price" /></td>
-											<td><span t-field="current.progress_total_price" /></td>
+											<td align="right"><span style="font-size:80%" t-field="previous.progress_total_price" /></td>
+											<td align="right"><span t-field="current.progress_total_price" /></td>
 										</tr>
 										<tr>
 											<td>Progress</td>
-											<td><span style="font-size:80%" t-esc="'{} %'.format(previous.progress_percentage)" /></td>
-											<span t-esc="'{} %'.format(current.progress_percentage)" />
+											<td align="right"><span style="font-size:80%" t-esc="'{} %'.format(previous.progress_percentage)" /></td>
+											<td align="right"><span t-esc="'{} %'.format(current.progress_percentage)" /></td>
+										</tr>
+										<tr>
+											<td colspan="3"></td>
+											<td align="right"><strong><span t-field="current.progress_price" /></strong></td>
 										</tr>
 
 										<!-- <tr>
