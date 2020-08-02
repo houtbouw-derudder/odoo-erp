@@ -75,9 +75,9 @@
 										<tr>
 											<td>Progress</td>
 											<t t-if="previous">
-												<td align="right"><span style="font-size:80%" t-esc="'{} %'.format(previous.progress_percentage)" /></td>
+												<td align="right"><span style="font-size:80%" t-esc="'{:0.2f} %'.format(previous.progress_percentage*100)" /></td>
 											</t>
-											<td align="right"><span t-esc="'{} %'.format(current.progress_percentage)" /></td>
+											<td align="right"><span t-esc="'{:0.2f} %'.format(current.progress_percentage*100)" /></td>
 										</tr>
 										<tr>
 											<t t-if="previous">
