@@ -24,7 +24,9 @@
 								<thead>
 									<tr>
 										<th colspan="2">Task</th>
+										<t t-if="previous">
 										<th>Previous</th>
+										</t>
 										<th>Current</th>
 									</tr>
 								</thead>
@@ -34,36 +36,56 @@
 										<t t-set="previous" t-value="task_delta['previous']" />
 										<t t-set="current" t-value="task_delta['current']" />
 										<tr>
-											<td colspan="4"><span t-field="task.name" /></td>
+											<t t-if="previous">
+												<td colspan="4"><span t-field="task.name" /></td>
+											</t>
+											<t t-if="not previous">
+												<td colspan="3"><span t-field="task.name" /></td>
+											</t>
 										</tr>
 										<tr>
 											<td rowspan="5"><span t-field="task.description" /></td>
 											<td>Qty.</td>
-											<td align="right"><span style="font-size:80%" t-field="previous.progress_quantity" /></td>
+											<<t t-if="previous">
+												td align="right"><span style="font-size:80%" t-field="previous.progress_quantity" /></td>
+											</t>
 											<td align="right"><span t-field="current.progress_quantity" /></td>
 										</tr>
 										<tr>
 											<td>Unit</td>
-											<td align="right"><span style="font-size:80%" t-field="previous.progress_unit" /></td>
+											<t t-if="previous">
+												<td align="right"><span style="font-size:80%" t-field="previous.progress_unit" /></td>
+											</t>
 											<td align="right"><span t-field="current.progress_unit" /></td>
 										</tr>
 										<tr>
 											<td>Unit pr.</td>
-											<td align="right"><span style="font-size:80%" t-field="previous.progress_unit_price" /></td>
+											<t t-if="previous">
+												<td align="right"><span style="font-size:80%" t-field="previous.progress_unit_price" /></td>
+											</t>
 											<td align="right"><span t-field="current.progress_unit_price" /></td>
 										</tr>
 										<tr>
 											<td>Total pr.</td>
-											<td align="right"><span style="font-size:80%" t-field="previous.progress_total_price" /></td>
+											<t t-if="previous">
+												<td align="right"><span style="font-size:80%" t-field="previous.progress_total_price" /></td>
+											</t>
 											<td align="right"><span t-field="current.progress_total_price" /></td>
 										</tr>
 										<tr>
 											<td>Progress</td>
-											<td align="right"><span style="font-size:80%" t-esc="'{} %'.format(previous.progress_percentage)" /></td>
+											<t t-if="previous">
+												<td align="right"><span style="font-size:80%" t-esc="'{} %'.format(previous.progress_percentage)" /></td>
+											</t>
 											<td align="right"><span t-esc="'{} %'.format(current.progress_percentage)" /></td>
 										</tr>
 										<tr>
-											<td colspan="3"></td>
+											<t t-if="previous">
+												<td colspan="3"></td>
+											</t>
+											<t t-if="not previous">
+												<td colspan="2"></td>
+											</t>											
 											<td align="right"><strong><span t-field="current.progress_price" /></strong></td>
 										</tr>
 									</t>
