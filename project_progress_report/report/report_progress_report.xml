@@ -47,7 +47,7 @@
 											<td rowspan="5"><span t-field="task.description" /></td>
 											<td>Qty.</td>
 											<t t-if="previous">
-												td align="right"><span style="font-size:80%" t-field="previous.progress_quantity" /></td>
+												<td align="right"><span style="font-size:80%" t-field="previous.progress_quantity" /></td>
 											</t>
 											<td align="right"><span t-field="current.progress_quantity" /></td>
 										</tr>
