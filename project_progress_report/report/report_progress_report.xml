@@ -25,9 +25,9 @@
 									<tr>
 										<th colspan="2">Task</th>
 										<t t-if="o.previous_progress_report_id">
-											<th>Previous</th>
+											<th align="right">Previous</th>
 										</t>
-										<th>Current</th>
+										<th align="right">Current</th>
 									</tr>
 								</thead>
 								<tbody>
