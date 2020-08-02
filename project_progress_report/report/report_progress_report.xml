@@ -91,6 +91,31 @@
 									</t>
 								</tbody>
 							</table>
+							
+							<div class="clearfix">
+							<div class="row">
+									<div class="col-6 ml-auto">
+										<table class="table table-sm">
+											<tr>
+												<th>Total price</th>
+												<td></td>
+											</tr>
+											<tr>
+												<th>Progress price</th>
+												<td></td>
+											</tr>
+											<tr>
+												<th>Incoices</th>
+												<td></td>
+											</tr>
+											<tr>
+												<th>Billable</th>
+												<td></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
 						</div>
 					</t>
 				</t>
