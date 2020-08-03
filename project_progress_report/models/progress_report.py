@@ -38,6 +38,15 @@ class ProgressReport(models.Model):
     task_progress_ids = fields.One2many('project.task.progress', 'progress_report_id',
                                        string="Task progress", readonly=True, states={'draft': [('readonly', False)]})
 
+    def _calculate_global_total_price(self):
+        self.ensure_one()
+
+        total_price = 0
+        for task_progress in self.task_progress_ids:
+            total_price += task_progress.progress_total_price
+        
+        return total_price
+
     @api.depends('name', 'state')
     def name_get(self):
         result = []

@@ -98,7 +98,7 @@
 										<table class="table table-sm">
 											<tr>
 												<th>Total price</th>
-												<td></td>
+												<td><t t-esc="o._calculate_global_total_price()" /></td>
 											</tr>
 											<tr>
 												<th>Progress price</th>
