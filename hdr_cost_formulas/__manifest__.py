@@ -1,7 +1,7 @@
 {
     'name': "Cost fomrulas",
     'version': '1.0',
-    'depends': ['base'],
+    'depends': ['base', 'mail'],
     'author': "Houtbouw De Rudder bv",
     'category': 'Houtbouw De Rudder',
     'description': """
