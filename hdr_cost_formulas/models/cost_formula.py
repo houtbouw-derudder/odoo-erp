@@ -8,6 +8,6 @@ class CostFormula(models.Model):
     _description = "Cost formula"
     _order = 'sequence, id'
 
-    name = fields.Char(string='Stage Name', required=True, translate=True)
-    description = fields.Text(translate=True)
+    name = fields.Char(string='Name', required=True, translate=True)
+    description = fields.Text(string='Description', translate=True)
     sequence = fields.Integer(default=1)
