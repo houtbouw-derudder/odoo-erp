@@ -12,7 +12,7 @@
 		</field>
 	</record>
 
-	<record model="ir.ui.view" id="cost_formulas_tree">
+	<record model="ir.ui.view" id="cost_formulas_form">
 		<field name="name">cost.formula.form</field>
 		<field name="model">cost.formula</field>
 		<field name="priority" eval="16"/>
