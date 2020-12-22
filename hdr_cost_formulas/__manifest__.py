@@ -8,7 +8,8 @@
     Manage cost formulas
     """,
     'data': [
-        'views/cost_formulas.xml'
+        'views/cost_formulas.xml',
+        'security/ir.model.access.csv'
     ],
     'demo': [
         # 'demo/demo_data.xml',
