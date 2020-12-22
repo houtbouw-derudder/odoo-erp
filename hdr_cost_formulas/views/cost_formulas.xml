@@ -26,8 +26,6 @@
 					</div>
 					<group colspan="2" col="2">
 						<field name="description" placeholder="Cost formula description ..." />
-					</group>
-                    <group colspan="2" col="2">
                         <field name="parameters" />
                         <field name="view" />
                     </group>
