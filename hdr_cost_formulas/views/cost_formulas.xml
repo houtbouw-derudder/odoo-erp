@@ -11,7 +11,6 @@
 			</tree>
 		</field>
 	</record>
-
 	<record model="ir.ui.view" id="cost_formulas_form">
 		<field name="name">cost.formula.form</field>
 		<field name="model">cost.formula</field>
@@ -29,10 +28,13 @@
 						<field name="description" placeholder="Cost formula description ..." />
 					</group>
 				</sheet>
+				<notebook>
+					<page string="Variables"></page>
+					<page string="Cost items"></page>
+				</notebook>
 			</form>
 		</field>
 	</record>
-
 	<record model="ir.actions.act_window" id="cost_formulas_list_action">
 		<field name="name">Cost formulas</field>
 		<field name="res_model">cost.formula</field>
@@ -41,10 +43,7 @@
 			<p class="o_view_nocontent_smiling_face">Create the first cost formula</p>
 		</field>
 	</record>
-
 	<menuitem id="main_cost_formulas_menu" name="Cost formulas"/>
-
 	<menuitem id="cost_formulas_menu" name="Cost formulas" parent="main_cost_formulas_menu"/>
-
 	<menuitem id="cost_formulas_formula_menu" name="Formulas" parent="cost_formulas_menu" action="cost_formulas_list_action"/>
 </odoo>
