@@ -1,3 +1,3 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access_cost_formula,access_cost_formula,model_cost_formula,base.group_system,1,1,1,1
-access_cost_formula,access_cost_formula,model_cost_formula,base.group_user,1,0,0,0
+access_cost_formula_system,access_cost_formula_system,model_cost_formula,base.group_system,1,1,1,1
+access_cost_formula_group,access_cost_formula_user,model_cost_formula,base.group_user,1,0,0,0
