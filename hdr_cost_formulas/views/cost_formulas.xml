@@ -12,6 +12,34 @@
 			</tree>
 		</field>
 	</record>
+	<record model="ir.ui.view" id="cost_formulas_tree">
+		<field name="name">cost.formulas.tree</field>
+		<field name="model">cost.formula</field>
+		<field name="priority" eval="16"/>
+		<field name="arch" type="xml">
+			<!-- view content: <form>, <tree>, <graph>, ... -->
+			<form string="Cost formula">
+				<!-- <header>
+					<button string="Confirm" type="object" name="action_confirm" states="draft" class="oe_highlight" />
+					<button string="Mark as done" type="object" name="action_done" states="confirmed" class="oe_highlight"/>
+					<button string="Reset to draft" type="object" name="action_draft" states="confirmed,done" />
+					<field name="state" widget="statusbar"/>
+				</header> -->
+				<sheet>
+					<div class="oe_title">
+						<label for="name" class="oe_edit_only" string="Name" />
+						<h1>
+							<field name="name" />
+						</h1>
+					</div>
+					<separator string="General" colspan="2" />
+					<group colspan="2" col="2">
+						<field name="description" placeholder="Cost formula description ..." />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
 	<record model="ir.actions.act_window" id="cost_formulas_list_action">
 		<field name="name">Cost formulas</field>
 		<field name="res_model">cost.formula</field>
