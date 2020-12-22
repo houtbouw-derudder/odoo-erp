@@ -25,7 +25,6 @@
 							<field name="name" />
 						</h1>
 					</div>
-					<separator string="General" colspan="2" />
 					<group colspan="2" col="2">
 						<field name="description" placeholder="Cost formula description ..." />
 					</group>
