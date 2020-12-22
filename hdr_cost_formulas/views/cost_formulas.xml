@@ -27,10 +27,10 @@
 					<group colspan="2" col="2">
 						<field name="description" placeholder="Cost formula description ..." />
 					</group>
-					<notebook>
-						<page string="Variables"></page>
-						<page string="Cost items"></page>
-					</notebook>
+                    <group colspan="2" col="2">
+                        <field name="parameters" />
+                        <field name="view" />
+                    </group>
 				</sheet>
 			</form>
 		</field>
