@@ -4,7 +4,6 @@
 		<field name="name">cost.formula.tree</field>
 		<field name="model">cost.formula</field>
 		<field name="priority" eval="16"/>
-        <field name="view_type">tree</field>
 		<field name="arch" type="xml">
 			<tree>
 				<field name="name" />
@@ -13,11 +12,10 @@
 		</field>
 	</record>
 
-	<record model="ir.ui.view" id="cost_formulas_tree">
+	<!-- <record model="ir.ui.view" id="cost_formulas_tree">
 		<field name="name">cost.formula.form</field>
 		<field name="model">cost.formula</field>
 		<field name="priority" eval="16"/>
-        <field name="view_type">form</field>
 		<field name="arch" type="xml">
 			<!-- view content: <form>, <tree>, <graph>, ... -->
 			<form string="Cost formula">
@@ -41,7 +39,7 @@
 				</sheet>
 			</form>
 		</field>
-	</record>
+	</record> -->
 
 	<record model="ir.actions.act_window" id="cost_formulas_list_action">
 		<field name="name">Cost formulas</field>
