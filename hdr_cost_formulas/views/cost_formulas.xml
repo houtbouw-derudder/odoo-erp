@@ -5,10 +5,32 @@
 		<field name="model">cost.formula</field>
 		<field name="priority" eval="16"/>
 		<field name="arch" type="xml">
-			<tree>
+			<tree string="Cost formulas">
 				<field name="name" />
 				<field name="description" />
 			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="cost_formulas_tree">
+		<field name="name">cost.formula.form</field>
+		<field name="model">cost.formula</field>
+		<field name="priority" eval="16"/>
+		<field name="arch" type="xml">
+			<form string="Cost formula">
+				<sheet>
+					<div class="oe_title">
+						<label for="name" class="oe_edit_only" string="Name" />
+						<h1>
+							<field name="name" />
+						</h1>
+					</div>
+					<separator string="General" colspan="2" />
+					<group colspan="2" col="2">
+						<field name="description" placeholder="Cost formula description ..." />
+					</group>
+				</sheet>
+			</form>
 		</field>
 	</record>
 
