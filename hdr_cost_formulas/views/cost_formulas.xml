@@ -9,6 +9,7 @@
             <form string="Cost item">
                 <field name="condition" />
                 <field name="quantity_expression" />
+                <field name="product_id" />
             </form>
         </field>
     </record>
@@ -21,7 +22,6 @@
 			<tree string="Cost formulas">
 				<field name="name" />
 				<field name="description" />
-                <field name="product_id" />
 			</tree>
 		</field>
 	</record>
