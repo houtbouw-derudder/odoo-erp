@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 
 class CostFormula(models.Model):
@@ -21,6 +22,15 @@ class CostFormula(models.Model):
     parameters = fields.Char(
         string="Parameters", help="Comma separated list of parameter names", tracking=True)
     view = fields.Text(string='HTML + JavaScript', tracking=True)
+
+    def action_post(self):
+        raise UserError(_("Not implemented"))
+
+    def action_cancel(self):
+        raise UserError(_("Not implemented"))
+
+    def action_draft(self):
+        raise UserError(_("Not implemented"))
 
 
 class CostItem(models.Model):
