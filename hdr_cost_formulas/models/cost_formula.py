@@ -29,7 +29,7 @@ class CostFormula(models.Model):
     def action_confirm(self):
         for formula in self:
             if not formula.cost_item_ids:
-                raise UserError(_("There are no cost items"))
+                raise UserError(_("Your formula does not have any cost items"))
 
             to_write = {'state': 'confirmed'}
             formula.write(to_write)
@@ -51,10 +51,11 @@ class CostItem(models.Model):
     _order = 'sequence, id'
 
     sequence = fields.Integer(default=1)
+    
+    cost_formula_id = fields.Many2one('cost.formula', string='Cost formula', index=True, required=True,
+                                   readonly=True, auto_join=True, ondelete="cascade", help="The cost formula of this item.")
 
     condition = fields.Char(string="Condition", required=False)
     quantity_expression = fields.Char(
         string="Quantity expression", required=True)
-
-    cost_formula_id = fields.Many2one('cost.formula', string='Cost formula', index=True, required=True,
-                                   readonly=True, auto_join=True, ondelete="cascade", help="The cost formula of this item.")
+    product_id = fields.Many2one('product.product', string='Product')

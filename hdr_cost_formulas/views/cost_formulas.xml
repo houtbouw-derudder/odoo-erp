@@ -21,6 +21,7 @@
 			<tree string="Cost formulas">
 				<field name="name" />
 				<field name="description" />
+                <field name="product" />
 			</tree>
 		</field>
 	</record>
