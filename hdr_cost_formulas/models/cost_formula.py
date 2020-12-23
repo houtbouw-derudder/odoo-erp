@@ -23,6 +23,9 @@ class CostFormula(models.Model):
         string="Parameters", help="Comma separated list of parameter names", tracking=True)
     view = fields.Text(string='HTML + JavaScript', tracking=True)
 
+    cost_item_ids = fields.One2many('cost.formula.item', 'cost_formula_id', string='Cost items',
+                                    copy=True, readonly=True, states={'draft': [('readonly', False)]})
+
     def action_confirm(self):
         for formula in self:
             to_write = {'state': 'confirmed'}
@@ -40,11 +43,14 @@ class CostFormula(models.Model):
 
 
 class CostItem(models.Model):
-    _name = "cost.item"
+    _name = "cost.formula.item"
     _description = "Cost item"
     _order = 'sequence, id'
 
     sequence = fields.Integer(default=1)
+
     condition = fields.Char(string="Condition", required=False)
     quantity_expression = fields.Char(
         string="Quantity expression", required=True)
+
+    cost_formula = fields.Many2one('cost.formula', string='Cost formula', index=True, required=True, readonly=True, auto_join=True, ondelete="cascade", help="The cost formula of this item."))
