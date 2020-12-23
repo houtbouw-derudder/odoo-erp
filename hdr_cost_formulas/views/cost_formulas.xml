@@ -34,6 +34,12 @@
 						<field name="description" placeholder="Cost formula description ..." />
 						<field name="parameters" />
 						<field name="view" />
+                        <field name="cost_item_ids">
+                        <tree>
+                            <field name="condition" />
+                            <field name="quantity_expression" />
+                        </tree>
+                        </field>
 					</group>
 				</sheet>
 				<div class="oe_chatter">
