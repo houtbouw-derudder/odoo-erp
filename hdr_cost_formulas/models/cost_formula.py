@@ -53,4 +53,5 @@ class CostItem(models.Model):
     quantity_expression = fields.Char(
         string="Quantity expression", required=True)
 
-    cost_formula = fields.Many2one('cost.formula', string='Cost formula', index=True, required=True, readonly=True, auto_join=True, ondelete="cascade", help="The cost formula of this item."))
+    cost_formula = fields.Many2one('cost.formula', string='Cost formula', index=True, required=True,
+                                   readonly=True, auto_join=True, ondelete="cascade", help="The cost formula of this item.")
