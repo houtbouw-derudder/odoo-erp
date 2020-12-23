@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
+    <record model="ir.ui.view" id="cost_formula_item_form">
+        <field name="name">cost.formula.item.form</field>
+        <field name="model">cost.formula.item</field>
+        <field name="prioerity" eval="16" />
+        <field name="arch" type="xml">
+            <form string="Cost item">
+                <field name="condition" />
+                <field name="quantity_expression" />
+            </form>
+        </field>
+    </record>
+
 	<record model="ir.ui.view" id="cost_formulas_tree">
 		<field name="name">cost.formula.tree</field>
 		<field name="model">cost.formula</field>
@@ -11,6 +24,7 @@
 			</tree>
 		</field>
 	</record>
+
 	<record model="ir.ui.view" id="cost_formulas_form">
 		<field name="name">cost.formula.form</field>
 		<field name="model">cost.formula</field>
