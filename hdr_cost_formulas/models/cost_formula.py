@@ -23,7 +23,7 @@ class CostFormula(models.Model):
         string="Parameters", help="Comma separated list of parameter names", tracking=True)
     view = fields.Text(string='HTML + JavaScript', tracking=True)
 
-    def action_post(self):
+    def action_confirm(self):
         raise UserError(_("Not implemented"))
 
     def action_cancel(self):
