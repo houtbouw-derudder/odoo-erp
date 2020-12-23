@@ -9,6 +9,7 @@
 			<tree string="Cost formulas">
 				<field name="name" />
 				<field name="description" />
+                <field name="state" invisible="1" />
 			</tree>
 		</field>
 	</record>
