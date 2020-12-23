@@ -24,13 +24,19 @@ class CostFormula(models.Model):
     view = fields.Text(string='HTML + JavaScript', tracking=True)
 
     def action_confirm(self):
-        raise UserError(_("Not implemented"))
+        for formula in self:
+            to_write = {'state': 'confirmed'}
+            formula.write(to_write)
 
     def action_cancel(self):
-        raise UserError(_("Not implemented"))
+        for formula in self:
+            to_write = {'state': 'cancel'}
+            formula.write(to_write)
 
     def action_draft(self):
-        raise UserError(_("Not implemented"))
+        for formula in self:
+            to_write = {'state': 'draft'}
+            formula.write(to_write)
 
 
 class CostItem(models.Model):
