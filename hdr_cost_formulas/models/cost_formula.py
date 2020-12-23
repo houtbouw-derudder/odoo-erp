@@ -22,3 +22,5 @@ class CostItem(models.Model):
     _order = 'sequence, id'
 
     sequence = fields.Integer(default=1)
+    condition = fields.Char(string="Condition", required=False)
+    quantity_expression = fields.Char(string="Quantity expression", required=True)
