@@ -53,6 +53,7 @@
 							<tree editable="bottom" string="Cost Items" default_order="sequence, id">
 								<field name="condition" />
 								<field name="quantity_expression" />
+                                <field name="product_id" />
 							</tree>
 						</field>
 					</group>
