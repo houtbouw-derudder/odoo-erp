@@ -28,6 +28,9 @@ class CostFormula(models.Model):
 
     def action_confirm(self):
         for formula in self:
+            if not formula.cost_item_ids:
+                raise UserError(_("There are no cost items"))
+
             to_write = {'state': 'confirmed'}
             formula.write(to_write)
 
