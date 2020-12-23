@@ -17,6 +17,12 @@
 		<field name="priority" eval="16"/>
 		<field name="arch" type="xml">
 			<form string="Cost formula">
+				<header>
+					<button string="Confirm" type="object" name="action_confirm" states="draft" class="oe_highlight" />
+					<button string="Cancel" type="object" name="action_cancel" states="confirmed" class="oe_highlight"/>
+					<button string="Reset to draft" type="object" name="action_draft" states="cancel" />
+					<field name="state" widget="statusbar"/>
+				</header>
 				<sheet>
 					<div class="oe_title">
 						<label for="name" class="oe_edit_only" string="Name" />

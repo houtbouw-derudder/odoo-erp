@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import api, fields, models
+
 
 class CostFormula(models.Model):
 
@@ -12,9 +13,15 @@ class CostFormula(models.Model):
     name = fields.Char(string='Name', required=True, translate=True)
     description = fields.Text(string='Description', translate=True)
     sequence = fields.Integer(default=1)
+    active = fields.Boolean(
+        default=True, help="If the active field is set to False, it will allow you to hide the project without removing it.")
+    state = fields.Selection(selection=[('draft', 'Draft'), ('confirmed', 'Confirmed'), ('cancel', 'Cancelled')],
+                             string='Status', required=True, readonly=True, copy=False, tracking=True, default='draft')
 
-    parameters = fields.Char(string="Parameters", help="Comma separated list of parameter names", tracking=True)
+    parameters = fields.Char(
+        string="Parameters", help="Comma separated list of parameter names", tracking=True)
     view = fields.Text(string='HTML + JavaScript', tracking=True)
+
 
 class CostItem(models.Model):
     _name = "cost.item"
@@ -23,4 +30,5 @@ class CostItem(models.Model):
 
     sequence = fields.Integer(default=1)
     condition = fields.Char(string="Condition", required=False)
-    quantity_expression = fields.Char(string="Quantity expression", required=True)
+    quantity_expression = fields.Char(
+        string="Quantity expression", required=True)
