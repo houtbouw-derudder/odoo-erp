@@ -11,7 +11,7 @@ class CostFormula(models.Model):
     _inherit = ['mail.thread']
     _order = 'sequence, id'
 
-    name = fields.Char(string='Name', required=True, translate=True)
+    name = fields.Char(string='Name', required=True, translate=True, readonly=True, states={'draft': [('readonly', False)]})
     description = fields.Text(string='Description', translate=True)
     sequence = fields.Integer(default=1)
     active = fields.Boolean(
@@ -20,8 +20,8 @@ class CostFormula(models.Model):
                              string='Status', required=True, readonly=True, copy=False, tracking=True, default='draft')
 
     parameters = fields.Char(
-        string="Parameters", help="Comma separated list of parameter names", tracking=True)
-    view = fields.Text(string='HTML + JavaScript', tracking=True)
+        string="Parameters", help="Comma separated list of parameter names", tracking=True, readonly=True, states={'draft': [('readonly', False)]})
+    view = fields.Text(string='HTML + JavaScript', tracking=True, readonly=True, states={'draft': [('readonly', False)]})
 
     cost_item_ids = fields.One2many('cost.formula.item', 'cost_formula_id', string='Cost items',
                                     copy=True, readonly=True, states={'draft': [('readonly', False)]})
