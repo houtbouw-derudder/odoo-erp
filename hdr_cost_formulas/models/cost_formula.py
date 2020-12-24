@@ -2,6 +2,7 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
+from conditions import parse
 
 
 class CostFormula(models.Model):
@@ -31,6 +32,10 @@ class CostFormula(models.Model):
             if not formula.cost_item_ids:
                 raise UserError(_("Your formula does not have any cost items"))
 
+            params = formula._get_parameters()
+            for cost_item in formula.cost_item_ids:
+                cost_item.validate_condition()
+            
             to_write = {'state': 'confirmed'}
             formula.write(to_write)
 
@@ -44,6 +49,9 @@ class CostFormula(models.Model):
             to_write = {'state': 'draft'}
             formula.write(to_write)
 
+    def _get_parameters(self):
+        self.ensure_one()
+        return [p.strip() for p in self.parameters.split(',')]
 
 class CostItem(models.Model):
     _name = "cost.formula.item"
@@ -59,3 +67,7 @@ class CostItem(models.Model):
     quantity_expression = fields.Char(
         string="Quantity expression", required=True)
     product_id = fields.Many2one('product.product', string='Product')
+
+    def validate_condition(self):
+        self.ensure_one()
+        parse(self.condition)
