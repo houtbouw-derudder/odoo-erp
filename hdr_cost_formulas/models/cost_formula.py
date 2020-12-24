@@ -4,7 +4,6 @@ from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 from conditions import parse
 
-
 class CostFormula(models.Model):
 
     _name = "cost.formula"
