@@ -69,4 +69,4 @@ class CostItem(models.Model):
 
     def validate_condition(self):
         self.ensure_one()
-        parse(self.condition)
+        conditions.parse(self.condition)
