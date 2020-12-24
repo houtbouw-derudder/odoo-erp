@@ -2,7 +2,7 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
-from conditions import parse
+from . import conditions
 
 class CostFormula(models.Model):
 
