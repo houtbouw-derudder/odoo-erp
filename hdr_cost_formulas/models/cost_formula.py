@@ -63,7 +63,7 @@ class CostItem(models.Model):
         string="Quantity expression", required=True)
     product_id = fields.Many2one('product.product', string='Product')
 
-    @api.constraint('condition', 'cost_formula_id')
+    @api.constrains('condition', 'cost_formula_id')
     def validate_condition(self):
         for record in self:
             try:
