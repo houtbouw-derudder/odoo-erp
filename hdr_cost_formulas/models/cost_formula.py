@@ -33,7 +33,7 @@ class CostFormula(models.Model):
 
             params = formula._get_parameters()
             for cost_item in formula.cost_item_ids:
-                cost_item.validate_condition()
+                cost_item.validate_condition(params)
             
             to_write = {'state': 'confirmed'}
             formula.write(to_write)
@@ -67,6 +67,10 @@ class CostItem(models.Model):
         string="Quantity expression", required=True)
     product_id = fields.Many2one('product.product', string='Product')
 
-    def validate_condition(self):
+    def validate_condition(self, defined_params):
         self.ensure_one()
-        conditions.parse(self.condition)
+        parsed = conditions.parse(self.condition)
+        extracted_params = conditions.extract_parameters(parsed)
+        for extracted_param in extracted_params:
+            if extracted_param not in defined_params:
+                raise RuntimeError("Param {0} is used in a condition but not defined on the formula".format(extracted_param))

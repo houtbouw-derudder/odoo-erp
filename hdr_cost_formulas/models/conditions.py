@@ -59,11 +59,25 @@ _op_funcs = {
     '>=': _ge_func
 }
 
+def extract_parameters(parsed):
+    params = []
+
+    if isinstance(parsed, list) or isinstance(parsed, ParseResults):
+        if len(parsed) >= 3:
+            l, op, r = parsed[:3]
+            params = params + extract_parameters(l)
+            params = params + extract_parameters(r)
+
+            remaining = parsed[3:]
+            if len(remaining > 1):
+                params = params + extract_parameters(remaining)
+    elif isinstance(parsed, tuple):
+        return [parsed[0]]
+
+    return params
+
 def evaluate(result, vals):
     if isinstance(result, list) or isinstance(result, ParseResults):
-        if len(result) % 2 != 1:
-            raise RuntimeError("Odd number of elements expected in a list")
-
         if len(result) < 3:
             return evaluate(result[0], vals)
 
