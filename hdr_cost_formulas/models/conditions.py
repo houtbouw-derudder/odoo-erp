@@ -1,4 +1,4 @@
-from pyparsing import Forward, Group, Literal, Or, ParseResults, Regex, Suppress, Word, alphas, alphanums
+from pyparsing import Forward, Group, Literal, Or, ParseResults, Regex, Suppress, Word, ZeroOrMore, alphas, alphanums
 
 def _parse_numeric(tok):
     return float(tok[0])
@@ -18,8 +18,8 @@ def _get_grammar():
     textual = (quote + Word(alphanums) + quote)
     atom_expr = Group(param + oper + (numeric | textual) | lpar + param + oper + (numeric | textual) + rpar).setParseAction(_parse_expr)
     expr = Forward()
-    expr <<= (atom_expr + (logical_op + expr)[...]) | (lpar + atom_expr + (logical_op + expr)[...] + rpar).setParseAction(_parse_grouped_expr)
-    return expr + (logical_op + expr)[...]
+    expr <<= (atom_expr + ZeroOrMore(logical_op + expr)) | (lpar + atom_expr + ZeroOrMore(logical_op + expr) + rpar).setParseAction(_parse_grouped_expr)
+    return expr + ZeroOrMore(logical_op + expr)
 
 def parse(condition):
     return _get_grammar().parseString(condition, parseAll=True)
