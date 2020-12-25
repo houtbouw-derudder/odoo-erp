@@ -86,4 +86,4 @@ class CostItem(models.Model):
                     if extracted_param not in record.cost_formula_id.get_parameters():
                         raise ValidationError("Param {0} is used in a quantity expression but not defined on the formula".format(extracted_param))
             except conditions.ParseException as e:
-                raise ValidationError("Invalid condition: {0}".format(e.args[0]))
+                raise ValidationError("Invalid quantity expression: {0}".format(e.args[0]))
