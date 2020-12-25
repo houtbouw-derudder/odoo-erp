@@ -15,7 +15,7 @@ def _get_grammar():
     oper = Or(map(Literal, ['=', '!=', '<', '>', '<=', '>=']))
     logical_op = Or(map(Literal, ['and', 'or']))
     numeric = Regex(r"[+-]?\d+(?:\.\d*)?").setParseAction(_parse_numeric)
-    textual = (quote + Word(alphanums) + quote)
+    textual = (quote + Word(alphanums + '-_ ') + quote)
     atom_expr = Group(param + oper + (numeric | textual) | lpar + param + oper + (numeric | textual) + rpar).setParseAction(_parse_expr)
     expr = Forward()
     expr <<= (atom_expr + ZeroOrMore(logical_op + expr)) | (lpar + atom_expr + ZeroOrMore(logical_op + expr) + rpar).setParseAction(_parse_grouped_expr)
@@ -99,3 +99,24 @@ def evaluate(result, vals):
         return result
     else:
         raise RuntimeError("Unsupported data type {0} {1}".format(result, type(result)))
+
+if __name__ == "__main__":
+    import unittest
+
+    class ConditionsTest(unittest.TestCase):
+
+        def test_parse_string_value(self):
+            try:
+                parsed = parse("dries = '0-600'")
+                self.assertIsInstance(parsed, ParseResults)
+            finally:
+                pass
+        
+        def test_parse_float_value(self):
+            try:
+                parsed = parse("dries < 600")
+                self.assertIsInstance(parsed, ParseResults)
+            finally:
+                pass
+
+    unittest.main()
