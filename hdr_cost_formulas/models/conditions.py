@@ -63,18 +63,12 @@ def extract_parameters(parsed):
     params = []
 
     if isinstance(parsed, list) or isinstance(parsed, ParseResults):
-        if len(parsed) >= 3:
-            l, op, r = parsed[:3]
-            params = params + extract_parameters(l)
-            params = params + extract_parameters(r)
-
-            remaining = parsed[3:]
-            if len(remaining > 1):
-                params = params + extract_parameters(remaining)
+        for elem in parsed:
+            params = params + extract_parameters(elem)
     elif isinstance(parsed, tuple):
         return [parsed[0]]
 
-    return params
+    return list(set(params))
 
 def evaluate(result, vals):
     if isinstance(result, list) or isinstance(result, ParseResults):
@@ -116,6 +110,16 @@ if __name__ == "__main__":
             try:
                 parsed = parse("dries < 600")
                 self.assertIsInstance(parsed, ParseResults)
+            finally:
+                pass
+
+        def test_extract_parameters(self):
+            try:
+                parsed = parse("dries < 600 and (bram > 900 or (fien = 'ja' or broes = 'nee') and fien < 'zus')")
+                extracted_parameters = extract_parameters(parsed)
+                self.assertEqual(4, len(extracted_parameters))
+                for param in ['dries', 'broes', 'bram', 'fien']:
+                    self.assertIn(param, extracted_parameters)
             finally:
                 pass
 
