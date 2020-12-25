@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 from . import conditions
 
 class CostFormula(models.Model):
@@ -29,11 +29,7 @@ class CostFormula(models.Model):
     def action_confirm(self):
         for formula in self:
             if not formula.cost_item_ids:
-                raise UserError(_("Your formula does not have any cost items"))
-
-            params = formula._get_parameters()
-            for cost_item in formula.cost_item_ids:
-                cost_item.validate_condition(params)
+                raise ValidationError(_("Your formula does not have any cost items"))
             
             to_write = {'state': 'confirmed'}
             formula.write(to_write)
@@ -48,7 +44,7 @@ class CostFormula(models.Model):
             to_write = {'state': 'draft'}
             formula.write(to_write)
 
-    def _get_parameters(self):
+    def get_parameters(self):
         self.ensure_one()
         return [p.strip() for p in self.parameters.split(',')]
 
@@ -67,10 +63,14 @@ class CostItem(models.Model):
         string="Quantity expression", required=True)
     product_id = fields.Many2one('product.product', string='Product')
 
-    def validate_condition(self, defined_params):
-        self.ensure_one()
-        parsed = conditions.parse(self.condition)
-        extracted_params = conditions.extract_parameters(parsed)
-        for extracted_param in extracted_params:
-            if extracted_param not in defined_params:
-                raise RuntimeError("Param {0} is used in a condition but not defined on the formula".format(extracted_param))
+    @api.constraint('condition', 'cost_formula_id')
+    def validate_condition(self):
+        for record in self:
+            try:
+                parsed = conditions.parse(record.condition)
+                extracted_parameters = conditions.extract_parameters(parsed)
+                for extracted_param in extracted_parameters:
+                    if extracted_param not in record.cost_formula_id.get_parameters():
+                        raise ValidationError("Param '{0}' is used in a condition but not defined on the formula".format(extracted_param))
+            except condistion.ParseException as e:
+                raise ValidationError("Invalid condition: {0}".format(e.args[0]))

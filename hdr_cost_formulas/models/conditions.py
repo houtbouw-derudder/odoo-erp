@@ -1,4 +1,4 @@
-from pyparsing import Forward, Group, Literal, Or, ParseResults, Regex, Suppress, Word, ZeroOrMore, alphas, alphanums
+from pyparsing import Forward, Group, Literal, Or, ParseResults, Regex, Suppress, Word, ZeroOrMore, alphas, alphanums, ParseException
 
 def _parse_numeric(tok):
     return float(tok[0])
