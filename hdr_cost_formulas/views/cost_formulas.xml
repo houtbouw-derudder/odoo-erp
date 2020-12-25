@@ -39,6 +39,8 @@
 						<field name="view" />
 						<field name="cost_item_ids" context="{}">
 							<tree editable="bottom" string="Cost Items" default_order="sequence, id">
+								<field name="sequence" invisible="1" />
+								<field name="id" invisible="1" />
 								<field name="condition" />
 								<field name="quantity_expression" />
                                 <field name="product_id" />
