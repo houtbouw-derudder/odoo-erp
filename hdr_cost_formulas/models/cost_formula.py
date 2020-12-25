@@ -2,7 +2,7 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-from . import conditions
+from . import conditions, expressions
 
 class CostFormula(models.Model):
 
@@ -66,11 +66,24 @@ class CostItem(models.Model):
     @api.constrains('condition', 'cost_formula_id')
     def validate_condition(self):
         for record in self:
+            if record.condition:
+                try:
+                    parsed = conditions.parse(record.condition)
+                    extracted_parameters = conditions.extract_parameters(parsed)
+                    for extracted_param in extracted_parameters:
+                        if extracted_param not in record.cost_formula_id.get_parameters():
+                            raise ValidationError("Param '{0}' is used in a condition but not defined on the formula".format(extracted_param))
+                except conditions.ParseException as e:
+                    raise ValidationError("Invalid condition: {0}".format(e.args[0]))
+    
+    @api.constrains('quantity_expression', 'cost_formula_id')
+    def validate_quantity_expression(self):
+        for record in self:
             try:
-                parsed = conditions.parse(record.condition)
-                extracted_parameters = conditions.extract_parameters(parsed)
+                parsed = expressions.parse(record.quantity_expression)
+                extracted_parameters = expressions.extract_parameters(parsed)
                 for extracted_param in extracted_parameters:
                     if extracted_param not in record.cost_formula_id.get_parameters():
-                        raise ValidationError("Param '{0}' is used in a condition but not defined on the formula".format(extracted_param))
+                        raise ValidationError("Param {0} is used in a quantity expression but not defined on the formula".format(extracted_param))
             except conditions.ParseException as e:
                 raise ValidationError("Invalid condition: {0}".format(e.args[0]))
