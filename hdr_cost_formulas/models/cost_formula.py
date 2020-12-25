@@ -72,5 +72,5 @@ class CostItem(models.Model):
                 for extracted_param in extracted_parameters:
                     if extracted_param not in record.cost_formula_id.get_parameters():
                         raise ValidationError("Param '{0}' is used in a condition but not defined on the formula".format(extracted_param))
-            except condistion.ParseException as e:
+            except conditions.ParseException as e:
                 raise ValidationError("Invalid condition: {0}".format(e.args[0]))
