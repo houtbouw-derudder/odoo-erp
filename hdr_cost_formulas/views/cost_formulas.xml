@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
 	<record model="ir.ui.view" id="cost_formulas_tree">
 		<field name="name">cost.formula.tree</field>
 		<field name="model">cost.formula</field>
@@ -9,11 +8,10 @@
 			<tree string="Cost formulas">
 				<field name="name" />
 				<field name="description" />
-                <field name="state" invisible="1" />
+				<field name="state" invisible="1" />
 			</tree>
 		</field>
 	</record>
-
 	<record model="ir.ui.view" id="cost_formulas_form">
 		<field name="name">cost.formula.form</field>
 		<field name="model">cost.formula</field>
@@ -43,7 +41,7 @@
 								<field name="id" invisible="1" />
 								<field name="condition" />
 								<field name="quantity_expression" />
-                                <field name="product_id" />
+								<field name="product_id" />
 							</tree>
 						</field>
 					</group>
@@ -66,4 +64,17 @@
 	<menuitem id="main_cost_formulas_menu" name="Cost formulas"/>
 	<menuitem id="cost_formulas_menu" name="Cost formulas" parent="main_cost_formulas_menu"/>
 	<menuitem id="cost_formulas_formula_menu" name="Formulas" parent="cost_formulas_menu" action="cost_formulas_list_action"/>
+	<record id="product_template_action" model="ir.actions.act_window">
+		<field name="name">Products</field>
+		<field name="res_model">product.template</field>
+		<field name="view_mode">kanban,tree,form,activity</field>
+		<field name="view_id" ref="product.product_template_kanban_view"/>
+		<field name="search_view_id" ref="product.product_template_search_view"/>
+		<field name="context">{"search_default_filter_to_sell":1, "sale_multi_pricelist_product_template": 1}</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">Create a new product</p>
+		</field>
+	<menuitem id="products_menu" name="Products" parent="main_cost_formulas_menu"/>
+	<menuitem id="products_products_menu" name="Products" parent="products_menu" action="product_template_action"/>
+	</record>
 </odoo>
