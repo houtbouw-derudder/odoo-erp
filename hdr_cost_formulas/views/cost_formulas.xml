@@ -74,7 +74,7 @@
 		<field name="help" type="html">
 			<p class="o_view_nocontent_smiling_face">Create a new product</p>
 		</field>
+	</record>
 	<menuitem id="products_menu" name="Products" parent="main_cost_formulas_menu"/>
 	<menuitem id="products_products_menu" name="Products" parent="products_menu" action="product_template_action"/>
-	</record>
 </odoo>
