@@ -2,7 +2,8 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-from . import conditions, expressions
+from . import parser
+
 
 class CostFormula(models.Model):
 
@@ -11,7 +12,8 @@ class CostFormula(models.Model):
     _inherit = ['mail.thread']
     _order = 'sequence, id'
 
-    name = fields.Char(string='Name', required=True, translate=True, readonly=True, states={'draft': [('readonly', False)]})
+    name = fields.Char(string='Name', required=True, translate=True,
+                       readonly=True, states={'draft': [('readonly', False)]})
     description = fields.Text(string='Description', translate=True)
     sequence = fields.Integer(default=1)
     active = fields.Boolean(
@@ -21,16 +23,26 @@ class CostFormula(models.Model):
 
     parameters = fields.Char(
         string="Parameters", help="Comma separated list of parameter names", tracking=True, readonly=True, states={'draft': [('readonly', False)]})
-    view = fields.Text(string='HTML + JavaScript', tracking=True, readonly=True, states={'draft': [('readonly', False)]})
+    view = fields.Text(string='HTML + JavaScript', tracking=True,
+                       readonly=True, states={'draft': [('readonly', False)]})
 
     cost_item_ids = fields.One2many('cost.formula.item', 'cost_formula_id', string='Cost items',
                                     copy=True, readonly=True, states={'draft': [('readonly', False)]})
 
+    @api.constrains('parameters')
+    def validate_parameters(self):
+        for record in self:
+            try:
+                parser.validate_parameter_list(record.parameters)
+            except parser.ExpressionException as e:
+                raise ValidationError("Invalid parameter list: {0}".format(e))
+
     def action_confirm(self):
         for formula in self:
             if not formula.cost_item_ids:
-                raise ValidationError(_("Your formula does not have any cost items"))
-            
+                raise ValidationError(
+                    _("Your formula does not have any cost items"))
+
             to_write = {'state': 'confirmed'}
             formula.write(to_write)
 
@@ -44,9 +56,6 @@ class CostFormula(models.Model):
             to_write = {'state': 'draft'}
             formula.write(to_write)
 
-    def get_parameters(self):
-        self.ensure_one()
-        return [p.strip() for p in self.parameters.split(',')]
 
 class CostItem(models.Model):
     _name = "cost.formula.item"
@@ -54,9 +63,9 @@ class CostItem(models.Model):
     _order = 'sequence, id'
 
     sequence = fields.Integer(default=1)
-    
+
     cost_formula_id = fields.Many2one('cost.formula', string='Cost formula', index=True, required=True,
-                                   readonly=True, auto_join=True, ondelete="cascade", help="The cost formula of this item.")
+                                      readonly=True, auto_join=True, ondelete="cascade", help="The cost formula of this item.")
 
     condition = fields.Char(string="Condition", required=False)
     quantity_expression = fields.Char(
@@ -68,22 +77,17 @@ class CostItem(models.Model):
         for record in self:
             if record.condition:
                 try:
-                    parsed = conditions.parse(record.condition)
-                    extracted_parameters = conditions.extract_parameters(parsed)
-                    for extracted_param in extracted_parameters:
-                        if extracted_param not in record.cost_formula_id.get_parameters():
-                            raise ValidationError("Param '{0}' is used in a condition but not defined on the formula".format(extracted_param))
-                except conditions.ParseException as e:
-                    raise ValidationError("Invalid condition: {0}".format(e.args[0]))
-    
+                    parser.validate_logical_expression(
+                        record.condition, record.cost_formula_id.parameters)
+                except parser.ExpressionException as e:
+                    raise ValidationError("Invalid condition: {0}".format(e))
+
     @api.constrains('quantity_expression', 'cost_formula_id')
     def validate_quantity_expression(self):
         for record in self:
             try:
-                parsed = expressions.parse(record.quantity_expression)
-                extracted_parameters = expressions.extract_parameters(parsed)
-                for extracted_param in extracted_parameters:
-                    if extracted_param not in record.cost_formula_id.get_parameters():
-                        raise ValidationError("Param {0} is used in a quantity expression but not defined on the formula".format(extracted_param))
-            except conditions.ParseException as e:
-                raise ValidationError("Invalid quantity expression: {0}".format(e.args[0]))
+                parser.validate_math_expression(
+                    record.quantity_expression, record.cost_formula_id.parameters)
+            except parser.ParseException as e:
+                raise ValidationError(
+                    "Invalid quantity expression: {0}".format(e))
