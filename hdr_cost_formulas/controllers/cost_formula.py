@@ -6,6 +6,6 @@ from odoo.http import Controller, route
 
 class CostFormulaController(Controller):
 
-    @route(route='/cost_formulas/evaluate', type='json', methods=['POST'], csrf=False, auth='none', website=False)
+    @route(route='/cost_formulas/evaluate', type='http', methods=['POST'], csrf=False, auth='public', website=False)
     def evaluate(self):
         return json.dumps({'result': 'ok'})
