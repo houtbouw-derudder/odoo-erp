@@ -26,6 +26,7 @@
 					<field name="state" widget="statusbar"/>
 				</header>
 				<sheet>
+					<field name="active" invisible="1" />
 					<div class="oe_title">
 						<label for="name" class="oe_edit_only" string="Name" />
 						<h1>
