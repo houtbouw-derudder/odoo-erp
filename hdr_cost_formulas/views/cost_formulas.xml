@@ -32,6 +32,7 @@
 							<field name="name" />
 						</h1>
 					</div>
+					<widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
 					<group colspan="2" col="2">
 						<field name="description" placeholder="Cost formula description ..." />
 						<field name="parameters" />
