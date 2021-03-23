@@ -7,9 +7,14 @@
 		<field name="priority">24</field>
 		<field name="arch" type="xml">
 			<xpath expr="//div[hasclass('o_project_kanban_boxes')]" position="inside">
-				<a t-if="record.analytic_account_id.raw_value" class="o_project_kanban_box o_project_timesheet_box" name="action_view_account_analytic_line_2" type="object" groups="analytic.group_analytic_accounting">
+				<a t-if="record.analytic_account_id.raw_value and record.allow_timesheets.raw_value" class="o_project_kanban_box" name="action_view_account_analytic_line_2" type="object" groups="analytic.group_analytic_accounting">
 					<div>
 						<span class="o_label">Profitability</span>
+					</div>
+				</a>
+				<a t-if="" class="o_project_kanban_box" name="action_view_crossover_budget_lines" type="object" groups="base.group_user">
+					<div>
+						<span class="o_label">Budget</span>
 					</div>
 				</a>
 			</xpath>
