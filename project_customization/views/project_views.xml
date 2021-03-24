@@ -12,11 +12,11 @@
 						<span class="o_label">Profitability</span>
 					</div>
 				</a>
-				<a t-if="" class="o_project_kanban_box" name="action_view_crossover_budget_lines" type="object" groups="base.group_user">
+				<!-- <a t-if="" class="o_project_kanban_box" name="action_view_crossover_budget_lines" type="object" groups="base.group_user">
 					<div>
 						<span class="o_label">Budget</span>
 					</div>
-				</a>
+				</a> -->
 			</xpath>
 		</field>
 	</record>
