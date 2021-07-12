@@ -11,7 +11,7 @@
     'depends': ['project', 'base', 'product'],
     'data': [
         # 'security/purchase_security.xml',
-        'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
         # 'data/digest_data.xml',
         # 'views/assets.xml',
         # 'views/account_move_views.xml',
