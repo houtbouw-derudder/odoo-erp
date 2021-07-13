@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-        <!-- Top menu item -->
-        <menuitem name="Orders"
-            id="menu_orders_root"
-            groups="group_orders_manager,group_orders_user"
-            web_icon="order,static/description/icon.png"
-            sequence="25"/>
-
-        <menuitem id="menu_order_management" name="Orders"
-            parent="menu_orders_root" sequence="1" />
+	<!-- Top menu item -->
+	<menuitem name="Orders" id="menu_orders_root"  web_icon="order,static/description/icon.png" sequence="25"/>
+	<menuitem id="menu_order_management" name="Orders" parent="menu_orders_root" sequence="1" />
 </odoo>
