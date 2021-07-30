@@ -2,9 +2,10 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Belgium - Accounting Reports - Customization',
-    'version': '1.1',
-    'category': 'Accounting/Localizations/Reporting',
+    'name': 'Financial reporting',
+    'version': '1.0',
+    'category': 'Customization',
+    'author': 'Houtbouw De Rudder bv',
     'description': """
         Customization to accounting reports
     """,
@@ -16,5 +17,5 @@
         'data/account_financial_html_report_data.xml',
     ],
     'installable': True,
-    'auto_install': False,
+    'auto_install': True,
 }
