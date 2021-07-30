@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="" model="account.financial.html.report.line">
+    <record id="financial_reporting_nbk" model="account.financial.html.report.line">
         <field name="name">Nettobedrijfskapitaal (Vlottende activa - kort vreemd vermogen)</field>
         <field name="code"></field>
         <field name="parent_id" ref="account_reports.account_financial_report_executivesummary_position0" />
@@ -11,7 +11,7 @@
         <field name="level" eval="3" />
     </record>
 
-    <record id="" model="account.financial.html.report.line">
+    <record id="financial_reporting_bbk" model="account.financial.html.report.line">
         <field name="name">Bedrijfskapitaalbehoefte (tekort aan korte termijn vreemd vermogen)</field>
         <field name="code"></field>
         <field name="parent_id" ref="account_reports.account_financial_report_executivesummary_position0" />
