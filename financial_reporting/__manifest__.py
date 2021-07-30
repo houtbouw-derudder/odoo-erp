@@ -10,7 +10,7 @@
     """,
     'depends': [
 #        'l10n_be_reports', 
-        'account_reports'
+      #  'account_reports'
     ],
     'data': [
         'data/account_financial_html_report_data.xml',
