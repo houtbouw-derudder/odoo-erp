@@ -2,11 +2,11 @@
 <odoo>
 	<menuitem id="hdr_planning_menu_root" name="Planning" sequence="25" groups="base.group_user" web_icon="hdr_project_planning,static/description/icon.png"/>
 	
-    <menuitem id="hdr_planning_planning" name="Planning" sequence="10" parent="planning_menu_root"/>
+    <menuitem id="hdr_planning_planning" name="Planning" sequence="10" parent="hdr_planning_menu_root"/>
 
-    <menuitem id="hdr_planning_resources" name="Resources" sequence="30" parent="planning_menu_root"/>
+    <menuitem id="hdr_planning_resources" name="Resources" sequence="30" parent="hdr_planning_menu_root"/>
 
-    <menuitem id="hdr_planning_config" name="Configuraties" sequence="90" parent="planning_menu_root"/>
+    <menuitem id="hdr_planning_config" name="Configuraties" sequence="90" parent="hdr_planning_menu_root"/>
 
     <menuitem id="hdr_planning_capabilities" name="Competenties" sequence="10" parent="hdr_planning_config" action="hdr_planning_action_capabilities_tree"/>
 </odoo>
