@@ -10,9 +10,12 @@
         Customization for project planning
     """,
     'depends': [
-        'hr'
+        'hr',
+        'project',
+        'hr_timesheet'
     ],
     'data': [
+        'views/project_views.xml',
         'views/planning_capability_views.xml',
         'views/planning_capability_menuitems.xml',
         'security/ir.model.access.csv'
