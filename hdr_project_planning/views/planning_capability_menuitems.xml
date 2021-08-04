@@ -8,5 +8,5 @@
 
     <menuitem id="hdr_planning_config" name="Configuraties" sequence="90" parent="planning_menu_root"/>
 
-    <menuitem id="hdr_planning_capabilities" name="Competenties" sequence="10" parent="hdr_planning_config" action=""/>
+    <menuitem id="hdr_planning_capabilities" name="Competenties" sequence="10" parent="hdr_planning_config" action="hdr_planning_action_capabilities_tree"/>
 </odoo>
