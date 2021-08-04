@@ -10,14 +10,29 @@
 			</tree>
 		</field>
 	</record>
-
-    <record id="hdr_planning_action_capabilities_tree" model="ir.actions.act_window">
-        <field name="name">Competenties</field>
-        <field name="res_model">hdr.planning.capability</field>
-        <field name="view_mode">tree</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Er zijn nog geen competenties.</p>
-        </field>
-    </record>
+	<record id="hdr_planning_action_capabilities_tree" model="ir.actions.act_window">
+		<field name="name">Competenties</field>
+		<field name="res_model">hdr.planning.capability</field>
+		<field name="view_mode">tree</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">Er zijn nog geen competenties.</p>
+		</field>
+	</record>
+	<record id="hdr_planning_resources_tree" model="ir.ui.view">
+		<field name="name">hdr.planning.resource.tree</field>
+		<field name="model">hdr.planning.resource</field>
+		<field name="arch" type="xml">
+			<tree string="Resources" multi_edit="1" editable="bottom">
+				<field name="employee_id" />
+			</tree>
+		</field>
+	</record>
+	<record id="hdr_planning_action_resources_tree" model="ir.actions.act_window">
+		<field name="name">Resources</field>
+		<field name="res_model">hdr.planning.resource</field>
+		<field name="view_mode">tree</field>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">Er zijn nog geen resources.</p>
+		</field>
+	</record>
 </odoo>
