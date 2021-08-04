@@ -14,7 +14,8 @@
     ],
     'data': [
         'views/planning_capability_views.xml',
-        'views/planning_capability_menuitems.xml'
+        'views/planning_capability_menuitems.xml',
+        'security/ir.model.access.csv'
     ],
     'installable': True,
     'auto_install': True,
