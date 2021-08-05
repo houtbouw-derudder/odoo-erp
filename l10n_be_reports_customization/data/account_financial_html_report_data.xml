@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- update: replace BE_60_61 with BE_60 + BE_61 -->
+	<record id="l10n_be_reports.account_financial_report_be_charges0" model="account.financial.html.report.line">
+		<field name="formulas">BE_60 + BE_61 + BE_62 + BE_630 + BE_631_4 + BE_635_7 + BE_640_8 + BE_649</field>
+	</record>
+	<!-- delete: BE_60_61 -->
+	<delete id="l10n_be_reports.account_financial_report_be_approvisionnements0" model="account.financial.html.report.line" />
+	<!-- add BE_60 and BE_61 -->
+	<record id="account_financial_report_be_goederen" model="account.financial.html.report.line">
+		<field name="name">60 - Handelsgoederen, grond- en hulpstoffen</field>
+		<field name="code">BE_60</field>
+		<field name="parent_id" ref='l10n_be_reports.account_financial_report_be_charges0'/>
+		<field name="domain" eval="[('account_id.code', '=like', '60%')]" />
+		<field name="groupby">account_id</field>
+		<field name="formulas">sum</field>
+		<field name="sequence" eval="0"/>
+		<field name="level" eval="2" />
+	</record>
+	<record id="account_financial_report_be_diensten" model="account.financial.html.report.line">
+		<field name="name">61 - Diensten en diverse goederen</field>
+		<field name="code">BE_61</field>
+		<field name="parent_id" ref='l10n_be_reports.account_financial_report_be_charges0'/>
+		<field name="domain" eval="[('account_id.code', '=like', '61%')]" />
+		<field name="groupby">account_id</field>
+		<field name="formulas">sum</field>
+		<field name="sequence" eval="1"/>
+		<field name="level" eval="2" />
+	</record>
+	<!-- nbk -->
+	<record id="financial_reporting_nbk" model="account.financial.html.report.line">
+		<field name="name">Nettobedrijfskapitaal (Vlottende activa - kort vreemd vermogen)</field>
+		<field name="parent_id" ref="account_reports.account_financial_report_executivesummary_position0" />
+		<field name="formulas">BE_29_58-BE_29-BE_42_48-BE_492_3</field>
+		<field name="figure_type">float</field>
+		<field name="green_on_positive" eval="False"/>
+		<field name="level" eval="3" />
+	</record>
+	<!-- bbk -->
+	<record id="financial_reporting_bbk" model="account.financial.html.report.line">
+		<field name="name">Bedrijfskapitaalbehoefte (tekort aan korte termijn vreemd vermogen)</field>
+		<field name="parent_id" ref="account_reports.account_financial_report_executivesummary_position0" />
+		<field name="formulas">BE_3+BE_40_41+BE_490_1-BE_44-BE_45-BE_46-BE_47_8-BE_492_3</field>
+		<field name="figure_type">float</field>
+		<field name="green_on_positive" eval="False"/>
+		<field name="level" eval="3" />
+	</record>
+</odoo>
