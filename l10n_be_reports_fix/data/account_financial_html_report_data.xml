@@ -18,7 +18,7 @@
 		<field name="level" eval="2" />
 	</record>
 	<record id="account_financial_report_be_diensten" model="account.financial.html.report.line">
-		<field name="name">61- Diensten en diverse goederen</field>
+		<field name="name">61 - Diensten en diverse goederen</field>
 		<field name="code">BE_61</field>
 		<field name="parent_id" ref='l10n_be_reports.account_financial_report_be_charges0'/>
 		<field name="domain" eval="[('account_id.code', '=like', '61%')]" />
