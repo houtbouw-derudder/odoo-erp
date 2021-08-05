@@ -14,4 +14,4 @@ class Resource(models.Model):
 
     employee_id = fields.Many2one('hr.employee', string='Werknemer', required=True)
     capability_ids = fields.Many2many('hdr.planning.capability', string="Competenties")
-    available_hours_per_week = fields.Float(string="Beschikbare uren per week", required=True, digits=2)
+    available_hours_per_week = fields.Float(string="Beschikbare uren per week", required=True, digits=(4,2))
