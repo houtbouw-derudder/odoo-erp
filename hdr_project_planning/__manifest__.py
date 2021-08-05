@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Project Planning',
+    'name': 'HDR - Project Planning',
     'version': '1.0',
     'category': 'Customization',
     'author': 'Houtbouw De Rudder bv',
@@ -21,5 +21,5 @@
         'security/ir.model.access.csv'
     ],
     'installable': True,
-    'auto_install': True,
+    'auto_install': False
 }
