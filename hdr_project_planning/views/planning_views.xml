@@ -24,6 +24,8 @@
 		<field name="arch" type="xml">
 			<tree string="Resources" multi_edit="1" editable="bottom">
 				<field name="employee_id" />
+				<field name="capability_ids" />
+				<field name="available_hours_per_week" />
 			</tree>
 		</field>
 	</record>
