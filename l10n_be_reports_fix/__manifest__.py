@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Belgium - Accounting Reports - Fix',
+    'name': 'HDR - Belgium - Accounting Reports - Fix',
     'version': '1.1',
     'category': 'Accounting/Localizations/Reporting',
     'author': 'Houtbouw De Rudder bv',

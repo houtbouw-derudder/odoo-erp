@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Financial reporting',
+    'name': 'HDR - Financial reporting',
     'version': '1.0',
     'category': 'Customization',
     'author': 'Houtbouw De Rudder bv',
