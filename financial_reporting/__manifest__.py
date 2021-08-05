@@ -17,5 +17,5 @@
         'data/account_financial_html_report_data.xml',
     ],
     'installable': True,
-    'auto_install': True,
+    'auto_install': False,
 }
