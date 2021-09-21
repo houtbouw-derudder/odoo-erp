@@ -18,6 +18,8 @@
 		<field name="model">project.task</field>
 		<field name="inherit_id" ref="hr_timesheet.view_task_tree2_inherited" />
 		<field name="arch" type="xml">
-			<field name="time_registration_code" optional="hide"/></field>
+			<field name="progress" position="after">
+				<field name="time_registration_code" optional="hide"/></field>
+		</field>
 	</record>
 </odoo>
