@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<!-- <record id="view_task_form2_inherited" model="ir.ui.view">
-		<field name="name">project.task.form.with.capability</field>
+	<record id="view_task_form2_inherited" model="ir.ui.view">
+		<field name="name">project.task.form.with.time_registration_code</field>
 		<field name="model">project.task</field>
 		<field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited" />
 		<field name="arch" type="xml">
-			<field name="planned_hours" position="after">
+			<field name="planned_hours" position="before">
 				<div class="o_td_label">
-					<label for="capability_id" string="Competentie" />
+					<label for="time_registration_code" string="Tijdsregistratie code" />
 				</div>
-				<field name="capability_id" nolabel="1"/></field>
+				<field name="time_registration_code" readonly="1" nolabel="1"/></field>
 		</field>
-	</record> -->
+	</record>
 </odoo>
