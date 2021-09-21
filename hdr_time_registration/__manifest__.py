@@ -10,7 +10,8 @@
         Customization for time registration with Intellitracer
     """,
     'depends': [
-        'project'
+        'project',
+        'hr_timesheet'
     ],
     'data': [
         'data/ir.sequence.xml',
