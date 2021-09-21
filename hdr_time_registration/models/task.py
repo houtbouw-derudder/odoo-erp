@@ -8,5 +8,6 @@ class ProjectTask(models.Model):
 
     def assign_time_registration_code(self):
         for record in self:
-            if record.time_registration_code is None:
-                # assign TRC
+            if not record.time_registration_code:
+                record.time_registration_code = "%s" % self.env['ir.sequence'].next_by_code('task.time_registration_code')
+                # create ref
