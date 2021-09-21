@@ -5,11 +5,12 @@
 		<field name="model">project.task</field>
 		<field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited" />
 		<field name="arch" type="xml">
-			<field name="planned_hours" position="before">
+			<xpath expr="//notebook/page[@id='timesheets_tab']/group/group/div" position="before">
 				<div class="o_td_label">
 					<label for="time_registration_code" string="Tijdsregistratie code" />
 				</div>
-				<field name="time_registration_code" readonly="1" nolabel="1"/></field>
+				<field name="time_registration_code" readonly="1" nolabel="1"/>
+			</xpath>
 		</field>
 	</record>
 </odoo>
