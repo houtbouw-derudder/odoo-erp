@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<record id="view_task_form2_inherited" model="ir.ui.view">
+	<record id="view_task_form2_inherited_time_registration_code" model="ir.ui.view">
 		<field name="name">project.task.form.with.time_registration_code</field>
 		<field name="model">project.task</field>
 		<field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited" />
@@ -11,6 +11,15 @@
 				</div>
 				<field name="time_registration_code" readonly="1" nolabel="1"/>
 			</xpath>
+		</field>
+	</record>
+	<record id="view_task_form2_inherited_time_registration_code_name" model="ir.ui.view">
+		<field name="name">project.task.form.with.time_registration_code_name</field>
+		<field name="model">project.task</field>
+		<field name="inherit_id" ref="view_task_form2_inherited_time_registration_code" />
+		<field name="arch" type="xml">
+			<field name="name" position="before">[
+				<field name="time_registration_code" readonly="1" class="o_task_name" />]</field>
 		</field>
 	</record>
 </odoo>
