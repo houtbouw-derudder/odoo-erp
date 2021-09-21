@@ -13,6 +13,7 @@
         'project'
     ],
     'data': [
+        'data/ir.sequence.xml',
         'views/project_views.xml',
     ],
     'installable': True,
