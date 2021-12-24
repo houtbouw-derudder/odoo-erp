@@ -18,5 +18,6 @@
         'views/project_views.xml',
     ],
     'installable': True,
-    'auto_install': False
+    'auto_install': False,
+    'license': 'MIT'
 }
