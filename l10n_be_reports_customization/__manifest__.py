@@ -19,5 +19,6 @@
         'data/account_financial_html_report_data.xml'
     ],
     'installable': True,
-    'auto_install': False
+    'auto_install': False,
+    'license': 'OPL-1'
 }
