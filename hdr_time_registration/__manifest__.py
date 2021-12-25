@@ -19,5 +19,5 @@
     ],
     'installable': True,
     'auto_install': False,
-    'license': 'MIT'
+    'license': 'LGPL-3'
 }
