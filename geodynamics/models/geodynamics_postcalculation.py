@@ -62,7 +62,22 @@ class GeodynamicsPostCalculation(models.Model):
     ]
 
     def action_reload(self):
-        pass
+        self.ensure_one()
+
+        lines_to_remove = list(self.line_ids)
+        self.line_ids -= lines_to_remove
+
+        api = self.env['geodynamics.api']
+        postcalculation_data = api.load_postcalculation(self.date)
+        for pc in postcalculation_data:
+            vals = {
+                'postcalculation_id': self,
+                'employee_external_id': pc['User']['Code'],
+                'task_external_id': pc['PostCalculation']['CostCenter']
+            }
+
+            self.line_ids += self.env['geodynamics.postcalculation.line'].create(vals)
 
     def action_validate(self):
+        self.ensure_one()
         pass
