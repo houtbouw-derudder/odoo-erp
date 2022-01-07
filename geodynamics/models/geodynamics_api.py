@@ -20,7 +20,7 @@ class GeodynamicsApi(models.AbstractModel):
 
         body = {}
         body['AllUsers'] = True
-        body['Date'] = date
+        body['Date'] = date.isoformat()
         body['IncludeTimesheetEvents'] = True
 
         try:
