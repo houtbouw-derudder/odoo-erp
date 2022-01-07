@@ -32,6 +32,12 @@
                                 <field name="date" widget="date" />
                             </h1>
                         </div>
+                        <field name="line_ids">
+                            <tree>
+                                <field name="employee_id" />
+                                <field name="task_id" />
+                            </tree>
+                        </field>
                     </sheet>
                 </form>
             </field>
