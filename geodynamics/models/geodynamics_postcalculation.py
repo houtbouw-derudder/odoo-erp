@@ -11,3 +11,6 @@ class GeodynamicsPostCalculation(models.Model):
 
     def action_reload(self):
         pass
+
+    def action_validate(self):
+        pass
