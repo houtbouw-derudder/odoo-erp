@@ -9,6 +9,12 @@
                 <xpath expr="//div[hasclass('settings')]" position="inside">
                     <div class="app_settings_block" data-string="Geodynamics" string="Geodynamics" data-key="geodynamics" groups="base.group_system">
                         <h2>Geodynamics API</h2>
+                        <div class="content-group" id="geodynamics_api_configuration_settings">
+                            <div class="mt16 row">
+                                <label for="api_basic_auth_header" string="API Basic Auth header" class="col-3 col-lg-3 o_light_label"/>
+                                <field name="api_basic_auth_header" attrs="{'required': [('module_geodynamics', '!=', False)]}" password="True"/>
+                            </div>
+                        </div>
                     </div>
                 </xpath>
             </field>
