@@ -33,7 +33,7 @@
                             </h1>
                         </div>
                         <field name="line_ids">
-                            <tree>
+                            <tree create="0" edit="0" delete="0">
                                 <field name="employee_external_id" />
                                 <field name="task_external_id" />
                             </tree>
