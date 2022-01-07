@@ -43,6 +43,10 @@ class GeodynamicsPostCalculation(models.Model):
 
     line_ids = fields.One2many('geodynamics.postcalculation.line', 'postcalculation_id', string="Postcalculation Lines")
 
+    _sql_constraints = [
+        ('date_unique', 'unique (date)', 'The date of the postcalculation must be unique !')
+    ]
+
     def action_reload(self):
         pass
 
