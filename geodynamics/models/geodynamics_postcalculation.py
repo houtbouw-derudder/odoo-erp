@@ -8,7 +8,9 @@ class GeodynamicsPostCalculationLine(models.Model):
     postcalculation_id = fields.Many2one('geodynamics.postcalculation', 'Postcalculation', required=True, ondelete='restrict', index=True)
     date = fields.Date(compute='_compute_date',store=True)
     employee_external_id = fields.Char(required=True)
+    employee_id = fields.Many2one('hr.employee', 'Employee', compute='_compute_employee', store=True)
     task_external_id = fields.Char(required=True)
+    task_id = fields.Many2one('projects.task', 'Task', compute='_compute_task', store=True)
     duration = fields.Float(default=0.0)
     km_home_work = fields.Float(default=0.0)
     km_driver = fields.Float(default=0.0)
@@ -19,6 +21,16 @@ class GeodynamicsPostCalculationLine(models.Model):
     def _compute_date(self):
         for record in self:
             record.date = record.postcalculation_id.date
+    
+    @api.depends('task_external_id')
+    def _compute_task(self):
+        for record in self:
+            task_id_from_external = self.env.ref(record.task_external_id).id
+            record.task_id = self.env['project.task'].search([task_id_from_external], limit=1)
+
+    @api.depends('employee_external_id')
+    def _compute_employee(self):
+        pass
 
     # datum = pc['Date'].split('T')[0]
     #     werknemer = pc['User']['Name']
