@@ -7,4 +7,4 @@ class GeodynamicsPostCalculation(models.Model):
     _rec_name = 'date'
 
     date = fields.Date(required=True, default=fields.Date.context_today)
-    state = fields.Selection(selection=[('draft','Draft'),('validated','Validated')])
+    state = fields.Selection(selection=[('draft','Draft'),('validated','Validated')], default='draft')
