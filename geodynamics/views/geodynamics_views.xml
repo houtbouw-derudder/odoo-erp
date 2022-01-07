@@ -32,7 +32,7 @@
                                 <field name="date" widget="date" />
                             </h1>
                         </div>
-                        <field name="line_ids">
+                        <field name="line_ids" readonly="1">
                             <tree create="0" edit="0" delete="0">
                                 <field name="employee_external_id" />
                                 <field name="task_external_id" />
