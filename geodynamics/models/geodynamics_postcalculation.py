@@ -72,7 +72,7 @@ class GeodynamicsPostCalculation(models.Model):
         postcalculation_data = api.load_postcalculation(self.date)
         for pc in postcalculation_data:
             vals = {
-                'postcalculation_id': self,
+                'postcalculation_id': self.id,
                 'employee_external_id': pc['User']['Code'],
                 'task_external_id': pc['PostCalculation']['CostCenter']
             }
