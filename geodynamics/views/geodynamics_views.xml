@@ -34,8 +34,8 @@
                         </div>
                         <field name="line_ids">
                             <tree>
-                                <field name="employee_id" />
-                                <field name="task_id" />
+                                <field name="employee_external_id" />
+                                <field name="task_external_id" />
                             </tree>
                         </field>
                     </sheet>
