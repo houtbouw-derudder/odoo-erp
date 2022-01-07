@@ -31,7 +31,7 @@ class GeodynamicsPostCalculationLine(models.Model):
     @api.depends('employee_external_id')
     def _compute_employee(self):
         for record in self:
-            employee_id_from_external = self.env.ref(record.employee.external_id).id
+            employee_id_from_external = self.env.ref(record.employee_external_id).id
             record.employee_id = self.env['hr.employee'].search([employee_id_from_external], limit=1)
 
     # datum = pc['Date'].split('T')[0]
