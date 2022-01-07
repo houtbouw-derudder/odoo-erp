@@ -5,7 +5,7 @@
 		<!-- top menu item-->
 		<menuitem name="Geodynamics" id="menu_main_geodynamics" web_icon="geodynamics,static/description/icon.png" sequence="70"/>
 
-        <record model="ir.ui.view" id="view_geodynamics_postcalculation">
+        <record model="ir.ui.view" id="postcalculation_view_tree">
             <field name="name">geodynamics.postcalculation.tree</field>
             <field name="model">geodynamics.postcalculation</field>
             <field name="arch" type="xml">
@@ -21,7 +21,7 @@
 			<field name="res_model">geodynamics.postcalculation</field>
 			<field name="domain">[]</field>
 			<field name="view_mode">tree</field>
-			<field name="view_id" ref="view_geodynamics_postcalculation"/>
+			<!-- <field name="view_id" ref="postcalculation_view_tree"/> -->
             <!-- <field name="search_view_id" ref="view_project_project_filter"/> -->
             <field name="target">main</field>
             <field name="help" type="html">
@@ -32,6 +32,13 @@
                     Postcalculations contain information about the workhours and travel distances of employees.
                 </p>
             </field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="open_view_postcalculation_all_tree">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="postcalculation_view_tree"/>
+            <field name="act_window_id" ref="open_view_postcalculation_all"/>
         </record>
 
         <menuitem action="open_view_postcalculation_all" id="menu_postcalculations" name="Postcalculations" parent="menu_main_geodynamics" sequence="1"/>
