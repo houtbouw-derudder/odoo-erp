@@ -23,7 +23,7 @@
                 <form string="Postcalculation">
                     <header>
                         <button name="action_reload" string="Reload" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}" />
-                        <button name="action_validate" string="Validate" type="object" class="oe_hightlight" attrs="{'invisible': [('state', 'o!=', 'draft')]}" />
+                        <button name="action_validate" string="Validate" type="object" class="oe_hightlight" attrs="{'invisible': [('state', '!=', 'draft')]}" />
                         <field name="state" widget="statusbar" statusbar_visible="draft,validated"/>
                     </header>
                     <sheet>
