@@ -8,3 +8,6 @@ class GeodynamicsPostCalculation(models.Model):
 
     date = fields.Date(required=True, default=fields.Date.context_today)
     state = fields.Selection(selection=[('draft','Draft'),('validated','Validated')], default='draft')
+
+    def action_reload(self):
+        pass
