@@ -55,7 +55,7 @@
             <field name="act_window_id" ref="open_view_postcalculation_all"/>
         </record>
 
-        <record model="ir.actions.act_window.view" id="open_view_postcalculation_all_tree">
+        <record model="ir.actions.act_window.view" id="open_view_postcalculation_all_form">
             <field name="sequence" eval="2"/>
             <field name="view_mode">form</field>
             <field name="view_id" ref="postcalculation_view_form"/>
