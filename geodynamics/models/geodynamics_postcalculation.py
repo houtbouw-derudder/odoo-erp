@@ -84,9 +84,7 @@ class GeodynamicsPostCalculation(models.Model):
     def action_reload(self):
         self.ensure_one()
 
-        lines_to_remove = list(self.line_ids)
-        for line in lines_to_remove:
-            self.line_ids -= line
+        self.line_ids.unlink()
 
         api = self.env['geodynamics.api']
         postcalculation_data = api.load_postcalculation(self.date)
