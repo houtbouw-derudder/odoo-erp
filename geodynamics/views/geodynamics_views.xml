@@ -5,12 +5,23 @@
 		<!-- top menu item-->
 		<menuitem name="Geodynamics" id="menu_main_geodynamics" web_icon="geodynamics,static/description/icon.png" sequence="70"/>
 
+        <record model="ir.ui.view" id="view_geodynamics_postcalculation">
+            <field name="name">geodynamics.postcalculation.tree</field>
+            <field name="model">geodynamics.postcalculation</field>
+            <field name="arch" type="xml">
+                <tree string="Postcalculations">
+                    <field name="name" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
         <record id="open_view_postcalculation_all" model="ir.actions.act_window">
 			<field name="name">Postcalculations</field>
 			<field name="res_model">geodynamics.postcalculation</field>
 			<field name="domain">[]</field>
 			<field name="view_mode">tree</field>
-			<field name="view_id" ref="--TODO--"/>
+			<field name="view_id" ref="view_geodynamics_postcalculation"/>
             <!-- <field name="search_view_id" ref="view_project_project_filter"/> -->
             <field name="target">main</field>
             <field name="help" type="html">
