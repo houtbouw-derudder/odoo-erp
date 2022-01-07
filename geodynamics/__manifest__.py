@@ -14,6 +14,7 @@
         'hr_timesheet'
     ],
     'data': [
+        'views/geodynamics_postcalculation_views.xml'
     ],
     'installable': True,
     'auto_install': False,

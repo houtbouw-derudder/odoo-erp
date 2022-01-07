@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- top menu item-->
+		<menuitem name="Geodynamics" id="menu_main_geodynamics" web_icon="geodynamics,static/description/icon.png" sequence="70"/>
+
+        <record id="open_view_postcalculation_all" model="ir.actions.act_window">
+			<field name="name">Postcalculations</field>
+			<field name="res_model">geodynamics.postcalculation</field>
+			<field name="domain">[]</field>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="--TODO--"/>
+            <!-- <field name="search_view_id" ref="view_project_project_filter"/> -->
+            <field name="target">main</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No postcalculations found. Let's create one!
+                </p>
+                <p>
+                    Postcalculations contain information about the workhours and travel distances of employees.
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="open_view_postcalculation" id="menu_postcalculations" name="Postcalculations" parent="menu_main_geodynamics" sequence="1"/>
+
+    </data>
+</odoo>
