@@ -10,7 +10,7 @@
             <field name="model">geodynamics.postcalculation</field>
             <field name="arch" type="xml">
                 <tree string="Postcalculations">
-                    <field name="name" />
+                    <field name="date" />
                     <field name="state" />
                 </tree>
             </field>
