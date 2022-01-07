@@ -26,13 +26,13 @@ class GeodynamicsPostCalculationLine(models.Model):
     def _compute_task(self):
         for record in self:
             task_id_from_external = self.env.ref(record.task_external_id).id
-            record.task_id = self.env['project.task'].search([task_id_from_external], limit=1)
+            record.task_id = self.env['project.task'].search([('id', '=', task_id_from_external)], limit=1)
 
     @api.depends('employee_external_id')
     def _compute_employee(self):
         for record in self:
             employee_id_from_external = self.env.ref(record.employee_external_id).id
-            record.employee_id = self.env['hr.employee'].search([employee_id_from_external], limit=1)
+            record.employee_id = self.env['hr.employee'].search([('id', '=', employee_id_from_external)], limit=1)
 
     # datum = pc['Date'].split('T')[0]
     #     werknemer = pc['User']['Name']
