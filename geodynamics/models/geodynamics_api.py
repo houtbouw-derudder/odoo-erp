@@ -10,7 +10,7 @@ class GeodynamicsApi(models.AbstractModel):
     _description = 'Geodynamics API wrapper'
 
     def _get_basic_auth_header(self):
-        Parameters = self.env['ir.config_parameters'].sudo()
+        Parameters = self.env['ir.config_parameter'].sudo()
         return Parameters.get_param('geodynamics.api_basic_auth_header')
 
     def load_postcalculation(self, date):
