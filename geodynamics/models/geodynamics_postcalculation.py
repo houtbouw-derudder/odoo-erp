@@ -96,4 +96,3 @@ class GeodynamicsPostCalculation(models.Model):
 
     def action_validate(self):
         self.ensure_one()
-        pass
