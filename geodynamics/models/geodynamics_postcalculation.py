@@ -18,7 +18,7 @@ class GeodynamicsPostCalculationLine(models.Model):
     duration = fields.Float(default=0.0)
     km_home_work = fields.Float(default=0.0)
     km_driver = fields.Float(default=0.0)
-    km_sigle_driver = fields.Float(default=0.0)
+    km_single_driver = fields.Float(default=0.0)
     km_passenger = fields.Float(default=0.0)
 
     @api.depends('postcalculation_id')

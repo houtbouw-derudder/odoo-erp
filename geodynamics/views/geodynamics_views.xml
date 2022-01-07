@@ -36,6 +36,11 @@
                             <tree create="0" edit="0" delete="0">
                                 <field name="employee_external_id" />
                                 <field name="task_external_id" />
+                                <field name="duration" />
+                                <field name="km_home_work" />
+                                <field name="km_driver" />
+                                <field name="km_single_driver" />
+                                <field name="km_passenger" />
                             </tree>
                         </field>
                     </sheet>
