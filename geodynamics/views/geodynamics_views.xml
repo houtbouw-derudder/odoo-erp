@@ -11,7 +11,7 @@
             <field name="arch" type="xml">
                 <tree string="Postcalculations">
                     <field name="date" />
-                    <field name="state" />
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'validated'"/>
                 </tree>
             </field>
         </record>
