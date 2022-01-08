@@ -59,8 +59,8 @@ class GeodynamicsPostCalculationLine(models.Model):
         analytic_account_line_vals = []
         if self.duration > 0:
             analytic_account_line_vals.append({
-                'task_id': self.task_id,
-                'employee_id': self.employee_id,
+                'task_id': self.task_id.id,
+                'employee_id': self.employee_id.id,
                 'date': self.date,
                 'unit_amount': self.duration
             })
