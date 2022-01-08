@@ -38,7 +38,7 @@
                                 <field name="employee_id" />
                                 <field name="task_external_id" />
                                 <field name="task_id" />
-                                <field name="duration" />
+                                <field name="duration" widget="timesheet_uom_no_toggle" />
                                 <field name="km_home_work" />
                                 <field name="km_driver" />
                                 <field name="km_single_driver" />
