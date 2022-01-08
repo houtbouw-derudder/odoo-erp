@@ -114,6 +114,9 @@ class GeodynamicsPostCalculation(models.Model):
     def action_validate(self):
         self.ensure_one()
 
+        if self.state != 'draft':
+            raise UserError(_("A Postcalculation must be in state draft to be validated."))
+
         for line in self.line_ids:
             if not line.task_id:
                 raise UserError(_("At least one line has an unmapped task."))
