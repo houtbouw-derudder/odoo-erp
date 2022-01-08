@@ -123,3 +123,5 @@ class GeodynamicsPostCalculation(models.Model):
             
         for line in self.line_ids:
             line._compute_analytic_account_lines()
+
+        self.state = 'validated'
