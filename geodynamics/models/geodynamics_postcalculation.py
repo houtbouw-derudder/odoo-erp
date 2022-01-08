@@ -49,6 +49,7 @@ class GeodynamicsPostCalculation(models.Model):
     _name = 'geodynamics.postcalculation'
     _description = 'Geodynamics Postcalculation'
     _rec_name = 'date'
+    _inherit = ['mail.thread']
 
     date = fields.Date(required=True, default=fields.Date.context_today)
     state = fields.Selection(
