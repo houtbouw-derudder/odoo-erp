@@ -72,7 +72,7 @@ class GeodynamicsPostCalculation(models.Model):
             'km_driver': data['PostCalculation']['Mobility']['KmDriver'],
             'km_single_driver': data['PostCalculation']['Mobility']['KmSingleDriver'],
             'km_passenger': data['PostCalculation']['Mobility']['KmPassenger'],
-            'km_home_work': data['Timesheet']['Mobility']['KmHomeWork']
+            'km_home_work': data['TimeSheet']['Mobility']['KmHomeWork']
         }
 
     def action_reload(self):
@@ -85,6 +85,9 @@ class GeodynamicsPostCalculation(models.Model):
 
         self.line_ids = self.env['geodynamics.postcalculation.line'].create(
             [self._extract_postcalculation_line_data(pc) for pc in postcalculation_data])
+
+        self.message_post(body='<p>Data reload complete</p>')
+        
 
     def action_validate(self):
         self.ensure_one()
