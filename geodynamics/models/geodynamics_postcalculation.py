@@ -52,9 +52,20 @@ class GeodynamicsPostCalculationLine(models.Model):
                 record.employee_id = False
 
     def _compute_analytic_account_lines(self):
-        for record in self:
-            record.analytic_account_line_ids.unlink()
-            # do some magic
+        self.ensure_one()
+        
+        self.analytic_account_line_ids.unlink()
+
+        analytic_account_line_vals = []
+        if self.duration > 0:
+            analytic_account_line_vals.append({
+                'task_id': self.task_id,
+                'employee_id': self.employee_id,
+                'date': self.data,
+                'unit_amount': self.duration
+            })
+        
+        self.analytic_account_lines_ids = self.env['account.analytic.line'].create(analytic_account_line_vals)
 
 
 class GeodynamicsPostCalculation(models.Model):
