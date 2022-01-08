@@ -8,19 +8,19 @@ class GeodynamicsPostCalculationLine(models.Model):
     _description = 'Geodynamics Postcalculation line'
 
     postcalculation_id = fields.Many2one(
-        'geodynamics.postcalculation', 'Postcalculation', required=True, ondelete='restrict', index=True)
+        'geodynamics.postcalculation', 'Postcalculation', required=True, ondelete='cascade', index=True)
     date = fields.Date(compute='_compute_date', store=True)
     employee_external_id = fields.Char(required=True)
-    employee_id = fields.Many2one(
-        'hr.employee', 'Employee', compute='_compute_employee', store=True)
+    employee_id = fields.Many2one('hr.employee', 'Employee', compute='_compute_employee', store=True)
     task_external_id = fields.Char(required=True)
-    task_id = fields.Many2one('project.task', 'Task',
-                              compute='_compute_task', store=True)
+    task_id = fields.Many2one('project.task', 'Task',compute='_compute_task', store=True)
     duration = fields.Float(default=0.0)
     km_home_work = fields.Float(default=0.0)
     km_driver = fields.Float(default=0.0)
     km_single_driver = fields.Float(default=0.0)
     km_passenger = fields.Float(default=0.0)
+
+    analytic_account_lines_ids = fields.One2many('analytic.account.line', 'postcalculation_line_id', string="Analytic Account Lines")
 
     @api.depends('postcalculation_id')
     def _compute_date(self):
@@ -51,6 +51,11 @@ class GeodynamicsPostCalculationLine(models.Model):
             else:
                 record.employee_id = False
 
+    def _compute_analytic_account_lines(self):
+        for record in self:
+            record.analytic_account_line_ids.unlink()
+            # do some magic
+
 
 class GeodynamicsPostCalculation(models.Model):
     _name = 'geodynamics.postcalculation'
@@ -59,11 +64,9 @@ class GeodynamicsPostCalculation(models.Model):
     _inherit = ['mail.thread']
 
     date = fields.Date(required=True, default=fields.Date.context_today)
-    state = fields.Selection(
-        selection=[('draft', 'Draft'), ('validated', 'Validated')], default='draft')
+    state = fields.Selection(selection=[('draft', 'Draft'), ('validated', 'Validated')], default='draft')
 
-    line_ids = fields.One2many('geodynamics.postcalculation.line',
-                               'postcalculation_id', string="Postcalculation Lines")
+    line_ids = fields.One2many('geodynamics.postcalculation.line','postcalculation_id', string="Postcalculation Lines")
 
     _sql_constraints = [
         ('date_unique', 'unique (date)',
@@ -106,4 +109,5 @@ class GeodynamicsPostCalculation(models.Model):
             if not line.employee_id:
                 raise UserError(_("At least one line has an unmapped employee."))
             
-        # TODO: create analytic account lines per line
+        for line in self.line_ids:
+            line._compute_analytic_account_lines()
