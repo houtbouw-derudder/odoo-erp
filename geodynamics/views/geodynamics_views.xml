@@ -34,9 +34,10 @@
                         </div>
                         <field name="line_ids" readonly="1">
                             <tree create="0" edit="0" delete="0">
-                                <field name="date" />
                                 <field name="employee_external_id" />
+                                <field name="employee_id" />
                                 <field name="task_external_id" />
+                                <field name="task_id" />
                                 <field name="duration" />
                                 <field name="km_home_work" />
                                 <field name="km_driver" />
