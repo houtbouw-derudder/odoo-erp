@@ -1,5 +1,6 @@
 
 from odoo import api, fields, models, _, tools
+from odoo.exceptions import UserError
 
 
 class GeodynamicsPostCalculationLine(models.Model):
@@ -97,3 +98,12 @@ class GeodynamicsPostCalculation(models.Model):
 
     def action_validate(self):
         self.ensure_one()
+
+        for line in self.line_ids:
+            if not line.task_id:
+                raise UserError(_("At least one line has an unmapped task."))
+
+            if not line.employee_id:
+                raise UserError(_("At least one line has an unmapped employee."))
+            
+        # TODO: create analytic account lines per line
