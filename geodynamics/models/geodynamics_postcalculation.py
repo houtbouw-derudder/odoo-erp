@@ -61,7 +61,7 @@ class GeodynamicsPostCalculationLine(models.Model):
             analytic_account_line_vals.append({
                 'task_id': self.task_id,
                 'employee_id': self.employee_id,
-                'date': self.data,
+                'date': self.date,
                 'unit_amount': self.duration
             })
         
