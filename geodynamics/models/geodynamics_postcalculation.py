@@ -44,18 +44,6 @@ class GeodynamicsPostCalculationLine(models.Model):
     #             record.employee_id = self.env['hr.employee'].search(
     #                 [('id', '=', employee_id_from_external)], limit=1)
 
-    # datum = pc['Date'].split('T')[0]
-    #     werknemer = pc['User']['Name']
-    #     taak_id = pc['PostCalculation']['CostCenter']
-    #     gewerkte_uren = round(pc['PostCalculation']['Duration'], 2)
-
-    #     mobility = pc['PostCalculation']['Mobility']
-
-    #     km_chauffeur = mobility['KmDriver']
-    #     km_chauffeur_alleen = mobility['KmSingleDriver']
-    #     km_passagier = mobility['KmPassenger']
-    #     km_woon_werk = pc['TimeSheet']['Mobility']['KmHomeWork']
-
 
 class GeodynamicsPostCalculation(models.Model):
     _name = 'geodynamics.postcalculation'
@@ -78,7 +66,12 @@ class GeodynamicsPostCalculation(models.Model):
         return {
             'postcalculation_id': self.id,
             'employee_external_id': data['User']['Code'],
-            'task_external_id': data['PostCalculation']['CostCenter']
+            'task_external_id': data['PostCalculation']['CostCenter'],
+            'duration': round(data['PostCalculation']['Duration'], 2),
+            'km_driver': data['PostCalculation']['Mobility']['KmDriver'],
+            'km_single_driver': data['PostCalculation']['Mobility']['KmSingleDriver'],
+            'km_passenger': data['PostCalculation']['Mobility']['KmPassenger'],
+            'km_home_work': data['PostCalculation']['Mobility']['KmHomeWork']
         }
 
     def action_reload(self):
