@@ -62,7 +62,8 @@ class GeodynamicsPostCalculationLine(models.Model):
                 'task_id': self.task_id.id,
                 'employee_id': self.employee_id.id,
                 'date': self.date,
-                'unit_amount': self.duration
+                'unit_amount': self.duration,
+                'name': _('Worked hours')
             })
         
         self.analytic_account_line_ids = self.env['account.analytic.line'].create(analytic_account_line_vals)
