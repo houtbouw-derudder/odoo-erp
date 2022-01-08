@@ -72,7 +72,7 @@ class GeodynamicsPostCalculation(models.Model):
             'km_driver': data['PostCalculation']['Mobility']['KmDriver'],
             'km_single_driver': data['PostCalculation']['Mobility']['KmSingleDriver'],
             'km_passenger': data['PostCalculation']['Mobility']['KmPassenger'],
-            'km_home_work': data['PostCalculation']['Mobility']['KmHomeWork']
+            'km_home_work': data['Timesheet']['Mobility']['KmHomeWork']
         }
 
     def action_reload(self):
