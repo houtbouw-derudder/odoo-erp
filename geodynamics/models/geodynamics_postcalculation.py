@@ -20,7 +20,7 @@ class GeodynamicsPostCalculationLine(models.Model):
     km_single_driver = fields.Float(default=0.0)
     km_passenger = fields.Float(default=0.0)
 
-    analytic_account_lines_ids = fields.One2many('analytic.account.line', 'postcalculation_line_id', string="Analytic Account Lines")
+    analytic_account_lines_ids = fields.One2many('account.analytic.line', 'postcalculation_line_id', string="Analytic Account Lines")
 
     @api.depends('postcalculation_id')
     def _compute_date(self):
