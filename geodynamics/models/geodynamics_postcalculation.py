@@ -10,7 +10,7 @@ class GeodynamicsPostCalculationLine(models.Model):
     postcalculation_id = fields.Many2one(
         'geodynamics.postcalculation', 'Postcalculation', required=True, ondelete='cascade', index=True)
     date = fields.Date(compute='_compute_date', store=True)
-    state = fields.Char(related='postcalculation_id.state')
+    state = fields.Selection(related='postcalculation_id.state')
     employee_external_id = fields.Char(required=True)
     employee_id = fields.Many2one('hr.employee', 'Employee', compute='_compute_employee', store=True)
     task_external_id = fields.Char(required=True)
