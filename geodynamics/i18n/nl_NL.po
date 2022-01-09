@@ -84,7 +84,7 @@ msgstr "Configuratie instellingen"
 #. module: geodynamics
 #: model:ir.ui.menu,name:geodynamics.menu_geodynamics_config
 msgid "Configuration"
-msgstr ""
+msgstr "Configuratie"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__create_uid
