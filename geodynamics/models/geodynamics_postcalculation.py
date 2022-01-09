@@ -25,7 +25,6 @@ class GeodynamicsPostCalculationLine(models.Model):
     analytic_account_line_ids = fields.One2many('account.analytic.line', 'postcalculation_line_id', string="Analytic Account Lines")
 
     
-
     @api.depends('postcalculation_id')
     def _compute_date(self):
         for record in self:
