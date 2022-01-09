@@ -1,0 +1,440 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* geodynamics
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-09 12:42+0000\n"
+"PO-Revision-Date: 2022-01-09 14:46+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Company name</span>"
+msgstr "<span class=\"o_form_label\">Bedrijf</span>"
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Password</span>"
+msgstr "<span class=\"o_form_label\">Wachtwoord</span>"
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">User name</span>"
+msgstr "<span class=\"o_form_label\">Gebruikersnaam</span>"
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "A Postcalculation must be in state draft to be validated."
+msgstr ""
+"Een nacalculatie moet in status 'Concept' staan om te kunnen valideren."
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_needaction
+msgid "Action Needed"
+msgstr "Actie vereist"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__analytic_account_line_ids
+msgid "Analytic Account Lines"
+msgstr "Urenstaat lijnen"
+
+#. module: geodynamics
+#: model:ir.model,name:geodynamics.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Urenstaat lijn"
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "At least one line has an unmapped employee."
+msgstr "Minstens één lijn heeft geen overeenkomst met een werknemer."
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "At least one line has an unmapped task."
+msgstr "Minstens één lijn heeft geen overeenkomst met een taak."
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_attachment_count
+msgid "Attachment Count"
+msgstr "Aantal bijlages"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_res_config_settings__geo_company_name
+msgid "Company name"
+msgstr "Bedrijfsnaam"
+
+#. module: geodynamics
+#: model:ir.model,name:geodynamics.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuratie instellingen"
+
+#. module: geodynamics
+#: model:ir.ui.menu,name:geodynamics.menu_geodynamics_config
+msgid "Configuration"
+msgstr "Configuratie"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__create_uid
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__create_date
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__date
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__date
+#: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
+msgid "Date"
+msgstr "Datum"
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.postcalculation_view_form
+msgid "Details"
+msgstr "Details"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__display_name
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__display_name
+msgid "Display Name"
+msgstr "Weergave naam"
+
+#. module: geodynamics
+#: model:ir.model.fields.selection,name:geodynamics.selection__geodynamics_postcalculation__state__draft
+#: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
+msgid "Draft"
+msgstr "Concept"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__duration
+msgid "Duration"
+msgstr "Duur"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__employee_id
+#: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
+msgid "Employee"
+msgstr "Werknemer"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__employee_external_id
+msgid "Employee External"
+msgstr "Externe werknemer ID"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_follower_ids
+msgid "Followers"
+msgstr "Volgers"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Volgers (partners)"
+
+#. module: geodynamics
+#: model:ir.ui.menu,name:geodynamics.menu_main_geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.res_config_settings_view_form
+msgid "Geodynamics"
+msgstr "Geodynamics"
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.res_config_settings_view_form
+msgid "Geodynamics API"
+msgstr "Geodynamics API"
+
+#. module: geodynamics
+#: model:ir.model,name:geodynamics.model_geodynamics_api
+msgid "Geodynamics API wrapper"
+msgstr "Geodynamics API wrapper"
+
+#. module: geodynamics
+#: model:ir.model,name:geodynamics.model_geodynamics_postcalculation
+msgid "Geodynamics Postcalculation"
+msgstr "Geodynamics Nacalculatie"
+
+#. module: geodynamics
+#: model:ir.model,name:geodynamics.model_geodynamics_postcalculation_line
+msgid "Geodynamics Postcalculation line"
+msgstr "Geodynamics Nacalculatie lijn"
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
+msgid "Group By"
+msgstr "Groepeer Op"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__has_message
+msgid "Has Message"
+msgstr "Heeft bericht"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__id
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: geodynamics
+#: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__message_needaction
+#: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__message_has_error
+#: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_is_follower
+msgid "Is Follower"
+msgstr "Is volger"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__km_driver
+msgid "Km Driver"
+msgstr "Km chauffeur"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__km_home_work
+msgid "Km Home Work"
+msgstr "Km woon-werk"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__km_passenger
+msgid "Km Passenger"
+msgstr "Km passagier"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__km_single_driver
+msgid "Km Single Driver"
+msgstr "Km alleenrijdende chauffeur"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation____last_update
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line____last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__write_uid
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__write_date
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: geodynamics
+#: model_terms:ir.actions.act_window,help:geodynamics.open_view_postcalculation_all
+msgid "No postcalculations found. Let's create one!"
+msgstr "Geen nacalculaties gevonden. Laat ons er een aanmaken!"
+
+#. module: geodynamics
+#: model_terms:ir.actions.act_window,help:geodynamics.act_geodynamics_reporting_postcalculation_line
+msgid "No postcalculations have been imported previously."
+msgstr "Er werden nog geen nacalculaties geïmporteerd."
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_res_config_settings__password
+msgid "Password"
+msgstr "Wachtwoord"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__postcalculation_id
+#: model_terms:ir.ui.view,arch_db:geodynamics.postcalculation_view_form
+msgid "Postcalculation"
+msgstr "Nacalculatie"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_account_analytic_line__postcalculation_line_id
+msgid "Postcalculation Line"
+msgstr "Nacalculatie detail"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__line_ids
+msgid "Postcalculation Lines"
+msgstr "Nacalculatie details"
+
+#. module: geodynamics
+#: model:ir.actions.act_window,name:geodynamics.act_geodynamics_reporting_postcalculation_line
+#: model:ir.ui.menu,name:geodynamics.menu_geodynamics_reporting_postcalcultion_lines
+#: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_pivot
+#: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
+msgid "Postcalculation lines"
+msgstr "Nacalculatie details"
+
+#. module: geodynamics
+#: model:ir.actions.act_window,name:geodynamics.open_view_postcalculation_all
+#: model:ir.ui.menu,name:geodynamics.menu_postcalculations
+#: model_terms:ir.ui.view,arch_db:geodynamics.postcalculation_view_tree
+msgid "Postcalculations"
+msgstr "Nacalculaties"
+
+#. module: geodynamics
+#: model_terms:ir.actions.act_window,help:geodynamics.open_view_postcalculation_all
+msgid ""
+"Postcalculations contain information about the workhours and travel "
+"distances of employees."
+msgstr ""
+"Nacalculaties bevatten informatie over de werkuren en de afgelegde "
+"afstanden van werknemers."
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__project_id
+#: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
+msgid "Project"
+msgstr "Project"
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.postcalculation_view_form
+msgid "Reload"
+msgstr "Herladen"
+
+#. module: geodynamics
+#: model:ir.ui.menu,name:geodynamics.menu_geodynamics_reporting
+msgid "Reporting"
+msgstr "Rapportering"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.actions.act_window,name:geodynamics.geodynamics_config_settings_action
+#: model:ir.ui.menu,name:geodynamics.geodynamics_config_settings_menu_action
+msgid "Settings"
+msgstr "Instellingen"
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_api.py:0
+#, python-format
+msgid ""
+"Something went wrong while exporting the postcalculation from Geodynamics."
+msgstr ""
+"Er is iets fout gegaan tijdens het ophalen van nacalculaties bij "
+"Geodynamics."
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__state
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__state
+msgid "State"
+msgstr "Status"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__task_id
+#: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
+msgid "Task"
+msgstr "Taak"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__task_external_id
+msgid "Task External"
+msgstr "Externe taak ID"
+
+#. module: geodynamics
+#: model:ir.model.constraint,message:geodynamics.constraint_geodynamics_postcalculation_date_unique
+msgid "The date of the postcalculation must be unique !"
+msgstr "De datum van de nacalculatie moet uniek zijn!"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_res_config_settings__user_name
+msgid "User name"
+msgstr "Gebruikersnaam"
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.postcalculation_view_form
+msgid "Validate"
+msgstr "Valideren"
+
+#. module: geodynamics
+#: model:ir.model.fields.selection,name:geodynamics.selection__geodynamics_postcalculation__state__validated
+msgid "Validated"
+msgstr "Gevalideerd"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: geodynamics
+#: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "Worked hours"
+msgstr "Gewerkte uren"

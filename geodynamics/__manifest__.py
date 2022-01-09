@@ -3,7 +3,7 @@
 
 {
     'name': 'Geodynamics',
-    'version': '1.0',
+    'version': '1.2',
     'category': 'Customization',
     'author': 'Houtbouw De Rudder bv',
     'description': """
@@ -21,5 +21,6 @@
     ],
     'installable': True,
     'auto_install': False,
+    'application': True,
     'license': 'OPL-1'
 }
