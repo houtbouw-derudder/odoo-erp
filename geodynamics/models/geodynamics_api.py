@@ -1,10 +1,13 @@
 
 import requests
 from base64 import b64encode
+from logging import getLogger
 
 from odoo import models, _
 
 GEODYNAMICS_API_URI = "https://api.intellitracer.be/api/"
+
+_logger = getLogger(__name__)
 
 class GeodynamicsApi(models.AbstractModel):
     _name = 'geodynamics.api'
@@ -17,7 +20,11 @@ class GeodynamicsApi(models.AbstractModel):
         user_name = Parameters.get_param('geodynamics.user_name')
         password = Parameters.get_param('geodynamics.password')
 
-        return b64encode(f"{user_name}|{company_name}:{password}".encode(encoding='utf8')).decode(encoding='utf8')
+        s = f"{user_name}|{company_name}:{password}"
+
+        _logger.info("Auth header to encode: %s" % s)
+
+        return b64encode(s.encode(encoding='utf8')).decode(encoding='utf8')
 
 
     def load_postcalculation(self, date):
