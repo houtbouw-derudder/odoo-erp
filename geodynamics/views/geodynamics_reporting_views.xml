@@ -9,12 +9,14 @@
                     <field name="date"/>
                     <field name="employee_id"/>
                     <field name="task_id"/>
+                    <field name="project_id" />
                     <field name="state" />
                     <separator/>
                     <filter name="month" string="Date" date="date"/>
                     <filter name="draft" string="Draft" domain="[('state','=','draft')]" />
                     <group expand="0" string="Group By">
                         <filter string="Task" name="groupby_task" domain="[]" context="{'group_by': 'task_id'}"/>
+                        <filter string="Project" name="groupby_project" domain="[]" context="{'group_by': 'project_id'}" />
                         <filter string="Date" name="groupby_date" domain="[]" context="{'group_by': 'date'}"/>
                         <filter string="Employee" name="groupby_employee" domain="[]" context="{'group_by': 'employee_id'}"/>
                     </group>
