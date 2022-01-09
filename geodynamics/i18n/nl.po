@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-09 12:42+0000\n"
-"PO-Revision-Date: 2022-01-09 14:00+0100\n"
+"PO-Revision-Date: 2022-01-09 14:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -90,13 +90,13 @@ msgstr "Configuratie"
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__create_uid
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__create_date
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__date
@@ -114,7 +114,7 @@ msgstr "Details"
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__display_name
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergave naam"
 
 #. module: geodynamics
 #: model:ir.model.fields.selection,name:geodynamics.selection__geodynamics_postcalculation__state__draft
@@ -131,17 +131,17 @@ msgstr "Duur"
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__employee_id
 #: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
 msgid "Employee"
-msgstr ""
+msgstr "Werknemer"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__employee_external_id
 msgid "Employee External"
-msgstr ""
+msgstr "Externe werknemer ID"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Volgers"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_partner_ids
@@ -172,12 +172,12 @@ msgstr "Geodynamics Nacalculatie"
 #. module: geodynamics
 #: model:ir.model,name:geodynamics.model_geodynamics_postcalculation_line
 msgid "Geodynamics Postcalculation line"
-msgstr ""
+msgstr "Geodynamics Nacalculatie lijn"
 
 #. module: geodynamics
 #: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
 msgid "Group By"
-msgstr ""
+msgstr "Groepeer Op"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__has_message
@@ -188,7 +188,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__id
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: geodynamics
 #: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__message_needaction
@@ -237,13 +237,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__write_uid
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__write_date
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_main_attachment_id
@@ -258,17 +258,17 @@ msgstr ""
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Berichten"
 
 #. module: geodynamics
 #: model_terms:ir.actions.act_window,help:geodynamics.open_view_postcalculation_all
 msgid "No postcalculations found. Let's create one!"
-msgstr ""
+msgstr "Geen nacalculaties gevonden. Laat ons er een aanmaken!"
 
 #. module: geodynamics
 #: model_terms:ir.actions.act_window,help:geodynamics.act_geodynamics_reporting_postcalculation_line
 msgid "No postcalculations have been imported previously."
-msgstr ""
+msgstr "Er werden nog geen nacalculaties geïmporteerd."
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_needaction_counter
@@ -391,7 +391,7 @@ msgstr "Taak"
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__task_external_id
 msgid "Task External"
-msgstr "Externe taak id"
+msgstr "Externe taak ID"
 
 #. module: geodynamics
 #: model:ir.model.constraint,message:geodynamics.constraint_geodynamics_postcalculation_date_unique
