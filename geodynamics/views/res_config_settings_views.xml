@@ -19,7 +19,7 @@
                                     </div>
                                     <span class="o_form_label">Company name</span>
                                     <div class="text-muted content-group mt16">
-                                        <field name="company_name" />
+                                        <field name="geo_company_name" />
                                     </div>
                                     <span class="o_form_label">User name</span>
                                     <div class="text-muted content-group mt16">
