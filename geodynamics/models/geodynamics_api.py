@@ -1,5 +1,6 @@
 
 import requests
+from base64 import b64encode
 
 from odoo import models, _
 
@@ -11,7 +12,13 @@ class GeodynamicsApi(models.AbstractModel):
 
     def _get_basic_auth_header(self):
         Parameters = self.env['ir.config_parameter'].sudo()
-        return Parameters.get_param('geodynamics.api_basic_auth_header')
+        
+        company_name = Parameters.get_param('geodynamics.geo_company_name')
+        user_name = Parameters.get_param('geodynamics.user_name')
+        password = Parameters.get_param('geodynamics.password')
+
+        return b64encode(f"{user_name}|{company_name}:{password}".encode(encoding='utf8')).decode(encoding='utf8')
+
 
     def load_postcalculation(self, date):
         headers = {}
