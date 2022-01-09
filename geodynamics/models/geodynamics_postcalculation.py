@@ -15,7 +15,7 @@ class GeodynamicsPostCalculationLine(models.Model):
     employee_id = fields.Many2one('hr.employee', 'Employee', compute='_compute_employee', store=True)
     task_external_id = fields.Char(required=True)
     task_id = fields.Many2one('project.task', 'Task',compute='_compute_task', store=True)
-    project_id = fields.Many2one('project.project', 'Project', related="task_id.project_id", store=False)
+    project_id = fields.Many2one('project.project', 'Project', related="task_id.project_id", store=True)
     duration = fields.Float(default=0.0)
     km_home_work = fields.Float(default=0.0)
     km_driver = fields.Float(default=0.0)
