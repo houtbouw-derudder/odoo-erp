@@ -16,7 +16,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/geodynamics_views.xml',
-        'views/res_config_settings_views.xml'
+        'views/res_config_settings_views.xml',
+        'views/geodynamics_reporting_views.xml'
     ],
     'installable': True,
     'auto_install': False,
