@@ -12,8 +12,8 @@ class GeodynamicsApi(models.AbstractModel):
 
     def _get_basic_auth_header(self):
         Parameters = self.env['ir.config_parameter'].sudo()
-        
-        company_name = Parameters.get_param('geodynamics.geo_company_name')
+
+        company_name = Parameters.get_param('geodynamics.company_name')
         user_name = Parameters.get_param('geodynamics.user_name')
         password = Parameters.get_param('geodynamics.password')
 
