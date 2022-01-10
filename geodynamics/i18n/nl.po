@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-09 12:42+0000\n"
-"PO-Revision-Date: 2022-01-09 14:46+0100\n"
+"POT-Creation-Date: 2022-01-10 05:34+0000\n"
+"PO-Revision-Date: 2022-01-10 06:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -16,6 +16,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "<p>Data reload complete</p>"
+msgstr "<p>Data volledig herladen</p>"
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "<p>State: Draft -> Validated</p>"
+msgstr "<p>Status: Concept -> Gevalideerd</p>"
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "<p>State: Validated -> Draft</p>"
+msgstr "<p>Status: Gevalideerd -> Concept</p>"
 
 #. module: geodynamics
 #: model_terms:ir.ui.view,arch_db:geodynamics.res_config_settings_view_form
@@ -337,8 +355,8 @@ msgid ""
 "Postcalculations contain information about the workhours and travel "
 "distances of employees."
 msgstr ""
-"Nacalculaties bevatten informatie over de werkuren en de afgelegde "
-"afstanden van werknemers."
+"Nacalculaties bevatten informatie over de werkuren en de afgelegde afstanden "
+"van werknemers."
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__project_id
@@ -352,9 +370,26 @@ msgid "Reload"
 msgstr "Herladen"
 
 #. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "Reloading can only be done when state is 'Draft'."
+msgstr ""
+
+#. module: geodynamics
 #: model:ir.ui.menu,name:geodynamics.menu_geodynamics_reporting
 msgid "Reporting"
 msgstr "Rapportering"
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "Reset can only be done when state is 'Validated'"
+msgstr ""
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.postcalculation_view_form
+msgid "Reset to draft"
+msgstr ""
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_has_sms_error
@@ -373,8 +408,7 @@ msgstr "Instellingen"
 msgid ""
 "Something went wrong while exporting the postcalculation from Geodynamics."
 msgstr ""
-"Er is iets fout gegaan tijdens het ophalen van nacalculaties bij "
-"Geodynamics."
+"Er is iets fout gegaan tijdens het ophalen van nacalculaties bij Geodynamics."
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__state
