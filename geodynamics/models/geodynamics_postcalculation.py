@@ -20,6 +20,7 @@ class GeodynamicsPostCalculationLine(models.Model):
     total_work_time = fields.Float(compute='_compute_total_work_time', store=True)
     indirect_travel_time_before = fields.Float(default=0.0)
     indirect_travel_time_after = fields.Float(default=0.0)
+    total_travel_time = fields.Float(compute='_compute_total_travel_time', store=True)
     km_home_work = fields.Float(default=0.0)
     km_driver = fields.Float(default=0.0)
     km_single_driver = fields.Float(default=0.0)
@@ -37,6 +38,11 @@ class GeodynamicsPostCalculationLine(models.Model):
     def _compute_total_work_time(self):
         for r in self:
             r.total_work_time = r.direct_work_time + r.indirect_work_time
+
+    @api.depends('indirect_travel_time_before', 'indirect_travel_time_after')
+    def _compute_total_travel_time(self):
+        for r in self:
+            r.total_travel_time = r.indirect_travel_time_before + r.indirect_travel_time_after
 
     @api.depends('task_external_id')
     def _compute_task(self):
