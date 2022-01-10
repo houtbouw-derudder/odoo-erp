@@ -19,7 +19,9 @@ class GeodynamicsPostCalculationLine(models.Model):
                               compute='_compute_task', store=True)
     project_id = fields.Many2one(
         'project.project', 'Project', related="task_id.project_id", store=True)
-    duration = fields.Float(default=0.0)
+    direct_work_time = fields.Float(default=0.0)
+    indirect_work_time = fields.Float(default=0.0)
+    indirect_travel_time = fields.Float(default=0.0)
     km_home_work = fields.Float(default=0.0)
     km_driver = fields.Float(default=0.0)
     km_single_driver = fields.Float(default=0.0)
@@ -62,26 +64,23 @@ class GeodynamicsPostCalculationLine(models.Model):
                 record.employee_id = False
 
     def _compute_analytic_account_lines(self):
-        self.ensure_one()
-
-        self.analytic_account_line_ids.unlink()
-
-        analytic_account_line_vals = []
-        if self.duration > 0:
+        for r in self:
+            r.analytic_account_line_ids.unlink()
+            analytic_account_line_vals = []
             analytic_account_line_vals.append({
-                'task_id': self.task_id.id,
-                'employee_id': self.employee_id.id,
-                'date': self.date,
-                'unit_amount': self.duration,
-                'name': _('Worked hours')
+                'task_id': r.task_id.id,
+                'employee_id': r.employee_id.id,
+                'date': r.date,
+                'unit_amount': (r.direct_work_time + r.indirect_work_time),
+                'name': _('Direct and indirect work time')
             })
 
-        self.analytic_account_line_ids = self.env['account.analytic.line'].create(
-            analytic_account_line_vals)
+            r.analytic_account_line_ids = self.env['account.analytic.line'].create(analytic_account_line_vals)
+
 
     def _reset(self):
-        self.ensure_one()
-        self.analytic_account_line_ids.unlink()
+        for r in self:
+            r.analytic_account_line_ids.unlink()
 
 
 class GeodynamicsPostCalculation(models.Model):
@@ -107,11 +106,13 @@ class GeodynamicsPostCalculation(models.Model):
             'postcalculation_id': self.id,
             'employee_external_id': data['User']['Code'],
             'task_external_id': data['PostCalculation']['CostCenter'],
-            'duration': round(data['PostCalculation']['Duration'], 2),
+            'direct_work_time': data['PostCalculation']['Details']['DirectAssignedWorkTime'],
+            'indirect_work_time': data['PostCalculation']['Details']['IndirectAssignedWorkTime'],
+            'indirect_travel_time': data['PostCalculation']['Details']['IndirectAssignedMobilityBeforeTime'],
             'km_driver': data['PostCalculation']['Mobility']['KmDriver'],
             'km_single_driver': data['PostCalculation']['Mobility']['KmSingleDriver'],
             'km_passenger': data['PostCalculation']['Mobility']['KmPassenger'],
-            'km_home_work': data['TimeSheet']['Mobility']['KmHomeWork']
+            'km_home_work': data['PostCalculation']['Mobility']['KmHomeWork']
         }
 
     def action_reload(self):
