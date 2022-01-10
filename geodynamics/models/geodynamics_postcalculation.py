@@ -34,7 +34,7 @@ class GeodynamicsPostCalculationLine(models.Model):
         for record in self:
             record.date = record.postcalculation_id.date
 
-    @api.depends('direct_work_time,indirect_work_time')
+    @api.depends('direct_work_time', 'indirect_work_time')
     def _compute_total_work_and_over_time(self):
         for r in self:
             r.total_work_time = r.direct_work_time + r.indirect_work_time
