@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-10 05:34+0000\n"
-"PO-Revision-Date: 2022-01-10 06:59+0100\n"
+"PO-Revision-Date: 2022-01-10 07:05+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -373,7 +373,7 @@ msgstr "Herladen"
 #: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
 #, python-format
 msgid "Reloading can only be done when state is 'Draft'."
-msgstr ""
+msgstr "Herladen van de data kan enkel wanneer de status ‘Concept’ is."
 
 #. module: geodynamics
 #: model:ir.ui.menu,name:geodynamics.menu_geodynamics_reporting
@@ -385,11 +385,13 @@ msgstr "Rapportering"
 #, python-format
 msgid "Reset can only be done when state is 'Validated'"
 msgstr ""
+"Terugzetten naar ‘Concept’ kan enkel gebeuren wanneer de status "
+"‘Gevalideerd’ is."
 
 #. module: geodynamics
 #: model_terms:ir.ui.view,arch_db:geodynamics.postcalculation_view_form
 msgid "Reset to draft"
-msgstr ""
+msgstr "Terugzetten naar concept"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_has_sms_error
