@@ -29,8 +29,11 @@
             <field name="model">geodynamics.postcalculation.line</field>
             <field name="arch" type="xml">
                 <pivot string="Postcalculation lines">
-                    <field name="employee_id" type="col" />
                     <field name="direct_work_time" type="measure" widget="timesheet_uom"/>
+                    <field name="indirect_work_time" type="measure" widget="timesheet_uom"/>
+                    <field name="total_work_time" type="measure" widget="timesheet_uom"/>
+                    <field name="indirect_travel_time_before" type="measure" widget="timesheet_uom"/>
+                    <field name="indirect_travel_time_after" type="measure" widget="timesheet_uom"/>
                 </pivot>
             </field>
         </record>
