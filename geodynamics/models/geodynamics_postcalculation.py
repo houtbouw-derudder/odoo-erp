@@ -129,7 +129,7 @@ class GeodynamicsPostCalculation(models.Model):
         self.line_ids = self.env['geodynamics.postcalculation.line'].create(
             [self._extract_postcalculation_line_data(pc) for pc in postcalculation_data])
 
-        self.message_post(body='<p>Data reload complete</p>')
+        self.message_post(body=_('<p>Data reload complete</p>'))
 
     def action_validate(self):
         self.ensure_one()
@@ -150,6 +150,7 @@ class GeodynamicsPostCalculation(models.Model):
             line._compute_analytic_account_lines()
 
         self.state = 'validated'
+        self.message_post(body=_("<p>State: Draft -> Validated</p>"))
 
     def action_reset_to_draft(self):
         self.ensure_one()
@@ -162,3 +163,4 @@ class GeodynamicsPostCalculation(models.Model):
             line._reset()
 
         self.state = 'draft'
+        self.message_post(body=_("<p>State: Validated -> Draft</p>"))
