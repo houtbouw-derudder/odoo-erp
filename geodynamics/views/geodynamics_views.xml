@@ -40,7 +40,8 @@
 										<field name="task_id" />
 										<field name="direct_work_time" widget="timesheet_uom_no_toggle" />
 										<field name="indirect_work_time" widget="timesheet_uom_no_toggle" />
-										<field name="indirect_travel_time" widget="timesheet_uom_no_toggle" />
+										<field name="indirect_travel_time_before" widget="timesheet_uom_no_toggle" />
+										<field name="indirect_travel_time_after" widget="timesheet_uom_no_toggle" />
 										<field name="km_home_work" />
 										<field name="km_driver" />
 										<field name="km_single_driver" />
