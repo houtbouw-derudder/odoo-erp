@@ -7,21 +7,20 @@ class GeodynamicsPostCalculationLine(models.Model):
     _name = 'geodynamics.postcalculation.line'
     _description = 'Geodynamics Postcalculation line'
 
-    postcalculation_id = fields.Many2one(
-        'geodynamics.postcalculation', 'Postcalculation', required=True, ondelete='cascade', index=True)
+    postcalculation_id = fields.Many2one('geodynamics.postcalculation', 'Postcalculation', required=True, ondelete='cascade', index=True)
     date = fields.Date(compute='_compute_date', store=True)
     state = fields.Selection(related='postcalculation_id.state')
     employee_external_id = fields.Char(required=True)
-    employee_id = fields.Many2one(
-        'hr.employee', 'Employee', compute='_compute_employee', store=True)
+    employee_id = fields.Many2one('hr.employee', 'Employee', compute='_compute_employee', store=True)
     task_external_id = fields.Char(required=True)
-    task_id = fields.Many2one('project.task', 'Task',
-                              compute='_compute_task', store=True)
-    project_id = fields.Many2one(
-        'project.project', 'Project', related="task_id.project_id", store=True)
+    task_id = fields.Many2one('project.task', 'Task',compute='_compute_task', store=True)
+    project_id = fields.Many2one('project.project', 'Project', related="task_id.project_id", store=True)
     direct_work_time = fields.Float(default=0.0)
     indirect_work_time = fields.Float(default=0.0)
-    indirect_travel_time = fields.Float(default=0.0)
+    total_work_time = fields.Float(compute='_compute_total_work_and_over_time', store=True)
+    over_time = fields.Float(compute='_compute_total_work_and_over_time', store=True)
+    indirect_travel_time_before = fields.Float(default=0.0)
+    indirect_travel_time_after = fields.Float(default=0.0)
     km_home_work = fields.Float(default=0.0)
     km_driver = fields.Float(default=0.0)
     km_single_driver = fields.Float(default=0.0)
@@ -34,6 +33,12 @@ class GeodynamicsPostCalculationLine(models.Model):
     def _compute_date(self):
         for record in self:
             record.date = record.postcalculation_id.date
+
+    @api.depends('direct_work_time,indirect_work_time')
+    def _compute_total_work_and_over_time(self):
+        for r in self:
+            r.total_work_time = r.direct_work_time + r.indirect_work_time
+            r.over_time = r.total_work_time - 8.0
 
     @api.depends('task_external_id')
     def _compute_task(self):
@@ -71,7 +76,7 @@ class GeodynamicsPostCalculationLine(models.Model):
                 'task_id': r.task_id.id,
                 'employee_id': r.employee_id.id,
                 'date': r.date,
-                'unit_amount': (r.direct_work_time + r.indirect_work_time),
+                'unit_amount': r.total_work_time,
                 'name': _('Direct and indirect work time')
             })
 
@@ -108,7 +113,7 @@ class GeodynamicsPostCalculation(models.Model):
             'task_external_id': data['PostCalculation']['CostCenter'],
             'direct_work_time': data['PostCalculation']['Details']['DirectAssignedWorkTime'],
             'indirect_work_time': data['PostCalculation']['Details']['IndirectAssignedWorkTime'],
-            'indirect_travel_time': data['PostCalculation']['Details']['IndirectAssignedMobilityBeforeTime'],
+            'indirect_travel_time': (data['PostCalculation']['Details']['IndirectAssignedMobilityBeforeTime'] + data['PostCalculation']['Details']['IndirectAssignedMobilityAfterTime']),
             'km_driver': data['PostCalculation']['Mobility']['KmDriver'],
             'km_single_driver': data['PostCalculation']['Mobility']['KmSingleDriver'],
             'km_passenger': data['PostCalculation']['Mobility']['KmPassenger'],

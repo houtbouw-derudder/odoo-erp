@@ -38,7 +38,9 @@
 										<field name="employee_id" />
 										<field name="task_external_id" />
 										<field name="task_id" />
-										<field name="duration" widget="timesheet_uom_no_toggle" />
+										<field name="direct_work_time" widget="timesheet_uom_no_toggle" />
+										<field name="indirect_work_time" widget="timesheet_uom_no_toggle" />
+										<field name="indirect_travel_time" widget="timesheet_uom_no_toggle" />
 										<field name="km_home_work" />
 										<field name="km_driver" />
 										<field name="km_single_driver" />
@@ -62,8 +64,8 @@
 			<field name="view_mode">tree,form</field>
 			<field name="target">main</field>
 			<field name="help" type="html">
-				<p class="o_view_nocontent_smiling_face">                    No postcalculations found. Let's create one!                </p>
-				<p>                    Postcalculations contain information about the workhours and travel distances of employees.                </p>
+				<p class="o_view_nocontent_smiling_face">No postcalculations found. Let's create one!</p>
+				<p>Postcalculations contain information about the workhours and travel distances of employees.</p>
 			</field>
 		</record>
 		<record model="ir.actions.act_window.view" id="open_view_postcalculation_all_tree">
