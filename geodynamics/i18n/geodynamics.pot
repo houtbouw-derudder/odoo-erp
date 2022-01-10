@@ -6,14 +6,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-09 12:42+0000\n"
-"PO-Revision-Date: 2022-01-09 12:42+0000\n"
+"POT-Creation-Date: 2022-01-10 05:34+0000\n"
+"PO-Revision-Date: 2022-01-10 05:34+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "<p>Data reload complete</p>"
+msgstr ""
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "<p>State: Draft -> Validated</p>"
+msgstr ""
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "<p>State: Validated -> Draft</p>"
+msgstr ""
 
 #. module: geodynamics
 #: model_terms:ir.ui.view,arch_db:geodynamics.res_config_settings_view_form
@@ -347,8 +365,25 @@ msgid "Reload"
 msgstr ""
 
 #. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "Reloading can only be done when state is 'Draft'."
+msgstr ""
+
+#. module: geodynamics
 #: model:ir.ui.menu,name:geodynamics.menu_geodynamics_reporting
 msgid "Reporting"
+msgstr ""
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "Reset can only be done when state is 'Validated'"
+msgstr ""
+
+#. module: geodynamics
+#: model_terms:ir.ui.view,arch_db:geodynamics.postcalculation_view_form
+msgid "Reset to draft"
 msgstr ""
 
 #. module: geodynamics
