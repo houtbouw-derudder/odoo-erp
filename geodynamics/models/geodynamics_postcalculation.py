@@ -12,19 +12,22 @@ class GeodynamicsPostCalculationLine(models.Model):
     date = fields.Date(compute='_compute_date', store=True)
     state = fields.Selection(related='postcalculation_id.state')
     employee_external_id = fields.Char(required=True)
-    employee_id = fields.Many2one('hr.employee', 'Employee', compute='_compute_employee', store=True)
+    employee_id = fields.Many2one(
+        'hr.employee', 'Employee', compute='_compute_employee', store=True)
     task_external_id = fields.Char(required=True)
-    task_id = fields.Many2one('project.task', 'Task',compute='_compute_task', store=True)
-    project_id = fields.Many2one('project.project', 'Project', related="task_id.project_id", store=True)
+    task_id = fields.Many2one('project.task', 'Task',
+                              compute='_compute_task', store=True)
+    project_id = fields.Many2one(
+        'project.project', 'Project', related="task_id.project_id", store=True)
     duration = fields.Float(default=0.0)
     km_home_work = fields.Float(default=0.0)
     km_driver = fields.Float(default=0.0)
     km_single_driver = fields.Float(default=0.0)
     km_passenger = fields.Float(default=0.0)
 
-    analytic_account_line_ids = fields.One2many('account.analytic.line', 'postcalculation_line_id', string="Analytic Account Lines")
+    analytic_account_line_ids = fields.One2many(
+        'account.analytic.line', 'postcalculation_line_id', string="Analytic Account Lines")
 
-    
     @api.depends('postcalculation_id')
     def _compute_date(self):
         for record in self:
@@ -35,8 +38,10 @@ class GeodynamicsPostCalculationLine(models.Model):
         for record in self:
             if record.task_external_id:
                 try:
-                    task_id_from_external = self.env.ref(record.task_external_id).id
-                    record.task_id = self.env['project.task'].search([('id', '=', task_id_from_external)], limit=1)
+                    task_id_from_external = self.env.ref(
+                        record.task_external_id).id
+                    record.task_id = self.env['project.task'].search(
+                        [('id', '=', task_id_from_external)], limit=1)
                 except:
                     record.task_id = False
             else:
@@ -47,8 +52,10 @@ class GeodynamicsPostCalculationLine(models.Model):
         for record in self:
             if record.employee_external_id:
                 try:
-                    employee_id_from_external = self.env.ref(record.employee_external_id).id
-                    record.employee_id = self.env['hr.employee'].search([('id', '=', employee_id_from_external)], limit=1)
+                    employee_id_from_external = self.env.ref(
+                        record.employee_external_id).id
+                    record.employee_id = self.env['hr.employee'].search(
+                        [('id', '=', employee_id_from_external)], limit=1)
                 except:
                     record.employee_id = False
             else:
@@ -56,7 +63,7 @@ class GeodynamicsPostCalculationLine(models.Model):
 
     def _compute_analytic_account_lines(self):
         self.ensure_one()
-        
+
         self.analytic_account_line_ids.unlink()
 
         analytic_account_line_vals = []
@@ -68,8 +75,13 @@ class GeodynamicsPostCalculationLine(models.Model):
                 'unit_amount': self.duration,
                 'name': _('Worked hours')
             })
-        
-        self.analytic_account_line_ids = self.env['account.analytic.line'].create(analytic_account_line_vals)
+
+        self.analytic_account_line_ids = self.env['account.analytic.line'].create(
+            analytic_account_line_vals)
+
+    def _reset(self):
+        self.ensure_one()
+        self.analytic_account_line_ids.unlink()
 
 
 class GeodynamicsPostCalculation(models.Model):
@@ -79,9 +91,11 @@ class GeodynamicsPostCalculation(models.Model):
     _inherit = ['mail.thread']
 
     date = fields.Date(required=True, default=fields.Date.context_today)
-    state = fields.Selection(selection=[('draft', 'Draft'), ('validated', 'Validated')], default='draft')
+    state = fields.Selection(
+        selection=[('draft', 'Draft'), ('validated', 'Validated')], default='draft')
 
-    line_ids = fields.One2many('geodynamics.postcalculation.line','postcalculation_id', string="Postcalculation Lines")
+    line_ids = fields.One2many('geodynamics.postcalculation.line',
+                               'postcalculation_id', string="Postcalculation Lines")
 
     _sql_constraints = [
         ('date_unique', 'unique (date)',
@@ -103,6 +117,10 @@ class GeodynamicsPostCalculation(models.Model):
     def action_reload(self):
         self.ensure_one()
 
+        if self.state != 'draft':
+            raise UserError(
+                _("Reloading can only be done when state is 'Draft'."))
+
         self.line_ids.unlink()
 
         api = self.env['geodynamics.api']
@@ -113,21 +131,34 @@ class GeodynamicsPostCalculation(models.Model):
 
         self.message_post(body='<p>Data reload complete</p>')
 
-
     def action_validate(self):
         self.ensure_one()
 
         if self.state != 'draft':
-            raise UserError(_("A Postcalculation must be in state draft to be validated."))
+            raise UserError(
+                _("A Postcalculation must be in state draft to be validated."))
 
         for line in self.line_ids:
             if not line.task_id:
                 raise UserError(_("At least one line has an unmapped task."))
 
             if not line.employee_id:
-                raise UserError(_("At least one line has an unmapped employee."))
-            
+                raise UserError(
+                    _("At least one line has an unmapped employee."))
+
         for line in self.line_ids:
             line._compute_analytic_account_lines()
 
         self.state = 'validated'
+
+    def action_reset_to_draft(self):
+        self.ensure_one()
+
+        if self.state != 'validated':
+            raise UserError(
+                _("Reset can only be done when state is 'Validated'"))
+
+        for line in self.line_ids:
+            line._reset()
+
+        self.state = 'draft'
