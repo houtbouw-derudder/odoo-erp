@@ -21,6 +21,7 @@
 					<header>
 						<button name="action_reload" string="Reload" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}" />
 						<button name="action_validate" string="Validate" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}" />
+						<button name="action_reset_to_draft" string="Reset to draft" type="object" attrs="{'invisible':[('state','!=','validated')]}" />
 						<field name="state" widget="statusbar" statusbar_visible="draft,validated"/>
 					</header>
 					<sheet>
