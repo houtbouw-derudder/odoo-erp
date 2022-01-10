@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-10 10:58+0000\n"
-"PO-Revision-Date: 2022-01-10 11:59+0100\n"
+"POT-Creation-Date: 2022-01-10 19:59+0000\n"
+"PO-Revision-Date: 2022-01-10 21:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -129,6 +129,17 @@ msgid "Details"
 msgstr "Details"
 
 #. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__direct_work_time
+msgid "Direct Work Time"
+msgstr "Directe werktijd"
+
+#. module: geodynamics
+#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#, python-format
+msgid "Direct and indirect work time"
+msgstr "Directe en indirecte werktijd"
+
+#. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__display_name
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__display_name
 msgid "Display Name"
@@ -139,11 +150,6 @@ msgstr "Weergave naam"
 #: model_terms:ir.ui.view,arch_db:geodynamics.view_geodynamics_reporting_postcalculation_line_search
 msgid "Draft"
 msgstr "Concept"
-
-#. module: geodynamics
-#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__duration
-msgid "Duration"
-msgstr "Duur"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__employee_id
@@ -219,6 +225,21 @@ msgstr "Indien aangevinkt vragen nieuwe berichten uw aandacht."
 #: model:ir.model.fields,help:geodynamics.field_geodynamics_postcalculation__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Indien aangevinkt hebben sommige berichten een afleverfout."
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__indirect_travel_time_after
+msgid "Indirect Travel Time After"
+msgstr "Indirecte reistijd na"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__indirect_travel_time_before
+msgid "Indirect Travel Time Before"
+msgstr "Indirecte reistijd vóór"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__indirect_work_time
+msgid "Indirect Work Time"
+msgstr "Indirecte werktijd"
 
 #. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_is_follower
@@ -433,6 +454,16 @@ msgid "The date of the postcalculation must be unique !"
 msgstr "De datum van de nacalculatie moet uniek zijn!"
 
 #. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__total_travel_time
+msgid "Total Travel Time"
+msgstr "Totale reistijd"
+
+#. module: geodynamics
+#: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation_line__total_work_time
+msgid "Total Work Time"
+msgstr "Totale werktijd"
+
+#. module: geodynamics
 #: model:ir.model.fields,field_description:geodynamics.field_geodynamics_postcalculation__message_unread
 msgid "Unread Messages"
 msgstr "Ongelezen berichten"
@@ -467,8 +498,9 @@ msgstr "Berichten van website"
 msgid "Website communication history"
 msgstr "Geschiedenis van website communicatie"
 
-#. module: geodynamics
-#: code:addons/geodynamics/models/geodynamics_postcalculation.py:0
+#~ msgid "Duration"
+#~ msgstr "Duur"
+
 #, python-format
-msgid "Worked hours"
-msgstr "Gewerkte uren"
+#~ msgid "Worked hours"
+#~ msgstr "Gewerkte uren"
