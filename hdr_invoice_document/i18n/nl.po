@@ -1,0 +1,147 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hdr_invoice_document
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-06 09:28+0000\n"
+"PO-Revision-Date: 2022-02-06 10:44+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: hdr_invoice_document
+#: model:ir.actions.report,print_report_name:hdr_invoice_document.account_invoices
+msgid "(object._get_report_base_filename())"
+msgstr ""
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<span>Amount</span>"
+msgstr "<span>Bedrag</span>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<span>Description</span>"
+msgstr "<span>Omschrijving</span>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<span>Taxes</span>"
+msgstr "<span>BTW</span>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<span class=\"mr16\">Subtotaal</span>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid ""
+"<strong class=\"text-center\">Scan me with your banking app.</strong><br/"
+"><br/>"
+msgstr ""
+"<strong class=\"text-center\">Scan mij met je bank app.</strong><br/><br/"
+">"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Amount Due</strong>"
+msgstr "<strong>Openstaand bedrag</strong>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Customer Code:</strong>"
+msgstr "<strong>Klantcode:</strong>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Due Date:</strong>"
+msgstr "<strong>Vervaldatum:</strong>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Incoterm: </strong>"
+msgstr "<strong>Incoterm: </strong>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>Factuurdatum:</strong>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Reference:</strong>"
+msgstr "<strong>Referentie:</strong>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Source:</strong>"
+msgstr "<strong>Bron:</strong>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.document_tax_totals
+msgid "<strong>Total</strong>"
+msgstr "<strong>Totaal</strong>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Cancelled Invoice"
+msgstr "Geannuleerde factuur"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Credit Note"
+msgstr "Creditnota"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Draft Invoice"
+msgstr "Concept factuur"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Invoice"
+msgstr "Factuur"
+
+#. module: hdr_invoice_document
+#: model:ir.actions.report,name:hdr_invoice_document.account_invoices
+msgid "Invoices (HDR layout)"
+msgstr "Factuur (HDR layout)"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Paid on"
+msgstr "Betaald op"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Please use the following communication for your payment :"
+msgstr "Gebruik a.u.b. de volgende mededeling bij betaling : "
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Tax ID"
+msgstr "BTW Nr"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Vendor Bill"
+msgstr "Leveranciersfactuur"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Vendor Credit Note"
+msgstr "Leveranciers creditnota"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.tax_groups_totals
+msgid "on"
+msgstr "op"
