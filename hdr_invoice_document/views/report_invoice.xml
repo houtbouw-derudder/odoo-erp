@@ -160,10 +160,12 @@
                         </p>
                     </div>
 
-                    <div id="avv" class="row justify-content-center" t-if="not is_html_empty(o.narration)">
+                    <div id="avv" t-if="not is_html_empty(o.narration)">
                         <div style="page-break-after:always;" />
-                        <div class="col-8">
-                            <span t-field="o.narration" />
+                        <div class="row justify-content-center">
+                            <div class="col-8">
+                                <span t-field="o.narration" />
+                            </div>
                         </div>
                     </div>
                 </div>
