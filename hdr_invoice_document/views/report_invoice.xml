@@ -159,8 +159,8 @@
 
                     <div id="avv" t-if="not is_html_empty(o.narration)">
                         <div style="page-break-after:always;" />
-                        <div class="row justify-content-center">
-                            <div class="col-8">
+                        <div class="row">
+                            <div class="col-8 offset-2">
                                 <span t-field="o.narration" />
                             </div>
                         </div>

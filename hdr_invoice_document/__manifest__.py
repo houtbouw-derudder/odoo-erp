@@ -3,7 +3,7 @@
 
 {
     'name': 'HDR Invoice document',
-    'version': '1.0',
+    'version': '1.2',
     'category': 'Accounting/Localizations',
     'author': 'Houtbouw De Rudder bv',
     'description': """
