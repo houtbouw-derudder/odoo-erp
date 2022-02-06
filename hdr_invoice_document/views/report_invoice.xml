@@ -43,7 +43,7 @@
                             <strong>Reference:</strong>
                             <p class="m-0" t-field="o.ref"/>
                         </div>
-                        <div class="col-auto col-3 mw-100 mb-2" name="avv-ref">
+                        <div class="col-auto col-3 mw-100 mb-2" name="avv-ref" t-if="not is_html_empty(o.narration)">
                             <strong>Verkoopsvoorwaarden:</strong>
                             <p class="m-0">zie keerzijde</p>
                         </div>
