@@ -58,12 +58,28 @@
 				</form>
 			</field>
 		</record>
+		
+		<record id="view_geodynamics_postcalculation_search" model="ir.ui.view">
+            <field name="name">geodynamics.postcalculationsearch</field>
+            <field name="model">geodynamics.postcalculation</field>
+            <field name="arch" type="xml">
+                <search string="Postcalculation lines">
+                    <field name="date"/>
+                    <field name="state" />
+                    <separator/>
+                    <filter name="month" string="Date" date="date"/>
+                    <filter name="draft" string="Draft" domain="[('state','=','draft')]" />
+                </search>
+            </field>
+        </record>
+
 		<record id="open_view_postcalculation_all" model="ir.actions.act_window">
 			<field name="name">Postcalculations</field>
 			<field name="res_model">geodynamics.postcalculation</field>
 			<field name="domain">[]</field>
 			<field name="view_mode">tree,form</field>
 			<field name="target">main</field>
+			<field name="search_view_id" ref="geodynamics.view_geodynamics_postcalculation_search" />
 			<field name="help" type="html">
 				<p class="o_view_nocontent_smiling_face">No postcalculations found. Let's create one!</p>
 				<p>Postcalculations contain information about the workhours and travel distances of employees.</p>
