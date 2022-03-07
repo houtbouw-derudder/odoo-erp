@@ -3,7 +3,7 @@
 
 {
     'name': 'Geodynamics',
-    'version': '2.0',
+    'version': '2.2',
     'category': 'Customization',
     'author': 'Houtbouw De Rudder bv',
     'description': """
