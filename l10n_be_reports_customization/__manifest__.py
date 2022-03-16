@@ -3,7 +3,7 @@
 
 {
     'name': 'HDR - Belgium - Accounting Reports - Customization',
-    'version': '1.1',
+    'version': '1.2',
     'category': 'Accounting/Localizations/Reporting',
     'author': 'Houtbouw De Rudder bv',
     'description': """
