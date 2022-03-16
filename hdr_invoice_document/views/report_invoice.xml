@@ -72,7 +72,11 @@
                                             <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
                                         </td>
                                         <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-                                            <span class="text-nowrap" t-field="line.price_unit"/>
+                                            <span
+                                                class="text-nowrap"
+                                                t-esc="line.price_unit"
+                                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'
+                                            />
                                         </td>
                                     </t>
                                     <t t-if="line.display_type == 'line_section'">
