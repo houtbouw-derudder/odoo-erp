@@ -12,6 +12,8 @@
         - add NBK & BBK to Executive Report
     """,
     'depends': [
+        'account',
+        'l10n_be',
         'l10n_be_reports',
         'account_reports'
     ],
