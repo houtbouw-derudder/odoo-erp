@@ -3,7 +3,7 @@
 
 {
     'name': 'HDR - Belgium - Accounting Reports - Customization',
-    'version': '1.1',
+    'version': '1.2',
     'category': 'Accounting/Localizations/Reporting',
     'author': 'Houtbouw De Rudder bv',
     'description': """
@@ -12,6 +12,8 @@
         - add NBK & BBK to Executive Report
     """,
     'depends': [
+        'account',
+        'l10n_be',
         'l10n_be_reports',
         'account_reports'
     ],
