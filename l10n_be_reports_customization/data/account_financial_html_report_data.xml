@@ -5,7 +5,7 @@
 		<field name="formulas">BE_60 + BE_61 + BE_62 + BE_630 + BE_631_4 + BE_635_7 + BE_640_8 + BE_649</field>
 	</record>
 	<!-- delete: BE_60_61 -->
-	<delete id="l10n_be_reports.account_financial_report_be_approvisionnements0" model="account.financial.html.report.line" />
+	<!-- delete id="l10n_be_reports.account_financial_report_be_approvisionnements0" model="account.financial.html.report.line" / -->
 	<!-- add BE_60 and BE_61 -->
 	<record id="account_financial_report_be_goederen" model="account.financial.html.report.line">
 		<field name="name">60 - Handelsgoederen, grond- en hulpstoffen</field>
