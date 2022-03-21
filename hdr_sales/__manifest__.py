@@ -10,7 +10,7 @@
         Sales
     """,
     'depends': [
-        'base'
+        'base', 'mail'
     ],
     'data': [
     ],
