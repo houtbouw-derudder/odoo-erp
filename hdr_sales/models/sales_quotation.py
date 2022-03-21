@@ -31,7 +31,7 @@ class Quotation(models.Model):
         ('quotation', 'Quotation'),
         ('estimate', 'Estimate'),
     ], string='Type', required=True, store=True, index=True, readonly=True, tracking=True,
-        default="entry", change_default=True)
+        default="quotation", change_default=True)
 
     company_id = fields.Many2one(comodel_name='res.company', string='Company',
                                  store=True, readonly=True,
