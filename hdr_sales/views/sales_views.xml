@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+		<!-- top menu item-->
+		<menuitem name="Sales" id="menu_main_sales" web_icon="hdr_sales,static/description/icon.png" sequence="70"/>
+
+</odoo>
