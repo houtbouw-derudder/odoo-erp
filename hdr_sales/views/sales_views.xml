@@ -16,6 +16,52 @@
 		</field>
 	</record>
 
+	<record model="ir.ui.view" id="postcalculation_view_form">
+			<field name="name">hdr_sales.quotation.form</field>
+			<field name="model">hdr_sales.quotation</field>
+			<field name="arch" type="xml">
+				<form string="Quotation">
+					<header>
+						<!-- <button name="action_reload" string="Reload" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}" />
+						<button name="action_validate" string="Validate" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}" />
+						<button name="action_reset_to_draft" string="Reset to draft" type="object" attrs="{'invisible':[('state','!=','validated')]}" /> -->
+						<field name="state" widget="statusbar" statusbar_visible="draft,validated"/>
+					</header>
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<field name="date" widget="date" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+							</h1>
+						</div>
+						<notebook>
+							<!-- <page id="postcalculation_lines" string="Details">
+								<field name="line_ids" readonly="1">
+									<tree create="0" edit="0" delete="0">
+										<field name="employee_external_id" />
+										<field name="employee_id" />
+										<field name="task_external_id" />
+										<field name="task_id" />
+										<field name="direct_work_time" widget="timesheet_uom_no_toggle" />
+										<field name="indirect_work_time" widget="timesheet_uom_no_toggle" />
+										<field name="indirect_travel_time_before" widget="timesheet_uom_no_toggle" />
+										<field name="indirect_travel_time_after" widget="timesheet_uom_no_toggle" />
+										<field name="km_home_work" />
+										<field name="km_driver" />
+										<field name="km_single_driver" />
+										<field name="km_passenger" />
+									</tree>
+								</field>
+							</page> -->
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
 	<record id="open_view_quotations_all" model="ir.actions.act_window">
 		<field name="name">Quotations</field>
 		<field name="res_model">hdr_sales.quotation</field>
@@ -34,6 +80,13 @@
 		<field name="view_id" ref="quotations_view_tree"/>
 		<field name="act_window_id" ref="open_view_quotations_all"/>
 	</record>
+
+	<record model="ir.actions.act_window.view" id="open_view_quotations_all_form">
+			<field name="sequence" eval="2"/>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="quotations_view_form"/>
+			<field name="act_window_id" ref="open_view_quotations_all"/>
+		</record>
 
 	<menuitem action="open_view_quotations_all" id="menu_quotations" name="Quotations" parent="menu_main_sales" sequence="1"/>
 </odoo>
