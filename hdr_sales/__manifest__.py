@@ -17,6 +17,6 @@
     ],
     'installable': True,
     'auto_install': False,
-    'application': False,
+    'application': True,
     'license': 'OPL-1'
 }
