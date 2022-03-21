@@ -5,6 +5,7 @@ from odoo import api, fields, models, _
 class Quotation(models.Model):
     _name = 'hdr_sales.quotation'
     _description = 'Sales quotation'
+    _inherit = ['mail.thread']    
 
     name = fields.Char(string='Number', copy=False,
                        readonly=False, store=True, index=True, tracking=True)
