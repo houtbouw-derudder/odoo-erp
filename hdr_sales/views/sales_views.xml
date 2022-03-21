@@ -16,7 +16,7 @@
 		</field>
 	</record>
 
-	<record model="ir.ui.view" id="postcalculation_view_form">
+	<record model="ir.ui.view" id="quotations_view_form">
 			<field name="name">hdr_sales.quotation.form</field>
 			<field name="model">hdr_sales.quotation</field>
 			<field name="arch" type="xml">
