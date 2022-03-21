@@ -14,6 +14,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/sales_views.xml'
     ],
     'installable': True,
     'auto_install': False,
