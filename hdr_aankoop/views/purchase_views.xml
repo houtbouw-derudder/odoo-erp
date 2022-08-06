@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- top menu item-->
+		<menuitem name="Purchases" id="menu_main_hdr_aankoop" web_icon="hdr_aankoop,static/description/icon.png" sequence="70"/>
+	</data>
+</odoo>
