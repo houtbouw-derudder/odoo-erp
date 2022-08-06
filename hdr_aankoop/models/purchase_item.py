@@ -1,7 +1,8 @@
 
-from odoo import fields, models, api
+from odoo import api, fields, models
 
-class ProjectTask(models.Model):
+
+class PurchaseItem(models.Model):
     _name = 'hdr.purchase.item'
     _description = "Aan te kopen item voor een bepaald project"
     _inherit = ['mail.thread']
@@ -13,3 +14,4 @@ class ProjectTask(models.Model):
     description = fields.Html()
     quantity = fields.Char()
     budget = fields.Char()
+    
