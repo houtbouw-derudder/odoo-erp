@@ -76,7 +76,7 @@
 		<record id="open_view_aankoop_all" model="ir.actions.act_window">
 			<field name="name">Purchases</field>
 			<field name="res_model">hdr.purchase.item</field>
-			<field name="domain">[]</field>
+			<field name="domain">[('state', 'in', ['to_order', 'ordered'])]</field>
 			<field name="view_mode">tree,form</field>
 			<field name="target">main</field>
 			<field name="search_view_id" ref="view_hdr_aankoop_search" />
