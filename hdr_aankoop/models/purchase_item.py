@@ -16,14 +16,17 @@ class PurchaseItem(models.Model):
     budget = fields.Char()
 
     def action_mark_as_to_order(self):
-        self.state = 'to_order'
-        self.message_post(body=_("<p>State -> To order</p>"))
+        for record in self:
+            record.state = 'to_order'
+            record.message_post(body=_("<p>State -> To order</p>"))
 
     def action_mark_as_ordered(self):
-        self.state = 'ordered'
-        self.message_post(body=_("<p>State -> Ordered</p>"))
+        for record in self:
+            record.state = 'ordered'
+            record.message_post(body=_("<p>State -> Ordered</p>"))
 
     def action_mark_as_delivered(self):
-        self.state = 'delivered'
-        self.message_post(body=_("<p>State -> Delivered</p>"))
+        for record in self:
+            record.state = 'delivered'
+            record.message_post(body=_("<p>State -> Delivered</p>"))
     
