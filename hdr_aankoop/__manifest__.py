@@ -15,6 +15,8 @@
     'data': [
         # 'data/ir.sequence.xml',
         # 'views/project_views.xml',
+        'security/ir.model.access.csv',
+        'views/purchase_views.xml'
     ],
     'installable': True,
     'auto_install': False,
