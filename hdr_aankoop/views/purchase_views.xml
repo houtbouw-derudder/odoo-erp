@@ -73,6 +73,8 @@
                     <group expand="0" string="Group By">
                         <filter string="Supplier" name="Supplier" context="{'group_by': 'supplier_id'}"/>
 						<filter string="Project" name="Project" context="{'group_by': 'project_id'}" />
+						<separator />
+						<filter string="State" name="State" context="{'group_by': 'state'}" />
                     </group>
                 </search>
             </field>
