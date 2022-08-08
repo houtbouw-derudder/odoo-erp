@@ -1,5 +1,5 @@
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 
 class PurchaseItem(models.Model):
@@ -16,11 +16,14 @@ class PurchaseItem(models.Model):
     budget = fields.Char()
 
     def action_mark_as_to_order(self):
-        pass
+        self.state = 'to_order'
+        self.message_post(body=_("<p>State -> To order</p>"))
 
     def action_mark_as_ordered(self):
-        pass
+        self.state = 'ordered'
+        self.message_post(body=_("<p>State -> Ordered</p>"))
 
     def action_mark_as_delivered(self):
-        pass
+        self.state = 'delivered'
+        self.message_post(body=_("<p>State -> Delivered</p>"))
     
