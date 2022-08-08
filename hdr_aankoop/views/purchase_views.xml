@@ -9,6 +9,11 @@
 			<field name="model">hdr.purchase.item</field>
 			<field name="arch" type="xml">
 				<tree string="Purchases">
+					<header>
+						<button name="action_mark_as_to_order" type="object" string="Mark as to order" />
+                        <button name="action_mark_as_ordered" type="object" string="Mark as ordered" />
+						<button name="action_mark_as_delivered" type="object" string="Mark as delivered" />
+                    </header>
 					<field name="name" />
 					<field name="project_id" />
 					<field name="supplier_id" />

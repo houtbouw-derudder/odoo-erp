@@ -14,4 +14,13 @@ class PurchaseItem(models.Model):
     description = fields.Html()
     quantity = fields.Char()
     budget = fields.Char()
+
+    def action_mark_as_to_order(self):
+        pass
+
+    def action_mark_as_ordered(self):
+        pass
+
+    def action_mark_as_delivered(self):
+        pass
     
