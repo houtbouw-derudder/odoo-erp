@@ -8,7 +8,7 @@
 			<field name="name">hdr.purchase.item.tree</field>
 			<field name="model">hdr.purchase.item</field>
 			<field name="arch" type="xml">
-				<tree string="Purchases">
+				<tree string="Purchases" expand="1">
 					<header>
 						<button name="action_mark_as_to_order" type="object" string="Mark as to order" />
                         <button name="action_mark_as_ordered" type="object" string="Mark as ordered" />
