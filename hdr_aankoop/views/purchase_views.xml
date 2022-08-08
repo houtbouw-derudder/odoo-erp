@@ -61,7 +61,6 @@
 		 <record id="view_hdr_aankoop_search" model="ir.ui.view">
             <field name="name">hdr.purchase.item.select</field>
             <field name="model">hdr.purchase.item</field>
-			<field name="context"></field>
             <field name="arch" type="xml">
                 <search string="Search Purchase">
                     <field name="project_id" string="Project"/>
