@@ -8,7 +8,7 @@ class PurchaseItem(models.Model):
     _inherit = ['mail.thread']
 
     name = fields.Char(required=True)
-    date = fields.Date(required=True, default=fields.Date.context_today)
+    state = fields.Selection(selection=[('to_order', 'To order'), ('ordered', 'Ordered'),('deliverd', 'Delivered')], default='to_order')
     project_id = fields.Many2one('project.project', 'Project')
     supplier_id = fields.Many2one('res.partner', 'Supplier')
     description = fields.Html()
