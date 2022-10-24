@@ -41,6 +41,11 @@
 						</group>
 					</group>
 					<!-- <notebook><page id="postcalculation_lines" string="Details"><field name="line_ids" readonly="1"><tree create="0" edit="0" delete="0"><field name="employee_external_id" /><field name="employee_id" /><field name="task_external_id" /><field name="task_id" /><field name="direct_work_time" widget="timesheet_uom_no_toggle" /><field name="indirect_work_time" widget="timesheet_uom_no_toggle" /><field name="indirect_travel_time_before" widget="timesheet_uom_no_toggle" /><field name="indirect_travel_time_after" widget="timesheet_uom_no_toggle" /><field name="km_home_work" /><field name="km_driver" /><field name="km_single_driver" /><field name="km_passenger" /></tree></field></page></notebook> -->
+					<notebook>
+						<page id="intro" string="Introduction">
+							<field name="intro" />
+						</page>
+					</notebook>
 				</sheet>
 				<div class="oe_chatter">
 					<field name="message_follower_ids" widget="mail_followers"/>
