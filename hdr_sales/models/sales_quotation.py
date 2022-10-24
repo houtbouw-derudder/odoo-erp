@@ -26,4 +26,4 @@ class Quotation(models.Model):
     company_currency_id = fields.Many2one(string='Company Currency', readonly=True, related='company_id.currency_id')
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [('readonly', False)]}, check_company=True, string='Partner', change_default=True)
 
-    intro = fields.html()
+    intro = fields.Html(sanitize=True)
