@@ -26,7 +26,7 @@ class Quotation(models.Model):
     currency_id = fields.Many2one(string='Company Currency', readonly=True, related='company_id.currency_id')
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [('readonly', False)]}, check_company=True, string='Partner', change_default=True)
 
-    line_ids = fields.One2many('hdr_sales.quotation.lines', 'quotation_id', string="Quotation Lines")
+    line_ids = fields.One2many('hdr_sales.quotation.line', 'quotation_id', string="Quotation Lines")
 
     intro = fields.Html(sanitize=True)
     outro = fields.Html(sanitize=True)
@@ -34,7 +34,7 @@ class Quotation(models.Model):
     total_amount_untaxed = fields.Monetary(store=True)
 
 class QuotationLine(models.Model):
-    _name = 'hdr_sales.quotation.lines'
+    _name = 'hdr_sales.quotation.line'
     _description = 'Sales quotation line'
 
     quotation_id = fields.Many2one("hdr_sales.quotation", string="Quotation", store=True, ondelete="cascade", required=True, index=True)
