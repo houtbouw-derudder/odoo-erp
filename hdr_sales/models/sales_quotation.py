@@ -20,8 +20,8 @@ class Quotation(models.Model):
     )
     ref = fields.Char(string='Reference', copy=False, tracking=True)
 
-    state = fields.Selection(selection=[('draft', 'Draft'),('posted', 'Posted'),('cancel', 'Cancelled'),], string='Status', required=True, readonly=True, copy=False, tracking=True, default='draft')
-    document_type = fields.Selection(selection=[('quotation', 'Quotation'),('estimate', 'Estimate'),], string='Type', required=True, store=True, index=True, readonly=True, tracking=True, default="quotation", change_default=True)
+    state = fields.Selection(selection=[('draft', 'Draft'),('posted', 'Posted'),('cancel', 'Cancelled'),], string="Status", required=True, readonly=True, copy=False, tracking=True, default="draft")
+    document_type = fields.Selection(selection=[('quotation', 'Quotation'),('estimate', 'Estimate'),], string="Type", required=True, store=True, index=True, readonly=True, tracking=True, default="quotation")
     company_id = fields.Many2one(comodel_name='res.company', string='Company', store=True, readonly=True, default=lambda self: self.env.company)
     company_currency_id = fields.Many2one(string='Company Currency', readonly=True, related='company_id.currency_id')
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [('readonly', False)]}, check_company=True, string='Partner', change_default=True)
