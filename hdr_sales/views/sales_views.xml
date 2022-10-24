@@ -45,6 +45,9 @@
 						<page id="intro" string="Introduction">
 							<field name="intro" />
 						</page>
+						<page id="outro" string="Conclusion">
+							<field name="outro" />
+						</page>
 					</notebook>
 				</sheet>
 				<div class="oe_chatter">
