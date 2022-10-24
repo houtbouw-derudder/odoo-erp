@@ -37,6 +37,8 @@ class QuotationLine(models.Model):
 
     quotation_id = fields.Many2one("hdr_sales.quotation", string="Quotation", store=True, ondelete="cascade", required=True, index=True)
 
+    currency_id = fields.Many2one(related='quotation_id.company_currency_id', depends=["quotation_id"], store=True, ondelete="restrict")
+
     name = fields.Char(copy=False, readonly=False)
     description = fields.Html(sanitize=True)
-    price = fields.Monetary()
+    price = fields.Monetary(store=True)
