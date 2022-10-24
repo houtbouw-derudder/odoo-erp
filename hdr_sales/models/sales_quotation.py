@@ -27,3 +27,4 @@ class Quotation(models.Model):
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [('readonly', False)]}, check_company=True, string='Partner', change_default=True)
 
     intro = fields.Html(sanitize=True)
+    outro = fields.Html(sanitize=True)
