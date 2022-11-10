@@ -13,7 +13,7 @@ class QuoteBlock(models.Model):
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True)
 
     budget_materials = fields.Monetary(string='Budget materials', store=True)
-    budget_equipments = fields.Monetary(string='Budget equiments', store=True)
+    budget_equipments = fields.Monetary(string='Budget equipments', store=True)
     budget_production_hours = fields.Float(string='Budget production hours', store=True)
     budget_installation_hours = fields.Float(string='Budget installation hours', store=True)
 
