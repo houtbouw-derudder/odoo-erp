@@ -10,12 +10,13 @@ class QuoteBlock(models.Model):
     currency_id = fields.Many2one(string='Company Currency', readonly=True, related='quote_id.currency_id')
     name = fields.Char(string="Name", copy=True, readonly=False, required=True)
     description = fields.Html(string="Description", copy=True, readonly=False, sanitize=True)
-    amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, tracking=True)
+    amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True)
 
 
 class Quote(models.Model):
     _name = 'quote'
     _description = 'Quote'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     @api.depends('state')
     def _compute_name(self):
