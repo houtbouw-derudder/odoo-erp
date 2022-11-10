@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- top menu item-->
+        <menuitem name="Quotes" id="menu_main_quotes" web_icon="hdr_quote,static/description/icon.png" sequence="70" />
+
+        <!-- quotes -->
+        <record id="quotes_tree_view" model="ir.ui.view">
+            <field name="name">quote.tree</field>
+            <field name="model">quote</field>
+            <field name="arch" type="xml">
+                <tree string="Quotes">
+                    <field name="name" />
+                    <field name="date" />
+                    <field name="partner_id" />
+                    <field name="currency_id" invisible="1" />
+                    <field name="amount_untaxed" widget="monetary" options="{'currency': 'currency_id'}" />
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'validated'" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="quotes_form_view" model="ir.ui.view">
+            <field name="name">quote.form</field>
+            <field name="model">quote</field>
+            <field name="arch" type="xml">
+                <form string="Quote">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,posted" />
+                    </header>
+                    <sheet>
+                        <field name="company_id" invisible="1" />
+                        <field name="currency_id" invisible="1" />
+                        <div class="oe_title">
+                            <!-- Quote draft header -->
+                            <span class="o_form_label"><field name="quote_type" readonly="1" nolabel="1"/></span>
+                            <h1 attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('name', '!=', '/')]}">
+                                <span>Draft</span>
+                            </h1>
+
+                            <!-- Quote number -->
+                            <h1 class="mt0" attrs="{'invisible':[('name', '=', '/')]}">
+                                <field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}" placeholder="Concept"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_id" />
+                                <field name="ref" />
+                            </group>
+                            <group>
+                                <field name="date" />
+                                <field name="amount_untaxed" widget="monetary" options="{'currency': 'currency_id'}" />
+                                <field name="amount_total" widget="monetary" options="{'currency': 'currency_id'}" />                                
+                            </group>
+                        </group>
+                        <notebook>
+                            <page id="intro" string="Introduction">
+                                <field name="introduction" />
+                            </page>
+                            <page id="blocks" string="Blocks">
+                                <field name="block_ids">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="currency_id" invisible="1" />
+                                        <field name="amount_untaxed" widget="monetary" options="{'currency': 'currency_id'}" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page id="conditions" string="Conditions">
+                                <field name="conditions" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_quotes_view" model="ir.actions.act_window">
+            <field name="name">Quotes</field>
+            <field name="res_model">quote</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree</field>
+            <field name="target">main</field>
+            <field name="help" type="html">
+                <p class="o_view_nocentent_smiling_face">No quotes found. Let's create one!</p>
+            </field>
+        </record>
+
+        <record id="action_quotes_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="quotes_tree_view" />
+            <field name="act_window_id" ref="action_quotes_view" />
+        </record>
+
+        <record id="action_quotes_view_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="quotes_form_view" />
+            <field name="act_window_id" ref="action_quotes_view" />
+        </record>
+
+        <menuitem action="action_quotes_view" id="menu_quotes" name="Quotations" parent="menu_main_quotes" sequence="1" />
+    </data>
+</odoo>
