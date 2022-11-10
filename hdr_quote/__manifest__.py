@@ -2,8 +2,8 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'HDR Sales',
-    'version': '0.1',
+    'name': 'Quote',
+    'version': '1.0',
     'category': 'Sales',
     'author': 'Houtbouw De Rudder bv',
     'description': """
@@ -14,9 +14,9 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'views/sales_views.xml',
-        'views/report_quotation.xml',
-        'views/sales_report.xml'
+        'views/quote_views.xml',
+        'views/report_quote.xml',
+        'views/quote_report.xml'
     ],
     'installable': True,
     'auto_install': False,
