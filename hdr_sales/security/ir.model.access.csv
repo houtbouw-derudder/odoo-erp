@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hdr_sales_quotation,hdr_sales.quotation,model_hdr_sales_quotation,base.group_user,1,1,1,1
-access_hdr_sales_quotation_line,hdr_sales.quotation.line,model_hdr_sales_quotation_line,base.group_user,1,1,1,1
