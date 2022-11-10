@@ -33,6 +33,9 @@ class Quotation(models.Model):
 
     total_amount_untaxed = fields.Monetary(store=True)
 
+    def action_add_line(self):
+        pass
+
 class QuotationLine(models.Model):
     _name = 'hdr_sales.quotation.line'
     _description = 'Sales quotation line'
