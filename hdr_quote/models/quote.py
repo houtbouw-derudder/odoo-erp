@@ -12,6 +12,11 @@ class QuoteBlock(models.Model):
     description = fields.Html(string="Description", copy=True, readonly=False, sanitize=True)
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True)
 
+    budget_materials = fields.Monetary(string='Budget materials', store=True)
+    budget_equipments = fields.Monetary(string='Budget equiments', store=True)
+    budget_production_hours = fields.Float(string='Budget production hours', store=True)
+    budget_installation_hours = fields.Float(string='Budget installation hours', store=True)
+
 
 class Quote(models.Model):
     _name = 'quote'

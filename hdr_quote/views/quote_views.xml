@@ -127,10 +127,14 @@
                                 <field name="amount_untaxed" widget="monetary" options="{'currency': 'currency_id'}" />
                             </group>
                             <group>
+                                <field name="budget_materials" widget="monetary" options="{'currency': 'currency_id'}" />
+                                <field name="budget_equipments" widget="monetary" options="{'currency': 'currency_id'}" />
+                                <field name="budget_production_hours" />
+                                <field name="budget_installation_hours" />
                             </group>
                         </group>
                         <div>
-                            <field name="description" />
+                            <field name="description" placeholder="Description" />
                         </div>
                     </sheet>
                 </form>
