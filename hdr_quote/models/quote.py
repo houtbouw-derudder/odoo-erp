@@ -32,9 +32,14 @@ class Quote(models.Model):
     def _get_company_id(self):
         return self.env.company
 
-    # @api.depends()
+    @api.depends('block.ids,block_ids.amount_untaxed')
     def _compute_amount(self):
-        pass
+        for record in self:
+            amount_untaxed = 0
+            for block in record.block_ids:
+                amount_untaxed += block.amount_untaxed
+            record.amount_untaxed = amount_untaxed
+            # calculate taxes and total
 
     def _get_move_display_name(self, show_ref=False):
         ''' Helper to get the display name of an invoice depending of its type.
