@@ -70,10 +70,10 @@ class Quote(models.Model):
             result.append((move.id, name))
         return result
 
-    @api.depends('partner_id')
+    @api.depends('company_id')
     def _compute_tax_ids(self):
         for record in self:
-            record.tax_ids = record.partner_id.account_sale_tax_id
+            record.tax_ids = record.company_id.account_sale_tax_id
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, index=True, tracking=True)
     date = fields.Date(string='Date', required=True, index=True, readonly=True, states={'draft': [('readonly', False)]}, copy=False, tracking=True, default=fields.Date.context_today)
