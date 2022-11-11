@@ -32,7 +32,7 @@ class Quote(models.Model):
     def _get_company_id(self):
         return self.env.company
 
-    @api.depends('block.ids,block_ids.amount_untaxed')
+    @api.depends('block_ids,block_ids.amount_untaxed')
     def _compute_amount(self):
         for record in self:
             amount_untaxed = 0
