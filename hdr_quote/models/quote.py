@@ -41,20 +41,22 @@ class Quote(models.Model):
     @api.depends('block_ids', 'block_ids.amount_untaxed', 'fiscal_position_id', 'tax_ids')
     def _compute_amount(self):
         for record in self:
-            amount_untaxed = 0
-            for block in record.block_ids:
-                amount_untaxed += block.amount_untaxed
+            if record.block_ids:
+                amount_untaxed = 0
+                for block in record.block_ids:
+                    amount_untaxed += block.amount_untaxed
 
-            try:
                 tax = record.tax_ids.compute_all(amount_untaxed)
                 record.message_post(dumps(tax))
-            except:
-                record.message_post('error calculating taxes')
-                
-            record.amount_untaxed = amount_untaxed
-            record.amount_tax = 0.0
-            record.amount_total = amount_untaxed + 0.0
-            # calculate taxes and total
+                    
+                record.amount_untaxed = amount_untaxed
+                record.amount_tax = 0.0
+                record.amount_total = amount_untaxed + 0.0
+                # calculate taxes and total
+            else:
+                record.amount_untaxed = 0.0
+                record.amount_tax = 0.0
+                record.amount_total = 0.0
 
     def _get_move_display_name(self, show_ref=False):
         ''' Helper to get the display name of an invoice depending of its type.
