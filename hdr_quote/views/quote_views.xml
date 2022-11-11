@@ -49,7 +49,7 @@
                         <group>
                             <group>
                                 <field name="partner_id" />
-                                <field name="tax_ids" widget="many2many_tags" />
+                                <field name="fiscal_position_id" />
                                 <field name="ref" />
                             </group>
                             <group>
