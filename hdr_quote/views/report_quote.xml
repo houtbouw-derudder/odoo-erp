@@ -75,7 +75,7 @@
                                         </strong>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-2">
                                     <div class="col-10">
                                         <span t-field="block.description" />
                                     </div>
@@ -87,10 +87,10 @@
                         <div style="page-break-inside: avoid;">
                             <div class="row">
                                 <div class="col-8" />
-                                <div class="col-2">
+                                <div class="col-2 border-top">
                                     <strong>Total untaxed:</strong>
                                 </div>
-                                <div class="col-2 text-right">
+                                <div class="col-2 text-right border-top">
                                     <span t-field="o.amount_untaxed" />
                                 </div>
                             </div>
@@ -105,10 +105,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-8" />
-                                <div class="col-2">
+                                <div class="col-2 border-bottom">
                                     <strong>Total:</strong>
                                 </div>
-                                <div class="col-2 text-right">
+                                <div class="col-2 text-right border-bottom">
                                     <span t-field="o.amount_total" />
                                 </div>
                             </div>
