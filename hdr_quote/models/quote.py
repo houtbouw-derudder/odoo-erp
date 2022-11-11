@@ -45,8 +45,12 @@ class Quote(models.Model):
             for block in record.block_ids:
                 amount_untaxed += block.amount_untaxed
 
-            tax = record.tax_ids.compute_all(amount_untaxed)
-            record.message_post(dumps(tax))
+            try:
+                tax = record.tax_ids.compute_all(amount_untaxed)
+                record.message_post(dumps(tax))
+            except:
+                record.message_post('error calculating taxes')
+                
             record.amount_untaxed = amount_untaxed
             record.amount_tax = 0.0
             record.amount_total = amount_untaxed + 0.0
