@@ -54,6 +54,7 @@
                             <group>
                                 <field name="date" />
                                 <field name="amount_untaxed" widget="monetary" options="{'currency': 'currency_id'}" />
+                                <field name="amount_tax" widget="monetary" options="{'currency': 'currency_id'}" />
                                 <field name="amount_total" widget="monetary" options="{'currency': 'currency_id'}" />
                             </group>
                         </group>
