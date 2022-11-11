@@ -94,13 +94,13 @@ class Quote(models.Model):
                                  store=True, readonly=True, default=_get_company_id)
     currency_id = fields.Many2one(
         string='Company Currency', readonly=True, related='company_id.currency_id')
+    tax_ids = fields.Many2many(comodel_name='account.tax', string="Taxes",
+                               compute='_compute_tax_ids', store=True, readonly=False, context={'active_test': False})
 
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [(
         'readonly', False)]}, check_company=True, string='Partner', change_default=True, ondelete='restrict')
     fiscal_position_id = fields.Many2one('account.fiscal.position', string='Fiscal Position',
-                                         readonly=True, domain="[('company_id', '=', company_id)]", ondelete="restrict")
-    tax_ids = fields.Many2many(comodel_name='account.tax', string="Taxes",
-                               compute='_compute_tax_ids', store=True, readonly=False, context={'active_test': False})
+                                         domain="[('company_id', '=', company_id)]", ondelete="restrict")
 
     introduction = fields.Html(string="Introduction", sanitize=True)
     conditions = fields.Html(string="Conditions", sanitize=True)
@@ -118,5 +118,5 @@ class Quote(models.Model):
 
     @api.onchange('partner_id')
     def _onchange_partner(self):
-        self.fiscal_position_id = self.env['account.fiscal.position'].get_fiscal_position(self.partner_id.id)
-        
+        self.fiscal_position_id = self.env['account.fiscal.position'].get_fiscal_position(
+            self.partner_id.id)
