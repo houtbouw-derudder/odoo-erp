@@ -85,7 +85,7 @@ class Quote(models.Model):
     currency_id = fields.Many2one(string='Company Currency', readonly=True, related='company_id.currency_id')
 
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [('readonly', False)]}, check_company=True, string='Partner', change_default=True, ondelete='restrict')
-    tax_ids = fields.Many2many(comodel_name='account.tax',string="Taxes",compute='_compute_tax_ids', store=True, readonly=False, precompute=True,context={'active_test': False},check_company=True,)
+    tax_ids = fields.Many2many(comodel_name='account.tax',string="Taxes",compute='_compute_tax_ids', store=True, readonly=False, context={'active_test': False})
     # country_code = fields.Char(related='company_id.account_fiscal_country_id.code', readonly=True)
     # user_id = fields.Many2one(string='User', related='invoice_user_id', help='Technical field used to fit the generic behavior in mail templates.')
 

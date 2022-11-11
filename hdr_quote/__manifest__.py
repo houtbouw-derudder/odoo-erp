@@ -10,7 +10,7 @@
         Sales
     """,
     'depends': [
-        'base', 'mail'
+        'base', 'mail', 'account'
     ],
     'data': [
         'security/ir.model.access.csv',
