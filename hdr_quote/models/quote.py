@@ -70,6 +70,11 @@ class Quote(models.Model):
             result.append((move.id, name))
         return result
 
+    @api.depends('partner_id')
+    def _compute_tax_ids(self):
+        for record in self:
+            record.tax_ids = record.partner_id.account_sale_tax_id
+
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, index=True, tracking=True)
     date = fields.Date(string='Date', required=True, index=True, readonly=True, states={'draft': [('readonly', False)]}, copy=False, tracking=True, default=fields.Date.context_today)
     ref = fields.Char(string='Reference', copy=False, tracking=True)
@@ -79,8 +84,8 @@ class Quote(models.Model):
     company_id = fields.Many2one(comodel_name='res.company', string='Company', store=True, readonly=True, default=_get_company_id)
     currency_id = fields.Many2one(string='Company Currency', readonly=True, related='company_id.currency_id')
 
-    partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [(
-        'readonly', False)]}, check_company=True, string='Partner', change_default=True, ondelete='restrict')
+    partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [('readonly', False)]}, check_company=True, string='Partner', change_default=True, ondelete='restrict')
+    tax_ids = fields.Many2many(comodel_name='account.tax',string="Taxes",compute='_compute_tax_ids', store=True, readonly=False, precompute=True,context={'active_test': False},check_company=True,)
     # country_code = fields.Char(related='company_id.account_fiscal_country_id.code', readonly=True)
     # user_id = fields.Many2one(string='User', related='invoice_user_id', help='Technical field used to fit the generic behavior in mail templates.')
 
