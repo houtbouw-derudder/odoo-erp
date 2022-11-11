@@ -47,19 +47,17 @@ class Quote(models.Model):
                 for block in record.block_ids:
                     amount_untaxed += block.amount_untaxed
 
+                record.tax_ids = record.fiscal_position_id.map_tax(record.tax_ids)
                 tax_calc = record.tax_ids.compute_all(amount_untaxed)
-                logging.warning("excl %s, void %s, incl %s", tax_calc['total_excluded'], tax_calc['total_void'], tax_calc['total_included'])
-                for tax in tax_calc['taxes']:
-                    logging.warning('name %s, base %s, amount %s', tax['name'], tax['base'], tax['amount'])
                     
                 record.amount_untaxed = tax_calc['total_excluded']
-                record.amount_tax = 0.0
+                record.tax_totals = tax_calc
                 record.amount_total = tax_calc['total_included']
-                # calculate taxes and total
             else:
                 record.amount_untaxed = 0.0
-                record.amount_tax = 0.0
+                record.tax_totals = None
                 record.amount_total = 0.0
+
 
     def _get_move_display_name(self, show_ref=False):
         ''' Helper to get the display name of an invoice depending of its type.
@@ -109,7 +107,7 @@ class Quote(models.Model):
         string='Company Currency', readonly=True, related='company_id.currency_id')
     tax_ids = fields.Many2many(comodel_name='account.tax', string="Taxes",
                                compute='_compute_tax_ids', store=True, readonly=False, context={'active_test': False})
-
+    
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [(
         'readonly', False)]}, check_company=True, string='Partner', change_default=True, ondelete='restrict')
     fiscal_position_id = fields.Many2one('account.fiscal.position', string='Fiscal Position',
@@ -124,12 +122,10 @@ class Quote(models.Model):
     # === Amount fields ===
     amount_untaxed = fields.Monetary(
         string='Untaxed Amount', store=True, readonly=True, tracking=True, compute='_compute_amount')
-    amount_tax = fields.Monetary(
-        string='Tax', store=True, readonly=True, compute='_compute_amount')
     amount_total = fields.Monetary(
         string='Total', store=True, readonly=True, compute='_compute_amount')
+    tax_totals = fields.Binary(string="Tax Totals", store=True, readonly=False)
 
     @api.onchange('partner_id')
     def _onchange_partner(self):
-        self.fiscal_position_id = self.env['account.fiscal.position'].get_fiscal_position(
-            self.partner_id.id)
+        self.fiscal_position_id = self.env['account.fiscal.position'].get_fiscal_position(self.partner_id.id)
