@@ -1,5 +1,6 @@
 
 from odoo import fields, models, api, _
+from json import dumps
 
 
 class QuoteBlock(models.Model):
@@ -37,12 +38,15 @@ class Quote(models.Model):
     def _get_company_id(self):
         return self.env.company
 
-    @api.depends('block_ids', 'block_ids.amount_untaxed')
+    @api.depends('block_ids', 'block_ids.amount_untaxed', 'fiscal_position_id', 'tax_ids')
     def _compute_amount(self):
         for record in self:
             amount_untaxed = 0
             for block in record.block_ids:
                 amount_untaxed += block.amount_untaxed
+
+            tax = record.tax_ids.compute_all(amount_untaxed)
+            record.message_post(dumps(tax))
             record.amount_untaxed = amount_untaxed
             record.amount_tax = 0.0
             record.amount_total = amount_untaxed + 0.0
