@@ -39,6 +39,8 @@ class Quote(models.Model):
             for block in record.block_ids:
                 amount_untaxed += block.amount_untaxed
             record.amount_untaxed = amount_untaxed
+            record.amount_tax = 0.0
+            record.amount_total = amount_untaxed + 0.0
             # calculate taxes and total
 
     def _get_move_display_name(self, show_ref=False):
