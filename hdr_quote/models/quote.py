@@ -1,6 +1,7 @@
 
 from odoo import fields, models, api, _
 from json import dumps
+import logging
 
 
 class QuoteBlock(models.Model):
@@ -46,12 +47,14 @@ class Quote(models.Model):
                 for block in record.block_ids:
                     amount_untaxed += block.amount_untaxed
 
-                tax = record.tax_ids.compute_all(amount_untaxed)
-                record.message_post(dumps(tax))
+                tax_calc = record.tax_ids.compute_all(amount_untaxed)
+                logging.warning("excl %s, void %s, incl %s", tax_calc['total_excluded'], tax_calc['total_void'], tax_calc['total_included'])
+                for tax in tax_calc['taxes']:
+                    logging.warning('name %s, base %s, amount %s', tax['name'], tax['base'], tax['amount'])
                     
-                record.amount_untaxed = amount_untaxed
+                record.amount_untaxed = tax_calc['total_excluded']
                 record.amount_tax = 0.0
-                record.amount_total = amount_untaxed + 0.0
+                record.amount_total = tax_calc['total_included']
                 # calculate taxes and total
             else:
                 record.amount_untaxed = 0.0
