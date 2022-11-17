@@ -14,6 +14,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/quote_data.xml',
         'views/quote_views.xml',
         'views/report_quote.xml',
         'views/quote_report.xml'
