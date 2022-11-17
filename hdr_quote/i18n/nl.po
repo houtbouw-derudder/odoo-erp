@@ -1,0 +1,533 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hdr_quote
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20221105\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-17 07:42+0000\n"
+"PO-Revision-Date: 2022-11-17 09:46+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2\n"
+
+#. module: hdr_quote
+#: model:ir.actions.report,print_report_name:hdr_quote.quotation_document
+msgid "(object._get_report_base_filename())"
+msgstr "(object._get_report_base_filename())"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
+msgid "<span>Draft</span>"
+msgstr "<span>Concept</span>"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "<strong>Due Date:</strong>"
+msgstr "<strong>Vervaldatum:</strong>"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "<strong>Reference:</strong>"
+msgstr "<strong>Referentie:</strong>"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.document_tax_totals
+msgid "<strong>Total</strong>"
+msgstr "<strong>Totaal</strong>"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_needaction
+msgid "Action Needed"
+msgstr "Actie Vereist"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_ids
+msgid "Activities"
+msgstr "Activiteiten"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_state
+msgid "Activity State"
+msgstr "Status Activiteit"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_attachment_count
+msgid "Attachment Count"
+msgstr "Aantal bijlagen"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__block_ids
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
+msgid "Blocks"
+msgstr "Blokken"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__budget_equipments
+msgid "Budget equipments"
+msgstr "Budget materieel"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__budget_installation_hours
+msgid "Budget installation hours"
+msgstr "Budget installatieuren"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__budget_materials
+msgid "Budget materials"
+msgstr "Budget materiaal"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__budget_production_hours
+msgid "Budget production hours"
+msgstr "Budget productieuren"
+
+#. module: hdr_quote
+#: model:ir.model.fields.selection,name:hdr_quote.selection__quote__state__cancel
+msgid "Cancelled"
+msgstr "Gecancelled"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Cancelled Estimate"
+msgstr "Gecancelde Raming"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Cancelled Quote"
+msgstr "Gacencelde Offerte"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__company_id
+msgid "Company"
+msgstr "Bedrijf"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__currency_id
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__currency_id
+msgid "Company Currency"
+msgstr "Bedrijfsmunteenheid"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
+msgid "Concept"
+msgstr "Concept"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__conditions
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
+msgid "Conditions"
+msgstr "Voorwaarden"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__create_uid
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__create_date
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__description
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quote_block_form_view
+msgid "Description"
+msgstr "Omschrijving"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__display_name
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: hdr_quote
+#: model:ir.model.fields.selection,name:hdr_quote.selection__quote__state__draft
+msgid "Draft"
+msgstr "Concept"
+
+#. module: hdr_quote
+#: code:addons/hdr_quote/models/quote.py:0
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+#, python-format
+msgid "Draft Estimate"
+msgstr "Concept Raming"
+
+#. module: hdr_quote
+#: code:addons/hdr_quote/models/quote.py:0
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+#, python-format
+msgid "Draft Quote"
+msgstr "Concept Offerte"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__date_due
+msgid "Due date"
+msgstr "Vervaldatum"
+
+#. module: hdr_quote
+#: model:ir.model.fields.selection,name:hdr_quote.selection__quote__quote_type__estimate
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Estimate"
+msgstr "Raming"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__fiscal_position_id
+msgid "Fiscal Position"
+msgstr "Fiscale positie"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_follower_ids
+msgid "Followers"
+msgstr "Volgers"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Volgers (Partners)"
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__has_message
+msgid "Has Message"
+msgstr "Heeft bericht"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__id
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__message_needaction
+#: model:ir.model.fields,help:hdr_quote.field_quote__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__message_has_error
+#: model:ir.model.fields,help:hdr_quote.field_quote__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__introduction
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
+msgid "Introduction"
+msgstr "Inleiding"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote____last_update
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block____last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__write_uid
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__write_date
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Hoofbijlage"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_has_error
+msgid "Message Delivery error"
+msgstr "Bericht aflevering fout"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_ids
+msgid "Messages"
+msgstr "Berichten"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__name
+msgid "Name"
+msgstr "Naam"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: hdr_quote
+#: model_terms:ir.actions.act_window,help:hdr_quote.action_quotes_view
+msgid "No quotes found. Let's create one!"
+msgstr "Geen offertes gevonden. Maak er een!"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__name
+msgid "Number"
+msgstr "Nummer"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Aantal acties"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_has_error_counter
+msgid "Number of errors"
+msgstr "Aantal fouten"
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Aantal berichten die actie vereisen"
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Aantal berichten met afleverfouten"
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Aantal ongelezen berichten"
+
+#. module: hdr_quote
+#: code:addons/hdr_quote/models/quote.py:0
+#, python-format
+msgid "Only Draft Quote can be deleted"
+msgstr "Enkele concept offertes kunnen verwijderd worden"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__partner_id
+msgid "Partner"
+msgstr "Klant"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__payment_term_id
+msgid "Payment Terms"
+msgstr "Betalingsvoorwaarden"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
+msgid "Post"
+msgstr "Valideren"
+
+#. module: hdr_quote
+#: model:ir.model.fields.selection,name:hdr_quote.selection__quote__state__posted
+msgid "Posted"
+msgstr "Gevalideerd"
+
+#. module: hdr_quote
+#: model:ir.ui.menu,name:hdr_quote.menu_quotes
+msgid "Quotations"
+msgstr "Offertes"
+
+#. module: hdr_quote
+#: model:ir.actions.report,name:hdr_quote.quotation_document
+#: model:ir.model,name:hdr_quote.model_quote
+#: model:ir.model,name:hdr_quote.model_quote_block
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__quote_id
+#: model:ir.model.fields.selection,name:hdr_quote.selection__quote__quote_type__quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Quote"
+msgstr "Offerte"
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quote_block_form_view
+msgid "Quote Block"
+msgstr "Offert Blok"
+
+#. module: hdr_quote
+#: code:addons/hdr_quote/models/quote.py:0
+#, python-format
+msgid "Quote Number Sequence"
+msgstr "Offerte Nummer Reeks"
+
+#. module: hdr_quote
+#: model:ir.actions.act_window,name:hdr_quote.action_quotes_view
+#: model:ir.ui.menu,name:hdr_quote.menu_main_quotes
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_tree_view
+msgid "Quotes"
+msgstr "Offertes"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__ref
+msgid "Reference"
+msgstr "Referentie"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__state
+msgid "Status"
+msgstr "Status"
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Tax ID"
+msgstr "BTW"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__tax_totals
+msgid "Tax Totals"
+msgstr "BTW Totaal"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__tax_ids
+msgid "Taxes"
+msgstr "Belastingen"
+
+#. module: hdr_quote
+#: code:addons/hdr_quote/models/quote.py:0
+#, python-format
+msgid "The entry %s (id %s) is already posted."
+msgstr ""
+
+#. module: hdr_quote
+#: code:addons/hdr_quote/models/quote.py:0
+#, python-format
+msgid "The field 'Customer' is required, please complete it to validate the Quote."
+msgstr "Het veld 'klant' is vereist, vul het aan om de offerte te valideren."
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__amount_total
+msgid "Total"
+msgstr "Totaal"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__quote_type
+msgid "Type"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: hdr_quote
+#: code:addons/hdr_quote/models/quote.py:0
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__amount_untaxed
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__amount_untaxed
+#, python-format
+msgid "Untaxed Amount"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,help:hdr_quote.field_quote__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hdr_quote
+#: code:addons/hdr_quote/models/quote.py:0
+#, python-format
+msgid "You cannot validate a quote with a negative total amount."
+msgstr "Een offerte met een negatief totaal kan niet gevalideerd worden."
+
+#. module: hdr_quote
+#: code:addons/hdr_quote/models/quote.py:0
+#, python-format
+msgid "You need to add a block before posting."
+msgstr "Een offerte moet minstens 1 blok hebben om gevalideerd te worden."
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.tax_groups_totals
+msgid "on"
+msgstr ""
