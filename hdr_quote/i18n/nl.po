@@ -6,8 +6,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e-20221105\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< Updated upstream
+"POT-Creation-Date: 2022-11-22 12:33+0000\n"
+"PO-Revision-Date: 2022-11-22 13:34+0100\n"
+=======
 "POT-Creation-Date: 2022-11-22 09:42+0000\n"
-"PO-Revision-Date: 2022-11-22 10:47+0100\n"
+"PO-Revision-Date: 2022-11-22 15:01+0100\n"
+>>>>>>> Stashed changes
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_BE\n"
@@ -273,7 +278,7 @@ msgstr ""
 #. module: hdr_quote
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
 msgid "Installation hours:"
-msgstr "Budget installatieuren:"
+msgstr "Installatieuren:"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__notes
@@ -423,11 +428,6 @@ msgstr "Enkele concept offertes kunnen verwijderd worden"
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__partner_id
 msgid "Partner"
 msgstr "Klant"
-
-#. module: hdr_quote
-#: model:ir.model.fields,field_description:hdr_quote.field_quote__payment_term_id
-msgid "Payment Terms"
-msgstr "Betalingsvoorwaarden"
 
 #. module: hdr_quote
 #: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
@@ -582,12 +582,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__amount_untaxed
 #, python-format
 msgid "Untaxed Amount"
-msgstr ""
+msgstr "Bedrag excl. BTW"
 
 #. module: hdr_quote
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 msgid "Untaxed amount"
-msgstr ""
+msgstr "Bedrag excl. BTW"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__payment_term_id
+msgid "Validity"
+msgstr "Geldigheid"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__website_message_ids
@@ -615,3 +620,6 @@ msgstr "Een offerte moet minstens 1 blok hebben om gevalideerd te worden."
 #: model_terms:ir.ui.view,arch_db:hdr_quote.tax_groups_totals
 msgid "on"
 msgstr ""
+
+#~ msgid "Payment Terms"
+#~ msgstr "Betalingsvoorwaarden"
