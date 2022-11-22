@@ -122,10 +122,8 @@
                     </div>
 
                     <!-- conditions -->
-                    <div t-if="not is_html_empty(o.conditions) or o.payment_term_id" name="conditions">
+                    <div t-if="not is_html_empty(o.conditions)" name="conditions">
                         <div style="page-break-after:always;" />
-                        
-                        <span t-if="o.payment_term_id" t-field="o.payment_term_id.note" />
                         <span t-field="o.conditions" />
                     </div>
                 </div>
