@@ -6,8 +6,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e-20221105\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< Updated upstream
 "POT-Creation-Date: 2022-11-22 12:33+0000\n"
 "PO-Revision-Date: 2022-11-22 13:34+0100\n"
+=======
+"POT-Creation-Date: 2022-11-22 09:42+0000\n"
+"PO-Revision-Date: 2022-11-22 15:01+0100\n"
+>>>>>>> Stashed changes
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_BE\n"
@@ -577,12 +582,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__amount_untaxed
 #, python-format
 msgid "Untaxed Amount"
-msgstr ""
+msgstr "Bedrag excl. BTW"
 
 #. module: hdr_quote
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 msgid "Untaxed amount"
-msgstr ""
+msgstr "Bedrag excl. BTW"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__payment_term_id
