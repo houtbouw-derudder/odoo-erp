@@ -17,6 +17,7 @@ class QuoteBlock(models.Model):
     quote_id = fields.Many2one(comodel_name='quote', string="Quote", store=True)
     currency_id = fields.Many2one(string='Company Currency', readonly=True, related='quote_id.currency_id')
     name = fields.Char(string="Name", copy=True, readonly=False, required=True)
+    sequence = fields.Integer(default=10)
     description = fields.Html(string="Description",copy=True, readonly=False, sanitize=True)
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True)
 

@@ -64,8 +64,9 @@
                                 <field name="introduction" />
                             </page>
                             <page id="blocks" string="Blocks">
-                                <field name="block_ids" nolabel="1">
+                                <field name="block_ids" nolabel="1" default_order="sequence, id">
                                     <tree>
+                                        <field name="sequence" widget="handle"/>
                                         <field name="name" />
                                         <field name="currency_id" invisible="1" />
                                         <field name="amount_untaxed" widget="monetary" options="{'currency': 'currency_id'}" />
