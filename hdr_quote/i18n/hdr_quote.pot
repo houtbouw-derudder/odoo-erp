@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e-20221105\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-17 07:42+0000\n"
-"PO-Revision-Date: 2022-11-17 07:42+0000\n"
+"POT-Creation-Date: 2022-11-22 09:42+0000\n"
+"PO-Revision-Date: 2022-11-22 09:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 
 #. module: hdr_quote
 #: model:ir.actions.report,print_report_name:hdr_quote.quotation_document
+#: model:ir.actions.report,print_report_name:hdr_quote.quotation_document_with_details
 msgid "(object._get_report_base_filename())"
 msgstr ""
 
@@ -88,6 +89,7 @@ msgstr ""
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__budget_installation_hours
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 msgid "Budget installation hours"
 msgstr ""
 
@@ -98,6 +100,7 @@ msgstr ""
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__budget_production_hours
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 msgid "Budget production hours"
 msgstr ""
 
@@ -107,11 +110,13 @@ msgid "Cancelled"
 msgstr ""
 
 #. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
 msgid "Cancelled Estimate"
 msgstr ""
 
 #. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
 msgid "Cancelled Quote"
 msgstr ""
@@ -174,6 +179,7 @@ msgstr ""
 
 #. module: hdr_quote
 #: code:addons/hdr_quote/models/quote.py:0
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
 #, python-format
 msgid "Draft Estimate"
@@ -182,6 +188,7 @@ msgstr ""
 #. module: hdr_quote
 #: code:addons/hdr_quote/models/quote.py:0
 #: code:addons/hdr_quote/models/quote.py:0
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
 #, python-format
 msgid "Draft Quote"
@@ -193,7 +200,18 @@ msgid "Due date"
 msgstr ""
 
 #. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
+msgid "Equipments"
+msgstr ""
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Equipments:"
+msgstr ""
+
+#. module: hdr_quote
 #: model:ir.model.fields.selection,name:hdr_quote.selection__quote__quote_type__estimate
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
 msgid "Estimate"
 msgstr ""
@@ -252,6 +270,22 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Installation hours:"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__notes
+#: model_terms:ir.ui.view,arch_db:hdr_quote.quote_block_form_view
+msgid "Internal notes"
+msgstr ""
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Internal use only"
+msgstr ""
+
+#. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__introduction
 #: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
 msgid "Introduction"
@@ -286,6 +320,28 @@ msgid "Main Attachment"
 msgstr ""
 
 #. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
+msgid "Margin / hour"
+msgstr ""
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
+msgid ""
+"Margin/hour = (Amount untaxed - budget materials - budget "
+"equipments)/(budget production hours + budget installation hours)"
+msgstr ""
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
+msgid "Materials"
+msgstr ""
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Materials:"
+msgstr ""
+
+#. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__message_has_error
 msgid "Message Delivery error"
 msgstr ""
@@ -302,6 +358,7 @@ msgstr ""
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__name
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 msgid "Name"
 msgstr ""
 
@@ -382,6 +439,11 @@ msgid "Posted"
 msgstr ""
 
 #. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
+msgid "Production hours:"
+msgstr ""
+
+#. module: hdr_quote
 #: model:ir.ui.menu,name:hdr_quote.menu_quotes
 msgid "Quotations"
 msgstr ""
@@ -393,6 +455,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__quote_id
 #: model:ir.model.fields.selection,name:hdr_quote.selection__quote__quote_type__quote
 #: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_document
 msgid "Quote"
 msgstr ""
@@ -406,6 +469,16 @@ msgstr ""
 #: code:addons/hdr_quote/models/quote.py:0
 #, python-format
 msgid "Quote Number Sequence"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.actions.report,name:hdr_quote.quotation_budgets_report
+msgid "Quote budgets"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.actions.report,name:hdr_quote.quotation_document_with_details
+msgid "Quote with details"
 msgstr ""
 
 #. module: hdr_quote
@@ -428,6 +501,11 @@ msgstr ""
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__message_has_sms_error
 msgid "SMS Delivery error"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote_block__sequence
+msgid "Sequence"
 msgstr ""
 
 #. module: hdr_quote
@@ -503,6 +581,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__amount_untaxed
 #, python-format
 msgid "Untaxed Amount"
+msgstr ""
+
+#. module: hdr_quote
+#: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
+msgid "Untaxed amount"
 msgstr ""
 
 #. module: hdr_quote

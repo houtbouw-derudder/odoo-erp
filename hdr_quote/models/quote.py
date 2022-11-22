@@ -19,6 +19,7 @@ class QuoteBlock(models.Model):
     name = fields.Char(string="Name", copy=True, readonly=False, required=True)
     sequence = fields.Integer(default=10)
     description = fields.Html(string="Description",copy=True, readonly=False, sanitize=True)
+    notes = fields.Html(string="Internal notes", copy=True, readonly=False, sanitize=True)
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True)
 
     budget_materials = fields.Monetary(string='Budget materials', store=True)

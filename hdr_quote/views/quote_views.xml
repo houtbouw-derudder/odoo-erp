@@ -142,9 +142,14 @@
                                 <field name="budget_installation_hours" />
                             </group>
                         </group>
-                        <div>
-                            <field name="description" placeholder="Description" />
-                        </div>
+                        <notebook>
+                            <page id="description" string="Description">
+                                <field name="description" placeholder="Description" />
+                            </page>
+                            <page id="notes" string="Internal notes">
+                                <field name="notes" placeholder="Internal notes" />
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
