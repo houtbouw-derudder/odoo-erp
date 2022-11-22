@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e-20221105\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-22 09:42+0000\n"
-"PO-Revision-Date: 2022-11-22 13:12+0100\n"
+"POT-Creation-Date: 2022-11-22 12:33+0000\n"
+"PO-Revision-Date: 2022-11-22 13:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_BE\n"
@@ -425,11 +425,6 @@ msgid "Partner"
 msgstr "Klant"
 
 #. module: hdr_quote
-#: model:ir.model.fields,field_description:hdr_quote.field_quote__payment_term_id
-msgid "Payment Terms"
-msgstr "Betalingsvoorwaarden"
-
-#. module: hdr_quote
 #: model_terms:ir.ui.view,arch_db:hdr_quote.quotes_form_view
 msgid "Post"
 msgstr "Valideren"
@@ -590,6 +585,11 @@ msgid "Untaxed amount"
 msgstr ""
 
 #. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__payment_term_id
+msgid "Validity"
+msgstr "Geldigheid"
+
+#. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__website_message_ids
 msgid "Website Messages"
 msgstr ""
@@ -615,3 +615,6 @@ msgstr "Een offerte moet minstens 1 blok hebben om gevalideerd te worden."
 #: model_terms:ir.ui.view,arch_db:hdr_quote.tax_groups_totals
 msgid "on"
 msgstr ""
+
+#~ msgid "Payment Terms"
+#~ msgstr "Betalingsvoorwaarden"
