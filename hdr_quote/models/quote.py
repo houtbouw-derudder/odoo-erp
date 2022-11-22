@@ -128,7 +128,7 @@ class Quote(models.Model):
     
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [('readonly', False)]}, check_company=True, string='Partner', change_default=True, ondelete='restrict')
     fiscal_position_id = fields.Many2one('account.fiscal.position', string='Fiscal Position', domain="[('company_id', '=', company_id)]", ondelete="restrict", readonly=True, states={'draft': [('readonly', False)]},)
-    payment_term_id = fields.Many2one('account.payment.term', string='Payment Terms', check_company=True, readonly=True , states={'draft': [('readonly', False)]})
+    payment_term_id = fields.Many2one('account.payment.term', string='Validity', check_company=True, readonly=True , states={'draft': [('readonly', False)]})
 
     introduction = fields.Html(string="Introduction", sanitize=True, readonly=True, states={'draft': [('readonly', False)]},)
     conditions = fields.Html(string="Conditions", sanitize=True, readonly=True, states={'draft': [('readonly', False)]},)
