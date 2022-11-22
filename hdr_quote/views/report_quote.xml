@@ -164,5 +164,56 @@
                 </tr>
             </t>
         </template>
+
+        <template id="report_quote_budgets">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="hdr_quote.report_quote_budgets_document" />
+                </t>
+            </t>
+        </template>
+
+        <template id="report_quote_budgets_document">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h2>
+                        <span t-if="o.quote_type == 'quote' and o.state == 'posted'">Quote</span>
+                        <span t-if="o.quote_type == 'quote' and o.state == 'draft'">Draft Quote</span>
+                        <span t-if="o.quote_type == 'quote' and o.state == 'cancel'">Cancelled Quote</span>
+                        <span t-if="o.quote_type == 'estimate' and o.state == 'posted'">Estimate</span>
+                        <span t-if="o.quote_type == 'estimate' and o.state == 'draft'">Draft Estimate</span>
+                        <span t-if="o.quote_type == 'estimate' and o.state == 'cancel'">Cancelled Estimate</span>
+                        <span t-if="o.name != '/'" t-field="o.name" />
+                    </h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="text-right">Untaxed amount</th>
+                                <th class="text-right">Materials</th>
+                                <th class="text-right">Equipments</th>
+                                <th class="text-right">Budget production hours</th>
+                                <th class="text-right">Budget installation hours</th>
+                                <th class="text-right">Margin / hour</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.block_ids" t-as="block">
+                                <tr>
+                                    <td><span t-field="block.name" /></td>
+                                    <td class="text-right"><span t-field="block.amount_untaxed" /></td>
+                                    <td class="text-right"><span t-field="block.budget_materials" /></td>
+                                    <td class="text-right"><span t-field="block.budget_equipments" /></td>
+                                    <td class="text-right"><span t-field="block.budget_production_hours" /></td>
+                                    <td class="text-right"><span t-field="block.budget_installation_hours" /></td>
+                                    <td class="text-right"><span t-if="(block.budget_production_hours + block.budget_installation_hours) > 0" t-esc="(block.amount_untaxed - block.budget_materials - block.budget_equipments)/(block.budget_production_hours + block.budget_installation_hours)" t-options="{'widget':'monetary', 'display_currency': block.currency_id}" /></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <p>Margin/hour = (Amount untaxed - budget materials - budget equipments)/(budget production hours + budget installation hours)</p>
+                </div>
+            </t>
+        </template>
     </data>
 </odoo>
