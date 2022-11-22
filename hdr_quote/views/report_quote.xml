@@ -3,6 +3,16 @@
     <data>
         <template id="report_quote">
             <t t-call="web.html_container">
+                <t t-set="show_notes_and_budgets" t-value="false" />
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="hdr_quote.report_quote_document" />
+                </t>
+            </t>
+        </template>
+
+        <template id="report_quote_internal">
+            <t t-call="web.html_container">
+                <t t-set="show_notes_and_budgets" t-value="true" />
                 <t t-foreach="docs" t-as="o">
                     <t t-call="hdr_quote.report_quote_document" />
                 </t>
@@ -30,6 +40,9 @@
                         <span t-if="o.quote_type == 'estimate' and o.state == 'cancel'">Cancelled Estimate</span>
                         <span t-if="o.name != '/'" t-field="o.name" />
                     </h2>
+                    <div t-if="show_notes_and_budgets">
+                        <h2>Internal use only</h2>
+                    </div>
 
                     <div id="informations" class="row mt-4 mb-4">
                         <div class="col-auto col-3 mw-100 mb-2" t-if="o.date" name="date">
@@ -74,6 +87,27 @@
                                         <span t-field="block.description" />
                                     </div>
                                     <div class="col-2" />
+                                </div>
+                                <div t-if="show_notes_and_budgets">
+                                    <div class="row mt-4">
+                                        <div class="col-12">
+                                        <span t-field="block.notes" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            Materials: <span t-field="block.budget_materials" />
+                                        </div>
+                                        <div class="col-3">
+                                            Equipments: <span t-field="block.budget_equipments" />
+                                        </div>                                        
+                                        <div class="col-3">
+                                            Production hours: <span t-field="block.budget_production_hours" />
+                                        </div>                                      
+                                        <div class="col-3">
+                                            Installation hours: <span t-field="block.budget_installation_hours" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </t>
