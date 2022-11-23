@@ -3,7 +3,7 @@
 
 {
     'name': 'Quote',
-    'version': '1.1',
+    'version': '1.2',
     'category': 'Sales',
     'author': 'Houtbouw De Rudder bv',
     'description': """

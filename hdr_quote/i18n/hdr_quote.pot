@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0+e-20221105\n"
+"Project-Id-Version: Odoo Server 15.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-22 12:33+0000\n"
-"PO-Revision-Date: 2022-11-22 12:33+0000\n"
+"POT-Creation-Date: 2022-11-23 09:14+0000\n"
+"PO-Revision-Date: 2022-11-23 09:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -360,6 +360,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__name
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 msgid "Name"
+msgstr ""
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
 msgstr ""
 
 #. module: hdr_quote

@@ -6,20 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0+e-20221105\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< Updated upstream
-"POT-Creation-Date: 2022-11-22 12:33+0000\n"
-"PO-Revision-Date: 2022-11-22 13:34+0100\n"
-=======
-"POT-Creation-Date: 2022-11-22 09:42+0000\n"
-"PO-Revision-Date: 2022-11-22 15:01+0100\n"
->>>>>>> Stashed changes
+"POT-Creation-Date: 2022-11-23 09:14+0000\n"
+"PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: nl_BE\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2\n"
 
 #. module: hdr_quote
@@ -66,17 +60,17 @@ msgstr "Activiteiten"
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Activiteit uitzondering decoratie"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_state
 msgid "Activity State"
-msgstr "Status Activiteit"
+msgstr "Activiteitsfase"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_type_icon
 msgid "Activity Type Icon"
-msgstr ""
+msgstr "Activiteitensoort icoon"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__message_attachment_count
@@ -240,7 +234,7 @@ msgstr "Volgers (Partners)"
 #. module: hdr_quote
 #: model:ir.model.fields,help:hdr_quote.field_quote__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
+msgstr "Font awesome icoon bijv. fa-tasks"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__has_message
@@ -256,7 +250,7 @@ msgstr "ID"
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "Icoon"
 
 #. module: hdr_quote
 #: model:ir.model.fields,help:hdr_quote.field_quote__activity_exception_icon
@@ -300,7 +294,7 @@ msgstr "Inleiding"
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Is een volger"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote____last_update
@@ -328,7 +322,7 @@ msgstr "Hoofbijlage"
 #. module: hdr_quote
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 msgid "Margin / hour"
-msgstr ""
+msgstr "Marge / uur"
 
 #. module: hdr_quote
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
@@ -336,6 +330,8 @@ msgid ""
 "Margin/hour = (Amount untaxed - budget materials - budget equipments)/"
 "(budget production hours + budget installation hours)"
 msgstr ""
+"Marge / uur = (Bedrag excl. BTW - budget materiaal - budget materieel) / "
+"(budget productie + installatie uren)"
 
 #. module: hdr_quote
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
@@ -360,13 +356,18 @@ msgstr "Berichten"
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__my_activity_date_deadline
 msgid "My Activity Deadline"
-msgstr ""
+msgstr "Mijn activiteit deadline"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote_block__name
 #: model_terms:ir.ui.view,arch_db:hdr_quote.report_quote_budgets_document
 msgid "Name"
 msgstr "Naam"
+
+#. module: hdr_quote
+#: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__activity_date_deadline
@@ -536,7 +537,7 @@ msgstr "BTW Totaal"
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__tax_ids
 msgid "Taxes"
-msgstr "Belastingen"
+msgstr "BTW"
 
 #. module: hdr_quote
 #: code:addons/hdr_quote/models/quote.py:0
@@ -569,7 +570,7 @@ msgstr ""
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Ongelezen berichten"
 
 #. module: hdr_quote
 #: model:ir.model.fields,field_description:hdr_quote.field_quote__message_unread_counter
