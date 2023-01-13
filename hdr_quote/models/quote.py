@@ -81,10 +81,10 @@ class Quote(models.Model):
             record.fiscal_position_id = self.env['account.fiscal.position'].get_fiscal_position(record.partner_id.id)
             record.payment_term_id = record.partner_id.property_payment_term_id or record.payment_term_id
 
-    @api.depends('company_id', 'fiscal_position_id')
+    @api.depends('company_id', 'fiscal_position_id', 'tax_ids')
     def _compute_tax_ids(self):
         for record in self:
-            tax_ids = record.company_id.account_sale_tax_id
+            tax_ids = record.tax_ids or record.company_id.account_sale_tax_id
             if record.fiscal_position_id:
                 tax_ids = record.fiscal_position_id.map_tax(tax_ids)
             record.tax_ids = tax_ids
