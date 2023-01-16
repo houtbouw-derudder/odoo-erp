@@ -68,7 +68,7 @@
 
                     <!-- blocks -->
                     <div class="container-fluid">
-                        <t t-foreach="o.block_ids" t-as="block">
+                        <t t-foreach="o.block_ids.sorted(key=lambda l: (l.sequence))" t-as="block">
                             <div class="mb-4" style="page-break-inside: avoid;">
                                 <div class="row border-bottom">
                                     <div class="col-10">
