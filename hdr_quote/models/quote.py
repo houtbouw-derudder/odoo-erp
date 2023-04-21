@@ -1,7 +1,7 @@
 
 import logging
 from collections import defaultdict
-from json import dumps
+from json import dumps, loads
 
 from odoo import fields, models, api, Command, _
 from odoo.exceptions import UserError, AccessError
@@ -122,8 +122,16 @@ class Quote(models.Model):
                 tax_calc = record.tax_ids.compute_all(amount_untaxed, currency=record.currency_id, partner=record.partner_id)
                 tax_totals = self._get_tax_totals(tax_calc, record.partner_id, record.currency_id)                    
                 record.amount_untaxed = tax_calc["total_void"]
-                record.tax_totals = tax_totals
+                record.tax_totals = dumps(tax_totals)
                 record.amount_total = tax_calc["total_included"]
+
+    @api.depends('tax_totals')
+    def _compute_binary_tax_totals(self):
+        for record in self:
+            if record.tax_totals:
+                record.binary_tax_totals = loads(record.tax_totals)
+            else:
+                record.binary_tax_totals = None
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
     date = fields.Date(string='Date', readonly=True, states={'draft': [('readonly', False)]}, copy=False, tracking=True)
@@ -148,7 +156,8 @@ class Quote(models.Model):
     # === Amount fields ===
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True, compute='_compute_totals')
     amount_total = fields.Monetary(string='Total', store=True, readonly=True)
-    tax_totals = fields.Binary(string="Tax Totals", store=True, readonly=True)
+    tax_totals = fields.Char(string="Tax Totals", store=True, readonly=True)
+    binary_tax_totals = fields.Binary(string="Tax Totals", compute='_compute_binary_tax_totals', store=False, readonly=True)
 
     def _get_tax_totals(self, calculation, partner, currency):
         """ Compute the tax totals for the provided data.

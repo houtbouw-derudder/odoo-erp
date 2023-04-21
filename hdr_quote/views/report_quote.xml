@@ -116,7 +116,7 @@
                             <div class="col-6" />
                             <div class="col-6">
                                 <table class="table table-sm">
-                                    <t t-set="tax_totals" t-value="o.tax_totals" />
+                                    <t t-set="tax_totals" t-value="o.binary_tax_totals" />
                                     <t t-call="hdr_quote.document_tax_totals" />
                                 </table>
                             </div>
