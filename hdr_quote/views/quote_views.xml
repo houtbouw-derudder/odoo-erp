@@ -76,6 +76,9 @@
                                 </field>
                                 <group col="12" class="oe_invoice_lines_tab">
                                     <group colspan="8"></group>
+                                    <group colspan="4">
+                                        <field name="tax_totals" widget="account-tax-totals-field" nolabel="1" />
+                                    </group>
                                 </group>
                             </page>
                             <page id="conditions" string="Conditions">
