@@ -93,7 +93,18 @@ class Quote(models.Model):
     def _compute_date_due(self):
         for record in self:
             if record.payment_term_id:
-                record.date_due = record.payment_term_id.compute(record.amount_untaxed, record.date)[-1][0]
+                terms = record._compute_terms(
+                    date_ref=record.example_date,
+                    currency=self.env.company.currency_id,
+                    company=self.env.company,
+                    tax_amount=1,
+                    tax_amount_currency=1,
+                    untaxed_amount=1,
+                    untaxed_amount_currency=1,
+                    sign=1)
+                print(terms)
+                # record.date_due = record.payment_term_id.compute(record.amount_untaxed, record.date)[-1][0]
+                record.date_due = record.date
             else:
                 record.date_due = record.date
 
