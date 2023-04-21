@@ -103,9 +103,7 @@ class Quote(models.Model):
                     untaxed_amount_currency=1,
                     sign=1)
                 
-                # term_date = terms[0][0]
-                logging.getLogger().warning(terms[0])
-                record.date_due = record.date
+                record.date_due = terms[0].get('date')
             else:
                 record.date_due = record.date
 
