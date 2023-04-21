@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<record id="view_task_form2_inherited_time_registration_code" model="ir.ui.view">
+	<record id="view_task_form2_time_registration_code" model="ir.ui.view">
 		<field name="name">project.task.form.with.time_registration_code</field>
 		<field name="model">project.task</field>
 		<field name="inherit_id" ref="project.view_task_form2" />
