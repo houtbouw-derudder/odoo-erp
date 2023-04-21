@@ -78,9 +78,7 @@ class Quote(models.Model):
     @api.onchange('partner_id')
     def _onchange_partner(self):
         for record in self:
-            if record.partner_id:
-                record.fiscal_position_id = record.partner_id.fiscal_position_id
-            # record.fiscal_position_id = self.env['account.fiscal.position'].get_fiscal_position(record.partner_id.id)
+            record.fiscal_position_id = self.env['account.fiscal.position']._get_fiscal_position(record.partner_id.id)
             record.payment_term_id = record.partner_id.property_payment_term_id or record.payment_term_id
 
     @api.depends('company_id', 'fiscal_position_id', 'tax_ids')
