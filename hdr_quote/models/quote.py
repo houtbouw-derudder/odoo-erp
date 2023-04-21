@@ -132,7 +132,16 @@ class Quote(models.Model):
             if record.tax_totals:
                 record.binary_tax_totals = loads(record.tax_totals)
             else:
-                record.binary_tax_totals = None
+                record.binary_tax_totals = {
+                    'amount_total': 0.0,
+                    'amount_untaxed': 0.0,
+                    'formatted_amount_total': formatLang(self.env, 0.0, currency_obj=record.currency_id),
+                    'formatted_amount_untaxed': formatLang(self.env, 0.0, currency_obj=record.currency_id),
+                    'groups_by_subtotal': defaultdict(list),
+                    'subtotals': list(),
+                    'subtotals_order': list(),
+                    'allow_tax_edition': False,
+                }
             # logging.getLogger().warning(record.binary_tax_totals)
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
