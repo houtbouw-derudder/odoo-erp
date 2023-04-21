@@ -159,7 +159,7 @@ class Quote(models.Model):
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True, compute='_compute_totals')
     amount_total = fields.Monetary(string='Total', store=True, readonly=True)
     tax_totals = fields.Char(string="Tax Totals", store=True, readonly=True)
-    binary_tax_totals = fields.Binary(string="Tax Totals", compute='_compute_binary_tax_totals', store=False, readonly=True)
+    binary_tax_totals = fields.Binary(string="Binary Tax Totals", compute='_compute_binary_tax_totals', store=False, readonly=True)
 
     def _get_tax_totals(self, calculation, partner, currency):
         """ Compute the tax totals details for the business documents.
