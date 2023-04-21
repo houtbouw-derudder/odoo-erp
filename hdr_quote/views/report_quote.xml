@@ -111,14 +111,16 @@
                                 </div>
                             </div>
                         </t>
-                    </div>
 
-                    <!-- summary -->
-                    <div style="page-break-inside: avoid;" class="col-6 ml-auto">
-                        <table class="table table-sm">
-                            <t t-set="tax_totals" t-value="json.loads(o.tax_totals)" />
-                            <t t-call="hdr_quote.document_tax_totals" />
-                        </table>
+                        <div class="row" style="page-break-inside: avoid;">
+                            <div class="col-6" />
+                            <div class="col-6">
+                                <table class="table table-sm">
+                                    <t t-set="tax_totals" t-value="json.loads(o.tax_totals)" />
+                                    <t t-call="hdr_quote.document_tax_totals" />
+                                </table>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- conditions -->
