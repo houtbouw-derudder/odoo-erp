@@ -102,7 +102,7 @@ class Quote(models.Model):
                     untaxed_amount=1,
                     untaxed_amount_currency=1,
                     sign=1)
-                print(terms)
+                logging.getLogger().warning(terms)
                 # record.date_due = record.payment_term_id.compute(record.amount_untaxed, record.date)[-1][0]
                 record.date_due = record.date
             else:
