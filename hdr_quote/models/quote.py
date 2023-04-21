@@ -94,7 +94,7 @@ class Quote(models.Model):
         for record in self:
             if record.payment_term_id:
                 terms = record.payment_term_id._compute_terms(
-                    date_ref=record.example_date,
+                    date_ref=record.date,
                     currency=self.env.company.currency_id,
                     company=self.env.company,
                     tax_amount=1,
