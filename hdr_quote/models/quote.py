@@ -109,21 +109,17 @@ class Quote(models.Model):
 
     @api.depends('block_ids', 'block_ids.amount_untaxed', 'tax_ids')
     def _compute_totals(self):
-        for record in self:
-            if not record.block_ids:
-                record.amount_untaxed = 0.0
-                record.tax_totals = None
-                record.amount_total = 0.0
-            else:
-                amount_untaxed = 0.0
-                for block in record.block_ids:
-                    amount_untaxed += block.amount_untaxed
+        for record in self:            
+            amount_untaxed = 0.0
+            for block in record.block_ids:
+                amount_untaxed += block.amount_untaxed
+            record.amount_untaxed = amount_untaxed
 
-                tax_calc = record.tax_ids.compute_all(amount_untaxed, currency=record.currency_id, partner=record.partner_id)
-                tax_totals = self._get_tax_totals(tax_calc, record.partner_id, record.currency_id)                    
-                record.amount_untaxed = tax_calc["total_void"]
-                record.tax_totals = dumps(tax_totals)
-                record.amount_total = tax_calc["total_included"]
+            tax_calc = record.tax_ids.compute_all(record.amount_untaxed, currency=record.currency_id, partner=record.partner_id)
+            tax_totals = self._get_tax_totals(tax_calc, record.partner_id, record.currency_id)                    
+            record.amount_untaxed = tax_calc["total_void"]
+            record.tax_totals = dumps(tax_totals)
+            record.amount_total = tax_calc["total_included"]
 
     @api.depends('tax_totals')
     def _compute_binary_tax_totals(self):
@@ -163,9 +159,9 @@ class Quote(models.Model):
     block_ids = fields.One2many(comodel_name="quote.block", inverse_name="quote_id", string="Blocks", copy=True, readonly=True, states={'draft': [('readonly', False)]},)
 
     # === Amount fields ===
-    amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True, compute='_compute_totals')
+    amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True)
     amount_total = fields.Monetary(string='Total', store=True, readonly=True)
-    tax_totals = fields.Char(string="Tax Totals", store=True, readonly=True)
+    tax_totals = fields.Char(string="Tax Totals", store=True, readonly=True, compute='_compute_totals')
     binary_tax_totals = fields.Binary(string="Binary Tax Totals", compute='_compute_binary_tax_totals', store=False, readonly=True)
 
     def _get_tax_totals(self, calculation, partner, currency):
