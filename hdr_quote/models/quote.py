@@ -122,7 +122,7 @@ class Quote(models.Model):
                 tax_calc = record.tax_ids.compute_all(amount_untaxed, currency=record.currency_id, partner=record.partner_id)
                 tax_totals = self._get_tax_totals(tax_calc, record.partner_id, record.currency_id)                    
                 record.amount_untaxed = tax_calc["total_void"]
-                record.tax_totals = dumps(tax_totals)
+                record.tax_totals = tax_totals
                 record.amount_total = tax_calc["total_included"]
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
@@ -148,7 +148,7 @@ class Quote(models.Model):
     # === Amount fields ===
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True, compute='_compute_totals')
     amount_total = fields.Monetary(string='Total', store=True, readonly=True)
-    tax_totals = fields.Char(string="Tax Totals", store=True, readonly=True)
+    tax_totals = fields.Binary(string="Tax Totals", store=True, readonly=True)
 
     def _get_tax_totals(self, calculation, partner, currency):
         """ Compute the tax totals for the provided data.

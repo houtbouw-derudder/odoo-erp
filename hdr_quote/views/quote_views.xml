@@ -80,9 +80,9 @@
                             </page>
                             <page id="conditions" string="Conditions">
                                 <field name="conditions" />
-                                <!-- <group colspan="4">
+                                <group colspan="4">
                                     <field name="tax_totals" widget="account-tax-totals-field" nolabel="1" />
-                                </group> -->
+                                </group>
                             </page>
                         </notebook>
                     </sheet>
