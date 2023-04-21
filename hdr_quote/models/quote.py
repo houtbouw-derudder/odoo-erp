@@ -132,6 +132,7 @@ class Quote(models.Model):
                 record.binary_tax_totals = loads(record.tax_totals)
             else:
                 record.binary_tax_totals = None
+            logging.getLogger().warning(record.binary_tax_totals)
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
     date = fields.Date(string='Date', readonly=True, states={'draft': [('readonly', False)]}, copy=False, tracking=True)
