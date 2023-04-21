@@ -120,10 +120,10 @@ class Quote(models.Model):
                     amount_untaxed += block.amount_untaxed
 
                 tax_calc = record.tax_ids.compute_all(amount_untaxed, currency=record.currency_id, partner=record.partner_id)
-                logging.getLogger().warning(tax_calc)
                 tax_totals = self._get_tax_totals(tax_calc, record.partner_id, record.currency_id)                    
                 record.amount_untaxed = tax_calc["total_void"]
                 record.tax_totals = dumps(tax_totals)
+                logging.getLogger().warning(record.tax_totals)
                 record.amount_total = tax_calc["total_included"]
 
     @api.depends('tax_totals')
@@ -133,7 +133,7 @@ class Quote(models.Model):
                 record.binary_tax_totals = loads(record.tax_totals)
             else:
                 record.binary_tax_totals = None
-            logging.getLogger().warning(record.binary_tax_totals)
+            # logging.getLogger().warning(record.binary_tax_totals)
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
     date = fields.Date(string='Date', readonly=True, states={'draft': [('readonly', False)]}, copy=False, tracking=True)
