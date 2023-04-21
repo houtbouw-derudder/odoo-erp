@@ -92,7 +92,7 @@ class Quote(models.Model):
     @api.depends('date', 'payment_term_id')
     def _compute_date_due(self):
         for record in self:
-            if record.payment_term_id:
+            if record.payment_term_id and record.date:
                 terms = record.payment_term_id._compute_terms(
                     date_ref=record.date,
                     currency=self.env.company.currency_id,
@@ -102,8 +102,9 @@ class Quote(models.Model):
                     untaxed_amount=1,
                     untaxed_amount_currency=1,
                     sign=1)
-                logging.getLogger().warning(terms)
-                # record.date_due = record.payment_term_id.compute(record.amount_untaxed, record.date)[-1][0]
+                
+                # term_date = terms[0][0]
+                logging.getLogger().warning(terms[0])
                 record.date_due = record.date
             else:
                 record.date_due = record.date
