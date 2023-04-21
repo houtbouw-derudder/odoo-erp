@@ -93,7 +93,7 @@ class Quote(models.Model):
     def _compute_date_due(self):
         for record in self:
             if record.payment_term_id:
-                terms = record._compute_terms(
+                terms = record.payment_term_id._compute_terms(
                     date_ref=record.example_date,
                     currency=self.env.company.currency_id,
                     company=self.env.company,
