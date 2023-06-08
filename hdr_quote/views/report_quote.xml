@@ -76,7 +76,7 @@
                                             <span t-field="block.name" />
                                         </strong>
                                     </div>
-                                    <div class="col-2 text-right">
+                                    <div class="col-2 text-end">
                                         <strong t-if="block.amount_untaxed > 0.01">
                                             <span t-field="block.amount_untaxed" />
                                         </strong>
@@ -111,14 +111,16 @@
                                 </div>
                             </div>
                         </t>
-                    </div>
 
-                    <!-- summary -->
-                    <div style="page-break-inside: avoid;" class="col-6 ml-auto">
-                        <table class="table table-sm">
-                            <t t-set="tax_totals" t-value="json.loads(o.tax_totals)" />
-                            <t t-call="hdr_quote.document_tax_totals" />
-                        </table>
+                        <div class="row" style="page-break-inside: avoid;">
+                            <div class="col-6" />
+                            <div class="col-6">
+                                <table class="table table-sm">
+                                    <t t-set="tax_totals" t-value="o.binary_tax_totals" />
+                                    <t t-call="hdr_quote.document_tax_totals" />
+                                </table>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- conditions -->
@@ -141,7 +143,7 @@
                 <tr class="border-black o_subtotal">
                     <td><strong t-esc="subtotal['name']"/></td>
 
-                    <td class="text-right">
+                    <td class="text-end">
                         <span
                             t-att-class="oe_subtotal_footer_separator"
                             t-esc="subtotal['formatted_amount']"
@@ -158,7 +160,7 @@
                 <td>
                     <strong>Total</strong>
                 </td>
-                <td class="text-right">
+                <td class="text-end">
                     <span t-esc="tax_totals['formatted_amount_total']" />
                 </td>
             </tr>
@@ -181,7 +183,7 @@
                                 <t t-esc="amount_by_group['formatted_tax_group_base_amount']" />
                             </span>
                         </td>
-                        <td class="text-right o_price_total">
+                        <td class="text-end o_price_total">
                             <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']" />
                         </td>
                     </t>
@@ -189,7 +191,7 @@
                         <td>
                             <span class="text-nowrap" t-esc="amount_by_group['tax_group_name']" />
                         </td>
-                        <td class="text-right o_price_total">
+                        <td class="text-end o_price_total">
                             <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']" />
                         </td>
                     </t>
