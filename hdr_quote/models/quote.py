@@ -1,7 +1,7 @@
 
 import logging
 from collections import defaultdict
-from json import dumps
+from json import dumps, loads
 
 from odoo import fields, models, api, Command, _
 from odoo.exceptions import UserError, AccessError
@@ -78,7 +78,7 @@ class Quote(models.Model):
     @api.onchange('partner_id')
     def _onchange_partner(self):
         for record in self:
-            record.fiscal_position_id = self.env['account.fiscal.position'].get_fiscal_position(record.partner_id.id)
+            record.fiscal_position_id = self.env['account.fiscal.position']._get_fiscal_position(record.partner_id)
             record.payment_term_id = record.partner_id.property_payment_term_id or record.payment_term_id
 
     @api.depends('company_id', 'fiscal_position_id', 'tax_ids')
@@ -92,28 +92,51 @@ class Quote(models.Model):
     @api.depends('date', 'payment_term_id')
     def _compute_date_due(self):
         for record in self:
-            if record.payment_term_id:
-                record.date_due = record.payment_term_id.compute(record.amount_untaxed, record.date)[-1][0]
+            if record.payment_term_id and record.date:
+                terms = record.payment_term_id._compute_terms(
+                    date_ref=record.date,
+                    currency=self.env.company.currency_id,
+                    company=self.env.company,
+                    tax_amount=1,
+                    tax_amount_currency=1,
+                    untaxed_amount=1,
+                    untaxed_amount_currency=1,
+                    sign=1)
+                
+                record.date_due = terms[0].get('date')
             else:
                 record.date_due = record.date
 
     @api.depends('block_ids', 'block_ids.amount_untaxed', 'tax_ids')
     def _compute_totals(self):
-        for record in self:
-            if not record.block_ids:
-                record.amount_untaxed = 0.0
-                record.tax_totals = None
-                record.amount_total = 0.0
-            else:
-                amount_untaxed = 0.0
-                for block in record.block_ids:
-                    amount_untaxed += block.amount_untaxed
+        for record in self:            
+            amount_untaxed = 0.0
+            for block in record.block_ids:
+                amount_untaxed += block.amount_untaxed
+            record.amount_untaxed = amount_untaxed
 
-                tax_calc = record.tax_ids.compute_all(amount_untaxed, currency=record.currency_id, partner=record.partner_id)
-                tax_totals = self._get_tax_totals(tax_calc, record.partner_id, record.currency_id)                    
-                record.amount_untaxed = tax_calc["total_void"]
-                record.tax_totals = dumps(tax_totals)
-                record.amount_total = tax_calc["total_included"]
+            tax_calc = record.tax_ids.compute_all(record.amount_untaxed, currency=record.currency_id, partner=record.partner_id)
+            tax_totals = self._get_tax_totals(tax_calc, record.partner_id, record.currency_id)                    
+            record.amount_untaxed = tax_calc["total_void"]
+            record.tax_totals = dumps(tax_totals)
+            record.amount_total = tax_calc["total_included"]
+
+    @api.depends('tax_totals')
+    def _compute_binary_tax_totals(self):
+        for record in self:
+            if record.tax_totals:
+                record.binary_tax_totals = loads(record.tax_totals)
+            else:
+                record.binary_tax_totals = {
+                    'amount_total': 0.0,
+                    'amount_untaxed': 0.0,
+                    'formatted_amount_total': formatLang(self.env, 0.0, currency_obj=record.currency_id),
+                    'formatted_amount_untaxed': formatLang(self.env, 0.0, currency_obj=record.currency_id),
+                    'groups_by_subtotal': defaultdict(list),
+                    'subtotals': list(),
+                    'subtotals_order': list(),
+                    'allow_tax_edition': False,
+                }
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
     date = fields.Date(string='Date', readonly=True, states={'draft': [('readonly', False)]}, copy=False, tracking=True)
@@ -136,64 +159,48 @@ class Quote(models.Model):
     block_ids = fields.One2many(comodel_name="quote.block", inverse_name="quote_id", string="Blocks", copy=True, readonly=True, states={'draft': [('readonly', False)]},)
 
     # === Amount fields ===
-    amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True, compute='_compute_totals')
+    amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True)
     amount_total = fields.Monetary(string='Total', store=True, readonly=True)
-    tax_totals = fields.Char(string="Tax Totals", store=True, readonly=True)
+    tax_totals = fields.Char(string="Tax Totals", store=True, readonly=True, compute='_compute_totals')
+    binary_tax_totals = fields.Binary(string="Binary Tax Totals", compute='_compute_binary_tax_totals', store=False, readonly=True)
 
     def _get_tax_totals(self, calculation, partner, currency):
-        """ Compute the tax totals for the provided data.
-        :param partner:        The partner to compute totals for
-        :param calculation:    Output from account.tax.compute_all
-        :param tax_lines_data: All the data about the base and tax lines as a list of dictionaries.
-                               Each dictionary represents an amount that needs to be added to either a tax base or amount.
-                               A tax amount looks like:
-                                   {
-                                       'line_key':             unique identifier,
-                                       'tax_amount':           the amount computed for this tax
-                                       'tax':                  the account.tax object this tax line was made from
-                                   }
-                               For base amounts:
-                                   {
-                                       'line_key':             unique identifier,
-                                       'base_amount':          the amount to add to the base of the tax
-                                       'tax':                  the tax basing itself on this amount
-                                       'tax_affecting_base':   (optional key) the tax whose tax line is having the impact
-                                                               denoted by 'base_amount' on the base of the tax, in case of taxes
-                                                               affecting the base of subsequent ones.
-                                   }
-        :param amount_total:   Total amount, with taxes.
-        :param amount_untaxed: Total amount without taxes.
-        :param currency:       The currency in which the amounts are computed.
+        """ Compute the tax totals details for the business documents.
+
         :return: A dictionary in the following form:
             {
-                'amount_total':                              The total amount to be displayed on the document, including every total types.
-                'amount_untaxed':                            The untaxed amount to be displayed on the document.
-                'formatted_amount_total':                    Same as amount_total, but as a string formatted accordingly with partner's locale.
-                'formatted_amount_untaxed':                  Same as amount_untaxed, but as a string formatted accordingly with partner's locale.
-                'allow_tax_edition':                         True if the user should have the ability to manually edit the tax amounts by group
-                                                             to fix rounding errors.
-                'groups_by_subtotals':                       A dictionary formed liked {'subtotal': groups_data}
-                                                             Where total_type is a subtotal name defined on a tax group, or the default one: 'Untaxed Amount'.
-                                                             And groups_data is a list of dict in the following form:
-                                                                {
-                                                                    'tax_group_name':                  The name of the tax groups this total is made for.
-                                                                    'tax_group_amount':                The total tax amount in this tax group.
-                                                                    'tax_group_base_amount':           The base amount for this tax group.
-                                                                    'formatted_tax_group_amount':      Same as tax_group_amount, but as a string
-                                                                                                       formatted accordingly with partner's locale.
-                                                                    'formatted_tax_group_base_amount': Same as tax_group_base_amount, but as a string
-                                                                                                       formatted accordingly with partner's locale.
-                                                                    'tax_group_id':                    The id of the tax group corresponding to this dict.
-                                                                    'group_key':                       A unique key identifying this total dict,
-                                                                }
-                'subtotals':                                 A list of dictionaries in the following form, one for each subtotal in groups_by_subtotals' keys
-                                                                {
-                                                                    'name':                            The name of the subtotal
-                                                                    'amount':                          The total amount for this subtotal, summing all
-                                                                                                       the tax groups belonging to preceding subtotals and the base amount
-                                                                    'formatted_amount':                Same as amount, but as a string
-                                                                                                       formatted accordingly with partner's locale.
-                                                                }
+                'amount_total':                 The total amount to be displayed on the document, including every total
+                                                types.
+                'amount_untaxed':               The untaxed amount to be displayed on the document.
+                'formatted_amount_total':       Same as amount_total, but as a string formatted accordingly with
+                                                partner's locale.
+                'formatted_amount_untaxed':     Same as amount_untaxed, but as a string formatted accordingly with
+                                                partner's locale.
+                'groups_by_subtotals':          A dictionary formed liked {'subtotal': groups_data}
+                                                Where total_type is a subtotal name defined on a tax group, or the
+                                                default one: 'Untaxed Amount'.
+                                                And groups_data is a list of dict in the following form:
+                    {
+                        'tax_group_name':                   The name of the tax groups this total is made for.
+                        'tax_group_amount':                 The total tax amount in this tax group.
+                        'tax_group_base_amount':            The base amount for this tax group.
+                        'formatted_tax_group_amount':       Same as tax_group_amount, but as a string formatted accordingly
+                                                            with partner's locale.
+                        'formatted_tax_group_base_amount':  Same as tax_group_base_amount, but as a string formatted
+                                                            accordingly with partner's locale.
+                        'tax_group_id':                     The id of the tax group corresponding to this dict.
+                    }
+                'subtotals':                    A list of dictionaries in the following form, one for each subtotal in
+                                                'groups_by_subtotals' keys.
+                    {
+                        'name':                             The name of the subtotal
+                        'amount':                           The total amount for this subtotal, summing all the tax groups
+                                                            belonging to preceding subtotals and the base amount
+                        'formatted_amount':                 Same as amount, but as a string formatted accordingly with
+                                                            partner's locale.
+                    }
+                'subtotals_order':              A list of keys of `groups_by_subtotals` defining the order in which it needs
+                                                to be displayed
             }
         """
         account_tax = self.env['account.tax']
@@ -219,7 +226,7 @@ class Quote(models.Model):
             # tax_group_vals["base_line_keys"].add(tax)
 
         # Compute groups_by_subtotal
-        groups_by_subtotal = {}
+        groups_by_subtotal = defaultdict(list)
         for subtotal_title, groups in grouped_taxes.items():
             groups_vals = [{
                 'tax_group_name': group.name,
@@ -255,6 +262,7 @@ class Quote(models.Model):
             'formatted_amount_untaxed': formatLang(self.env, calculation["total_excluded"], currency_obj=currency),
             'groups_by_subtotal': groups_by_subtotal,
             'subtotals': subtotals_list,
+            'subtotals_order': sorted((sub for sub in subtotal_priorities), key=lambda x: subtotal_priorities[x]),
             'allow_tax_edition': False,
         }
 
