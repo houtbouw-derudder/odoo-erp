@@ -124,19 +124,20 @@ class Quote(models.Model):
     @api.depends('tax_totals')
     def _compute_binary_tax_totals(self):
         for record in self:
+            existing = dict()
             if record.tax_totals:
-                record.binary_tax_totals = loads(record.tax_totals)
-            else:
-                record.binary_tax_totals = {
-                    'amount_total': 0.0,
-                    'amount_untaxed': 0.0,
-                    'formatted_amount_total': formatLang(self.env, 0.0, currency_obj=record.currency_id),
-                    'formatted_amount_untaxed': formatLang(self.env, 0.0, currency_obj=record.currency_id),
-                    'groups_by_subtotal': defaultdict(list),
-                    'subtotals': list(),
-                    'subtotals_order': list(),
-                    'allow_tax_edition': False,
-                }
+                existing = loads(record.tax_totals)
+
+            record.binary_tax_totals = {
+                'amount_total': existing.get("amount_total", 0.0),
+                'amount_untaxed': existing.get("amount_untaxed", 0.0),
+                'formatted_amount_total': existing.get("formatted_amount_total", formatLang(self.env, 0.0, currency_obj=record.currency_id)),
+                'formatted_amount_untaxed': existing.get("formatted_amount_untaxed", formatLang(self.env, 0.0, currency_obj=record.currency_id)),
+                'groups_by_subtotal': existing.get("groups_by_subtotal", defaultdict(list)),
+                'subtotals': existing.get("subtotals", list()),
+                'subtotals_order': existing.get("subtotals_order", list()),
+                'allow_tax_edition': existing.get("allow_tax_edition", False),
+            }
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
     date = fields.Date(string='Date', readonly=True, states={'draft': [('readonly', False)]}, copy=False, tracking=True)
