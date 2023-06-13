@@ -13,7 +13,6 @@
         'project'
     ],
     'data': [
-        'views/project_views.xml'
     ],
     'installable': True,
     'auto_install': True,
