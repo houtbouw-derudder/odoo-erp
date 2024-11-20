@@ -103,7 +103,7 @@ class Quote(models.Model):
                     untaxed_amount_currency=1,
                     sign=1)
                 
-                record.date_due = terms[0].get('date')
+                record.date_due = terms[0].get('date', record.date) if len(terms) > 0 else record.date
             else:
                 record.date_due = record.date
 
