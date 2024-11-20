@@ -70,7 +70,7 @@ class Quote(models.Model):
 
 
     @api.depends('name', 'state')
-    def name_get(self):
+    def _compute_display_name(self):
         result = []
         for move in self:
             name = move._get_quote_display_name(show_ref=True)
