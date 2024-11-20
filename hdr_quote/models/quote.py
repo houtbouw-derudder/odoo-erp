@@ -105,8 +105,9 @@ class Quote(models.Model):
                     untaxed_amount_currency=1,
                     sign=1)
                 
-                _logger.warning(", ".join([str(key) for key in terms.keys()]))
-                # _logger.warning(dumps(terms))
+                amount_by_date = record.payment_term_id._get_amount_by_date(terms)
+
+                _logger.warning(dumps(amount_by_date))
                 
                 # record.date_due = terms[0].get('date', record.date) if len(terms) > 0 else record.date
                 record.date_due = record.date
