@@ -6,7 +6,7 @@
             <field name="priority" eval="50"/>
             <field name="inherit_id" ref="base.res_config_settings_view_form" />
             <field name="arch" type="xml">
-                <xpath expr="//div[hasclass('settings')]" position="inside">
+                 <xpath expr="//form" position="inside">
                     <div class="app_settings_block" data-string="Geodynamics" string="Geodynamics" data-key="geodynamics" groups="base.group_system">
                         <h2>Geodynamics API</h2>
                         <div class="row mt16 o_settings_container" id="api_basic_auth_header_setting">
