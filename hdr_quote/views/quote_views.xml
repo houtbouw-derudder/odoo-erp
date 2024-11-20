@@ -82,7 +82,7 @@
                                 </group>
                             </page>
                             <page id="conditions" string="Conditions">
-                                <field name="conditions" />
+                                <field name="conditions" readonly="state != 'draft'" />
                             </page>
                         </notebook>
                     </sheet>

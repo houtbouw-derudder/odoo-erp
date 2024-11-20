@@ -15,7 +15,7 @@ class QuoteBlock(models.Model):
     _description = 'Quote'
 
     quote_id = fields.Many2one(comodel_name='quote', string="Quote", store=True)
-    currency_id = fields.Many2one(string='Company Currency', readonly=True, related='quote_id.currency_id')
+    currency_id = fields.Many2one(string='Company Currency', related='quote_id.currency_id')
     name = fields.Char(string="Name", copy=True, readonly=False, required=True)
     sequence = fields.Integer(default=10)
     description = fields.Html(string="Description",copy=True, readonly=False, sanitize=True)
@@ -140,17 +140,17 @@ class Quote(models.Model):
             }
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
-    date = fields.Date(string='Date', readonly=True, copy=False, tracking=True)
-    date_due = fields.Date(string="Due date", readonly=True, copy=False, compute="_compute_date_due")
-    ref = fields.Char(string='Reference', copy=False, tracking=True, readonly=True,)
-    state = fields.Selection(selection=[('draft', 'Draft'), ('posted', 'Posted'), ('cancel', 'Cancelled'), ], string='Status', required=True, readonly=True, copy=False, tracking=True, default='draft')
+    date = fields.Date(string='Date', copy=False, tracking=True)
+    date_due = fields.Date(string="Due date", copy=False, compute="_compute_date_due")
+    ref = fields.Char(string='Reference', copy=False, tracking=True,)
+    state = fields.Selection(selection=[('draft', 'Draft'), ('posted', 'Posted'), ('cancel', 'Cancelled'), ], string='Status', required=True, copy=False, tracking=True, default='draft')
 
-    quote_type = fields.Selection(selection=[('quote', 'Quote'), ('estimate', 'Estimate')], string='Type', required=True, store=True, readonly=True, tracking=True, default='quote')
-    company_id = fields.Many2one(comodel_name='res.company', string='Company', store=True, readonly=True, default=_get_company_id)
-    currency_id = fields.Many2one(string='Company Currency', readonly=True, related='company_id.currency_id')
+    quote_type = fields.Selection(selection=[('quote', 'Quote'), ('estimate', 'Estimate')], string='Type', required=True, store=True, tracking=True, default='quote')
+    company_id = fields.Many2one(comodel_name='res.company', string='Company', store=True, default=_get_company_id)
+    currency_id = fields.Many2one(string='Company Currency', related='company_id.currency_id')
     tax_ids = fields.Many2many(comodel_name='account.tax', string="Taxes", compute="_compute_tax_ids", readonly=True)
     
-    partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, check_company=True, string='Partner', change_default=True, ondelete='restrict')
+    partner_id = fields.Many2one('res.partner', tracking=True, check_company=True, string='Partner', change_default=True, ondelete='restrict')
     fiscal_position_id = fields.Many2one('account.fiscal.position', string='Fiscal Position', domain="[('company_id', '=', company_id)]", ondelete="restrict", readonly=True,)
     payment_term_id = fields.Many2one('account.payment.term', string='Validity', check_company=True, readonly=True,)
 
@@ -162,7 +162,7 @@ class Quote(models.Model):
     # === Amount fields ===
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True)
     amount_total = fields.Monetary(string='Total', store=True, readonly=True)
-    tax_totals = fields.Char(string="Tax Totals", store=True, readonly=True, compute='_compute_totals')
+    tax_totals = fields.Char(string="Tax Totals", store=True, compute='_compute_totals')
     binary_tax_totals = fields.Binary(string="Binary Tax Totals", compute='_compute_binary_tax_totals', store=False, readonly=True)
 
     def _get_tax_totals(self, calculation, partner, currency):
