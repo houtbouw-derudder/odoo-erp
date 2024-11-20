@@ -71,11 +71,8 @@ class Quote(models.Model):
 
     @api.depends('name', 'state')
     def _compute_display_name(self):
-        result = []
-        for move in self:
-            name = move._get_quote_display_name(show_ref=True)
-            result.append((move.id, name))
-        return result        
+        for record in self:
+            record.display_name = record._get_quote_display_name(show_ref=True)
 
     @api.onchange('partner_id')
     def _onchange_partner(self):
@@ -143,6 +140,7 @@ class Quote(models.Model):
             }
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
+    display_name = fields.Char(compute='_compute_display_name', store=False, readonly=True)
     date = fields.Date(string='Date', copy=False, tracking=True)
     date_due = fields.Date(string="Due date", copy=False, compute="_compute_date_due")
     ref = fields.Char(string='Reference', copy=False, tracking=True,)
