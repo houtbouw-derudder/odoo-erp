@@ -105,7 +105,7 @@ class Quote(models.Model):
                     untaxed_amount_currency=1,
                     sign=1)
                 
-                _logger.warning(", ".join([str(key) for key in terms["line_ids"].keys()]))
+                _logger.warning(", ".join([str(key) for key in terms["line_ids"]]))
                 
                 # record.date_due = terms[0].get('date', record.date) if len(terms) > 0 else record.date
                 record.date_due = record.date
