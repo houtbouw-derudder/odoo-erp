@@ -8,6 +8,8 @@ from odoo.exceptions import UserError, AccessError
 from odoo.tools import float_compare
 from odoo.tools.misc import formatLang
 
+_logger = logging.getLogger(__name__)
+
 QUOTE_NUMBER_SEQUENCE_CODE = 'quote.number'
 
 class QuoteBlock(models.Model):
@@ -103,8 +105,10 @@ class Quote(models.Model):
                     untaxed_amount_currency=1,
                     sign=1)
                 
-                print(terms)
-                record.date_due = terms[0].get('date', record.date) if len(terms) > 0 else record.date
+                _logger.warning(dumps(terms))
+                
+                # record.date_due = terms[0].get('date', record.date) if len(terms) > 0 else record.date
+                record.date_due = record.date
             else:
                 record.date_due = record.date
 
