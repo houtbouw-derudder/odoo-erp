@@ -29,7 +29,7 @@
                 <form string="Quote">
                     <header>
                         <field name="state" widget="statusbar" statusbar_visible="draft,posted" />
-                        <button name="action_post" string="Post" class="oe_highlight" type="object" data-hotkey="v" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                        <button name="action_post" string="Post" class="oe_highlight" type="object" data-hotkey="v" invisible="state != 'draft'" />
                     </header>
                     <sheet>
                         <field name="company_id" invisible="1" />
@@ -39,13 +39,13 @@
                             <span class="o_form_label">
                                 <field name="quote_type" readonly="1" nolabel="1" />
                             </span>
-                            <h1 attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('name', '!=', '/')]}">
+                            <h1 invisible="state != 'draft' or name != '/'">
                                 <span>Draft</span>
                             </h1>
 
                             <!-- Quote number -->
-                            <h1 class="mt0" attrs="{'invisible':[('name', '=', '/')]}">
-                                <field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}" placeholder="Concept" />
+                            <h1 class="mt0" invisible="name = '/'" >
+                                <field name="name" readonly="state != 'draft'" placeholder="Concept" />
                             </h1>
                         </div>
                         <group>
