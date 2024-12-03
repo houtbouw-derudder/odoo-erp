@@ -141,9 +141,9 @@ class Quote(models.Model):
             }
 
     name = fields.Char(string='Number', copy=False, compute='_compute_name', readonly=False, store=True, tracking=True)
-    date = fields.Date(string='Date', readonly=True, states={'draft': [('readonly', False)]}, copy=False, tracking=True)
-    date_due = fields.Date(string="Due date", readonly=True, states={'draft': [('readonly', False)]}, copy=False, compute="_compute_date_due")
-    ref = fields.Char(string='Reference', copy=False, tracking=True, readonly=True, states={'draft': [('readonly', False)]},)
+    date = fields.Date(string='Date', readonly=True, copy=False, tracking=True)
+    date_due = fields.Date(string="Due date", readonly=True, copy=False, compute="_compute_date_due")
+    ref = fields.Char(string='Reference', copy=False, tracking=True, readonly=True,)
     state = fields.Selection(selection=[('draft', 'Draft'), ('posted', 'Posted'), ('cancel', 'Cancelled'), ], string='Status', required=True, readonly=True, copy=False, tracking=True, default='draft')
 
     quote_type = fields.Selection(selection=[('quote', 'Quote'), ('estimate', 'Estimate')], string='Type', required=True, store=True, readonly=True, tracking=True, default='quote')
@@ -151,14 +151,14 @@ class Quote(models.Model):
     currency_id = fields.Many2one(string='Company Currency', readonly=True, related='company_id.currency_id')
     tax_ids = fields.Many2many(comodel_name='account.tax', string="Taxes", compute="_compute_tax_ids", readonly=True)
     
-    partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, states={'draft': [('readonly', False)]}, check_company=True, string='Partner', change_default=True, ondelete='restrict')
-    fiscal_position_id = fields.Many2one('account.fiscal.position', string='Fiscal Position', domain="[('company_id', '=', company_id)]", ondelete="restrict", readonly=True, states={'draft': [('readonly', False)]},)
-    payment_term_id = fields.Many2one('account.payment.term', string='Validity', check_company=True, readonly=True , states={'draft': [('readonly', False)]})
+    partner_id = fields.Many2one('res.partner', readonly=True, tracking=True, check_company=True, string='Partner', change_default=True, ondelete='restrict')
+    fiscal_position_id = fields.Many2one('account.fiscal.position', string='Fiscal Position', domain="[('company_id', '=', company_id)]", ondelete="restrict", readonly=True,)
+    payment_term_id = fields.Many2one('account.payment.term', string='Validity', check_company=True, readonly=True , )
 
-    introduction = fields.Html(string="Introduction", sanitize=True, readonly=True, states={'draft': [('readonly', False)]},)
-    conditions = fields.Html(string="Conditions", sanitize=True, readonly=True, states={'draft': [('readonly', False)]},)
+    introduction = fields.Html(string="Introduction", sanitize=True, readonly=True,)
+    conditions = fields.Html(string="Conditions", sanitize=True, readonly=True,)
 
-    block_ids = fields.One2many(comodel_name="quote.block", inverse_name="quote_id", string="Blocks", copy=True, readonly=True, states={'draft': [('readonly', False)]},)
+    block_ids = fields.One2many(comodel_name="quote.block", inverse_name="quote_id", string="Blocks", copy=True, readonly=True,)
 
     # === Amount fields ===
     amount_untaxed = fields.Monetary(string='Untaxed Amount', store=True, readonly=True)
