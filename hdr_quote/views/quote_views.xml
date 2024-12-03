@@ -44,7 +44,7 @@
                             </h1>
 
                             <!-- Quote number -->
-                            <h1 class="mt0" invisible="name = '/'" >
+                            <h1 class="mt0" invisible="name == '/'" >
                                 <field name="name" readonly="state != 'draft'" placeholder="Concept" />
                             </h1>
                         </div>
