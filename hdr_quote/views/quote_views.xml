@@ -50,23 +50,23 @@
                         </div>
                         <group>
                             <group>
-                                <field name="partner_id" />
-                                <field name="fiscal_position_id" />
+                                <field name="partner_id" readonly="state != 'draft'" />
+                                <field name="fiscal_position_id" readonly="state != 'draft'" />
                                 <field name="tax_ids" widget="many2many_tags" />
-                                <field name="ref" />
+                                <field name="ref" readonly="state != 'draft'" />
                             </group>
                             <group>
                                 <field name="payment_term_id" />
-                                <field name="date" />
+                                <field name="date" readonly="state != 'draft'" />
                                 <field name="date_due" readonly="1" />
                             </group>
                         </group>
                         <notebook>
                             <page id="intro" string="Introduction">
-                                <field name="introduction" />
+                                <field name="introduction" readonly="state != 'draft'" />
                             </page>
                             <page id="blocks" string="Blocks">
-                                <field name="block_ids" nolabel="1" default_order="sequence, id">
+                                <field name="block_ids" nolabel="1" default_order="sequence, id" readonly="state != 'draft'">
                                     <tree>
                                         <field name="sequence" widget="handle"/>
                                         <field name="name" />
@@ -82,7 +82,7 @@
                                 </group>
                             </page>
                             <page id="conditions" string="Conditions">
-                                <field name="conditions" />
+                                <field name="conditions" readonly="state != 'draft'" />
                             </page>
                         </notebook>
                     </sheet>
