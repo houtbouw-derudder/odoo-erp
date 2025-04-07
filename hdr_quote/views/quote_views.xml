@@ -10,7 +10,7 @@
             <field name="name">quote.tree</field>
             <field name="model">quote</field>
             <field name="arch" type="xml">
-                <tree string="Quotes">
+                <list string="Quotes">
                     <field name="name" />
                     <field name="date" />
                     <field name="partner_id" />
@@ -18,7 +18,7 @@
                     <field name="currency_id" invisible="1" />
                     <field name="amount_untaxed" widget="monetary" options="{'currency': 'currency_id'}" />
                     <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'validated'" />
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -67,12 +67,12 @@
                             </page>
                             <page id="blocks" string="Blocks">
                                 <field name="block_ids" nolabel="1" default_order="sequence, id" readonly="state != 'draft'">
-                                    <tree>
+                                    <list>
                                         <field name="sequence" widget="handle"/>
                                         <field name="name" />
                                         <field name="currency_id" invisible="1" />
                                         <field name="amount_untaxed" widget="monetary" options="{'currency': 'currency_id'}" />
-                                    </tree>
+                                    </list>
                                 </field>
                                 <group col="12" class="oe_invoice_lines_tab">
                                     <group colspan="8"></group>
