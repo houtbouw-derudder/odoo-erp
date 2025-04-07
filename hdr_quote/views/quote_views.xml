@@ -70,7 +70,7 @@
                                     <list>
                                         <field name="sequence" widget="handle"/>
                                         <field name="name" />
-                                        <field name="currency_id" invisible="1" />
+                                        <field name="currency_id" invisible="4 != 5" />
                                         <field name="amount_untaxed" widget="monetary" options="{'currency': 'currency_id'}" />
                                     </list>
                                 </field>
