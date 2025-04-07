@@ -139,13 +139,20 @@ class Quote(models.Model):
                 existing = loads(record.tax_totals)
 
             record.binary_tax_totals = {
-                'amount_total': existing.get("amount_total", 0.0),
-                'amount_untaxed': existing.get("amount_untaxed", 0.0),
-                'formatted_amount_total': existing.get("formatted_amount_total", formatLang(self.env, 0.0, currency_obj=record.currency_id)),
-                'formatted_amount_untaxed': existing.get("formatted_amount_untaxed", formatLang(self.env, 0.0, currency_obj=record.currency_id)),
-                'groups_by_subtotal': existing.get("groups_by_subtotal", defaultdict(list)),
+                'currency_id': existing.get("currency_id", record.currency_id.id),
+                'currency_pd': None,
+                'company_currency_id': existing.get("company_currency_id", record.company_id.currency_id.id),
+                'company_currency_pd': None,
+                'has_tax_groups': existing.get("has_tax_groups", False),
                 'subtotals': existing.get("subtotals", list()),
-                'subtotals_order': existing.get("subtotals_order", list()),
+                'base_amount': existing.get("base_amount", 0.0),
+                'base_amount_currency': existing.get("base_amount_currency", 0.0),
+                'tax_amount': existing.get("tax_amount", 0.0),
+                'tax_amount_currency': existing.get("tax_amount_currency", 0.0),
+                'total_amount': existing.get("total_amount", 0.0),
+                'total_amount_currency': existing.get("total_amount_currency", 0.0),
+                # 'groups_by_subtotal': existing.get("groups_by_subtotal", defaultdict(list)),
+                # 'subtotals_order': existing.get("subtotals_order", list()),
                 'allow_tax_edition': existing.get("allow_tax_edition", False),
             }
 
