@@ -114,7 +114,19 @@ class Quote(models.Model):
             record.amount_untaxed = amount_untaxed
 
             tax_calc = record.tax_ids.compute_all(record.amount_untaxed, currency=record.currency_id, partner=record.partner_id)
-            tax_totals = self._get_tax_totals(tax_calc, record.partner_id, record.currency_id)                    
+            # tax_totals = self._get_tax_totals(tax_calc, record.partner_id, record.currency_id)     
+            tax_totals = self._get_tax_totals_summary(tax_calc, record.currency_id, record.company_id)
+            #     base_lines=[{
+            #         'tax_details': {
+            #             'total_excluded_currency': record.amount_untaxed,
+            #             'total_excluded': record.amount_untaxed,
+            #             'taxes_data': tax_calc["taxes"],
+            #         },
+            #         'special_type': False,
+            #     }],
+            #     currency=record.currency_id,
+            #     company=record.company_id,
+            # )               
             record.amount_untaxed = tax_calc["total_void"]
             record.tax_totals = dumps(tax_totals)
             record.amount_total = tax_calc["total_included"]
