@@ -1,4 +1,3 @@
 # odoo-erp
 
-financial_reporting:
-- NBK en BBK toevoegen aan het management overzicht
+2025/04/07 : upgrade staging to odoo 17
