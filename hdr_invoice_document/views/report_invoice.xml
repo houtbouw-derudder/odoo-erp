@@ -209,9 +209,16 @@
                                                         </tr>
                                                     </t>
                                                 </t>
-                                            </t>
-                                        </table>
+                                            </table>
+                                        </div>
                                     </div>
+                                    <div class="mb-2">
+                                        <p class="text-end lh-sm" t-if="o.company_id.display_invoice_amount_total_words">
+                                            Total amount in words: <br/>
+                                            <small class="text-muted lh-sm"><span t-field="o.amount_total_words">Thirty one dollar and Five cents</span></small>
+                                        </p>
+                                    </div>
+                                    <t t-call="account.document_tax_totals_company_currency_template"/>
                                 </div>
                                 <div class="mb-2">
                                     <p class="text-end lh-sm" t-if="o.company_id.display_invoice_amount_total_words">
