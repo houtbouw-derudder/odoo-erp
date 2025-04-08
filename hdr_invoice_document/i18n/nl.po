@@ -4,23 +4,88 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0+e\n"
+"Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-06 09:28+0000\n"
-"PO-Revision-Date: 2022-02-06 10:44+0100\n"
+"POT-Creation-Date: 2025-04-08 17:50+0000\n"
+"PO-Revision-Date: 2025-04-08 20:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: nl_NL\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.6\n"
 
 #. module: hdr_invoice_document
 #: model:ir.actions.report,print_report_name:hdr_invoice_document.account_invoices
 msgid "(object._get_report_base_filename())"
-msgstr ""
+msgstr "(object._get_report_base_filename())"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "- Installment of"
+msgstr "- Termijn van"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "11.05"
+msgstr "11.05"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "20.00"
+msgstr "20.00"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "2021-09-19"
+msgstr "2021-09-19"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "2023-09-12"
+msgstr "2023-09-12"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "2023-09-25"
+msgstr "2023-09-25"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "2023-10-31"
+msgstr "2023-10-31"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "2024-01-01"
+msgstr "2024-01-01"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "30.00"
+msgstr "30.00"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "31.05"
+msgstr "31.05"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "9.00"
+msgstr "9.00"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<br/> on this account:"
+msgstr "<br/> op deze rekening:"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<span> due on </span>"
+msgstr "<span> te betalen voor </span>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
@@ -44,32 +109,33 @@ msgstr "<span class=\"mr16\">Subtotaal</span>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
-msgid ""
-"<strong class=\"text-center\">Scan me with your banking app.</strong><br/"
-"><br/>"
-msgstr ""
-"<strong class=\"text-center\">Scan mij met je bank app.</strong><br/><br/"
-">"
+msgid "<strong>Credit Note Date:</strong>"
+msgstr "<strong>Creditnotadatum:</strong>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
-msgid "<strong>Amount Due</strong>"
-msgstr "<strong>Openstaand bedrag</strong>"
+msgid "<strong>Customer Code:</strong><br/>"
+msgstr "<strong>Klant code:</strong><br/>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
-msgid "<strong>Customer Code:</strong>"
-msgstr "<strong>Klantcode:</strong>"
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Datum:</strong>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
-msgid "<strong>Due Date:</strong>"
-msgstr "<strong>Vervaldatum:</strong>"
+msgid "<strong>Delivery Date:</strong><br/>"
+msgstr "<strong>Leveringsdatum:</strong><br/>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
-msgid "<strong>Incoterm: </strong>"
-msgstr "<strong>Incoterm: </strong>"
+msgid "<strong>Due Date:</strong><br/>"
+msgstr "<strong>Vervaldatum:</strong><br/>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Incoterm:</strong><br/>"
+msgstr "<string>Incoterm:</strong><br/>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
@@ -78,18 +144,48 @@ msgstr "<strong>Factuurdatum:</strong>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
-msgid "<strong>Reference:</strong>"
-msgstr "<strong>Referentie:</strong>"
+msgid "<strong>Receipt Date:</strong>"
+msgstr "<strong>Ontvangstdatum:</strong>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
-msgid "<strong>Source:</strong>"
-msgstr "<strong>Bron:</strong>"
+msgid "<strong>Reference:</strong><br/>"
+msgstr "<strong>Referentie:</strong><br/>"
 
 #. module: hdr_invoice_document
-#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.document_tax_totals
-msgid "<strong>Total</strong>"
-msgstr "<strong>Totaal</strong>"
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Shipping Address:</strong>"
+msgstr "<strong>Verzendadres:</strong>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "<strong>Source:</strong><br/>"
+msgstr "<strong>Bron:</strong><br/>"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "A note, whose content usually applies to the section or product above."
+msgstr "A notitie, die meestal betrekking heeft op de sectie of het product erboven."
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "A section title"
+msgstr "Een sectie-titel"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Amount Due"
+msgstr "Te betalen"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Bacon Burger"
+msgstr "Hamburger"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Cancelled Credit Note"
+msgstr "Geannulleerde creditnota"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
@@ -103,8 +199,23 @@ msgstr "Creditnota"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Draft Credit Note"
+msgstr "Concept Creditnota"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
 msgid "Draft Invoice"
 msgstr "Concept factuur"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "INV/2023/00001"
+msgstr "INV/2023/00011"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "INV/2023/0001"
+msgstr "INV/2023/0001"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
@@ -118,18 +229,53 @@ msgstr "Factuur (HDR layout)"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "PROFORMA"
+msgstr "PROFORMA"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
 msgid "Paid on"
 msgstr "Betaald op"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
-msgid "Please use the following communication for your payment :"
-msgstr "Gebruik a.u.b. de volgende mededeling bij betaling : "
+msgid "Payment Communication:"
+msgstr "Mededeling betaling:"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Payment within 30 calendar day"
+msgstr "Betalen binnen de 30 kalenderdagen"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "SO123"
+msgstr "SO123"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Scan this QR Code to<br/>pay with your mobile"
+msgstr "Scan deze QR Code om met<br/>uw telefoon te betalen"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Tax 15%"
+msgstr "BTW 15%"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
 msgid "Tax ID"
 msgstr "BTW Nr"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Thirty one dollar and Five cents"
+msgstr "Eenendertig euro en vijf cent"
+
+#. module: hdr_invoice_document
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "Total amount in words: <br/>"
+msgstr "Totaal bedrag in woorden:<br/>"
 
 #. module: hdr_invoice_document
 #: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
@@ -142,6 +288,6 @@ msgid "Vendor Credit Note"
 msgstr "Leveranciers creditnota"
 
 #. module: hdr_invoice_document
-#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.tax_groups_totals
-msgid "on"
-msgstr "op"
+#: model_terms:ir.ui.view,arch_db:hdr_invoice_document.report_invoice_document
+msgid "due if paid before"
+msgstr "te betalen indien betaald voor"
